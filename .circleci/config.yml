@@ -90,8 +90,8 @@ jobs:
           command: dockerize -wait tcp://localhost:3306 -timeout 1m
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
-      - ruby/rspec
-      - ruby/rubocop
+      - ruby/rspec-test
+      - ruby/rubocop-check
 
 workflows:
   version: 2
