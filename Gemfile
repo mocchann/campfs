@@ -40,6 +40,7 @@ group :development, :test do
   gem 'rails-erd'
   gem 'rubocop-airbnb'
   gem 'annotate'
+  gem "rspec_junit_formatter"
 end
 
 group :development do
