@@ -1,0 +1,54 @@
+version: 2.1
+jobs:
+  rspec:
+    working_directory: ~/campfs
+    docker:
+      - image: circleci/ruby
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Start containers and verify it is working
+          command: |
+            set -x
+            docker-compose up -d
+            docker exec potepanec_app curl -4 --retry 10 --retry-delay 3 --retry-connrefused http://localhost:3000
+      - run:
+          name: Setup database
+          command: bundle exec rails db:migrate
+      - run:
+          name: Run rspec
+          command: docker-compose exec web rspec
+
+  rubocop:
+    working_directory: ~/campfs
+    docker:
+      - image: circleci/ruby
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+            - gemfiles-{{ .Branch }}-
+            - gemfiles-master-
+      - run: bundle config --local path vendor/bundle
+      - run:
+          name: bundle install
+          command: bundle check || bundle install --jobs=8 --clean
+      - run:
+          name: Run rubocop
+          command: bundle exec rubocop --parallel
+      - save_cache:
+          key: gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+
+orbs:
+  build-tools: circleci/build-tools@2.6
+  jq: circleci/jq@1.9.1
+workflows:
+  version: 2.1
+  build:
+    jobs:
+      - rspec
+      - rubocop
