@@ -1,53 +1,120 @@
-version: 2.1
-jobs:
-  rspec:
-    working_directory: ~/campfs
-    docker:
-      - image: circleci/ruby
-    steps:
-      - checkout
-      - setup_remote_docker
-      - run:
-          name: Start containers and verify it is working
-          command: |
-            set -x
-            docker-compose up -d
-            docker exec campfs_web curl -4 --retry 10 --retry-delay 3 --retry-connrefused http://localhost:3000
-      - run:
-          name: Setup database
-          command: bundle exec rails db:migrate
-      - run:
-          name: Run rspec
-          command: docker-compose exec web rspec
+# version: 2.1
+# jobs:
+#   rspec:
+#     working_directory: ~/campfs
+#     docker:
+#       - image: circleci/ruby
+#     steps:
+#       - checkout
+#       - setup_remote_docker
+#       - run:
+#           name: Start containers and verify it is working
+#           command: |
+#             set -x
+#             docker-compose up -d
+#             docker exec campfs_web curl -4 --retry 10 --retry-delay 3 --retry-connrefused http://localhost:3000
+#       - run:
+#           name: Setup database
+#           command: bundle exec rails db:migrate
+#       - run:
+#           name: Run rspec
+#           command: docker-compose exec web rspec
 
-  rubocop:
-    working_directory: ~/campfs
+#   rubocop:
+#     working_directory: ~/campfs
+#     docker:
+#       - image: circleci/ruby
+#     steps:
+#       - checkout
+#       - restore_cache:
+#           keys:
+#             - gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+#             - gemfiles-{{ .Branch }}-
+#             - gemfiles-master-
+#       - run:
+#           name: bundle install
+#           command: bundle check || bundle install --jobs=8 --clean
+#       - run:
+#           name: Run rubocop
+#           command: bundle exec rubocop --parallel
+#       - save_cache:
+#           key: gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+#           paths:
+#             - vendor/bundle
+
+# orbs:
+#   build-tools: circleci/build-tools@2.6
+#   jq: circleci/jq@1.9.1
+# workflows:
+#   version: 2.1
+#   build:
+#     jobs:
+#       - rspec
+#       - rubocop
+
+
+
+version: 2
+jobs:
+  build:
     docker:
-      - image: circleci/ruby
+      - image: circleci/ruby:2.6.7-node-browsers
+        environment:
+          - BUNDLER_VERSION: 2.0.2
+          - RAILS_ENV: 'test'
+      - image: circleci/mysql:8.0
+        environment:
+          - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+          - MYSQL_ROOT_HOST: '%'
+
+    working_directory: ~/campfs
+
     steps:
       - checkout
+
       - restore_cache:
           keys:
-            - gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
-            - gemfiles-{{ .Branch }}-
-            - gemfiles-master-
-      - run:
-          name: bundle install
-          command: bundle check || bundle install --jobs=8 --clean
-      - run:
-          name: Run rubocop
-          command: bundle exec rubocop --parallel
-      - save_cache:
-          key: gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
-          paths:
-            - vendor/bundle
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            - v1-dependencies-
 
-orbs:
-  build-tools: circleci/build-tools@2.6
-  jq: circleci/jq@1.9.1
-workflows:
-  version: 2.1
-  build:
-    jobs:
-      - rspec
-      - rubocop
+      - run:
+          name: install dependencies
+          command: |
+            gem install bundler -v 2.0.2
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+
+      - run: mv config/database.yml.ci config/database.yml 
+
+      - run: bundle exec rake db:create
+      - run: bundle exec rake db:schema:load
+
+      - run:
+          name: Rubocop
+          command: bundle exec rubocop
+
+      - run:
+          name: run tests
+          command: |
+            mkdir /tmp/test-results
+            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
+              circleci tests split --split-by=timings)"
+
+
+# ③ここでRspecJunitFormatterというgemをインストールしていないとエラーになります。gemfileに記述しましょう。
+            bundle exec rspec \
+              --format progress \
+              --format RspecJunitFormatter \
+              --out /tmp/test-results/rspec.xml \
+              --format progress \
+              $TEST_FILES
+
+      - store_test_results:
+          path: /tmp/test-results
+      - store_artifacts:
+          path: /tmp/test-results
+          destination: test-results
