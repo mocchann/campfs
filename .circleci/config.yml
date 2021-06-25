@@ -12,7 +12,7 @@ jobs:
           command: |
             set -x
             docker-compose up -d
-            docker exec potepanec_app curl -4 --retry 10 --retry-delay 3 --retry-connrefused http://localhost:3000
+            docker exec campfs_web curl -4 --retry 10 --retry-delay 3 --retry-connrefused http://localhost:3000
       - run:
           name: Setup database
           command: bundle exec rails db:migrate
@@ -31,7 +31,6 @@ jobs:
             - gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
             - gemfiles-{{ .Branch }}-
             - gemfiles-master-
-      - run: bundle config --local path vendor/bundle
       - run:
           name: bundle install
           command: bundle check || bundle install --jobs=8 --clean
