@@ -1,0 +1,24 @@
+inherit_from:
+  - .rubocop_airbnb.yml
+
+Metrics/LineLength:
+  Enabled: false
+
+AllCops:
+  Exclude:
+    - bin/*
+    - db/schema.rb
+    - db/**/*
+    - db/migrate/*
+    - config/**/*
+    - config.ru
+    - tmp/**/*
+    - 'vendor/**/*'
+    - Gemfile
+    - Rakefile
+    - channels/application_cable/*
+    - 'spec/spec_helper.rb'
+
+MixinUsage:
+  Include:
+    - app/**/*.rb
