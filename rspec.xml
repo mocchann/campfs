@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="rspec" tests="4" skipped="3" failures="0" errors="0" time="0.529653" timestamp="2021-06-29T12:15:12+00:00" hostname="f9a13f1c5692">
+<properties>
+<property name="seed" value="31204"/>
+</properties>
+<testcase classname="spec.helpers.fields_helper_spec" name="FieldsHelper add some examples to (or delete) /campfs/spec/helpers/fields_helper_spec.rb" file="./spec/helpers/fields_helper_spec.rb" time="0.000018"><skipped/></testcase>
+<testcase classname="spec.models.field_spec" name="Field add some examples to (or delete) /campfs/spec/models/field_spec.rb" file="./spec/models/field_spec.rb" time="0.000012"><skipped/></testcase>
+<testcase classname="spec.requests.fields_spec" name="Fields GET /index add some examples (or delete) /campfs/spec/requests/fields_spec.rb" file="./spec/requests/fields_spec.rb" time="0.000007"><skipped/></testcase>
+<testcase classname="spec.system.fields_spec" name="fields ホーム画面が表示されること" file="./spec/system/fields_spec.rb" time="0.525688"></testcase>
+</testsuite>

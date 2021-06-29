@@ -11,6 +11,7 @@ WORKDIR /campfs
 COPY Gemfile /campfs/Gemfile
 COPY Gemfile.lock /campfs/Gemfile.lock
 RUN bundle install
+RUN yarn install
 COPY . /campfs
 
 COPY entrypoint.sh /usr/bin/
