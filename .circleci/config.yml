@@ -35,8 +35,9 @@ jobs:
           command: dockerize -wait tcp://localhost:3306 -timeout 1m
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
-      - run: name: yarn Install
-             command: yarn install
+      - run:
+          name: yarn Install
+          command: yarn install
       - ruby/rspec-test
       - ruby/rubocop-check
 
