@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  root 'fields#index'
+  devise_for :users
+  # root 'fields#index'
+  root to: "home#index"
 end
