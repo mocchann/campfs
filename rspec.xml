@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="4" skipped="3" failures="0" errors="0" time="0.529653" timestamp="2021-06-29T12:15:12+00:00" hostname="f9a13f1c5692">
+<testsuite name="rspec" tests="7" skipped="6" failures="0" errors="0" time="8.413294" timestamp="2021-07-03T22:00:54+00:00" hostname="28f61955f446">
 <properties>
-<property name="seed" value="31204"/>
+<property name="seed" value="18643"/>
 </properties>
-<testcase classname="spec.helpers.fields_helper_spec" name="FieldsHelper add some examples to (or delete) /campfs/spec/helpers/fields_helper_spec.rb" file="./spec/helpers/fields_helper_spec.rb" time="0.000018"><skipped/></testcase>
-<testcase classname="spec.models.field_spec" name="Field add some examples to (or delete) /campfs/spec/models/field_spec.rb" file="./spec/models/field_spec.rb" time="0.000012"><skipped/></testcase>
-<testcase classname="spec.requests.fields_spec" name="Fields GET /index add some examples (or delete) /campfs/spec/requests/fields_spec.rb" file="./spec/requests/fields_spec.rb" time="0.000007"><skipped/></testcase>
-<testcase classname="spec.system.fields_spec" name="fields ホーム画面が表示されること" file="./spec/system/fields_spec.rb" time="0.525688"></testcase>
+<testcase classname="spec.helpers.fields_helper_spec" name="FieldsHelper add some examples to (or delete) /campfs/spec/helpers/fields_helper_spec.rb" file="./spec/helpers/fields_helper_spec.rb" time="0.000019"><skipped/></testcase>
+<testcase classname="spec.helpers.home_helper_spec" name="HomeHelper add some examples to (or delete) /campfs/spec/helpers/home_helper_spec.rb" file="./spec/helpers/home_helper_spec.rb" time="0.000013"><skipped/></testcase>
+<testcase classname="spec.models.field_spec" name="Field add some examples to (or delete) /campfs/spec/models/field_spec.rb" file="./spec/models/field_spec.rb" time="0.000013"><skipped/></testcase>
+<testcase classname="spec.models.user_spec" name="User add some examples to (or delete) /campfs/spec/models/user_spec.rb" file="./spec/models/user_spec.rb" time="0.000011"><skipped/></testcase>
+<testcase classname="spec.requests.fields_spec" name="Fields GET /index add some examples (or delete) /campfs/spec/requests/fields_spec.rb" file="./spec/requests/fields_spec.rb" time="0.000014"><skipped/></testcase>
+<testcase classname="spec.requests.home_spec" name="Homes GET /top returns http success" file="./spec/requests/home_spec.rb" time="8.407058"></testcase>
+<testcase classname="spec.views.home.top" name="home/top.html.erb add some examples to (or delete) /campfs/spec/views/home/top.html.erb_spec.rb" file="./spec/views/home/top.html.erb_spec.rb" time="0.000013"><skipped/></testcase>
 </testsuite>
