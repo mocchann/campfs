@@ -20,12 +20,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  def update
-    super
-    if account_update_params[:icon_img].present?
-      resource.avatar.attach(account_update_params[:icon_img])
-    end
-  end
+  # def update
+  #   super
+  # end
 
   # DELETE /resource
   # def destroy
