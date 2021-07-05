@@ -1,18 +1,10 @@
 <div class="container user-registration-wrapper">
   <div class="registration-wrapper col-md-6 offset-md-3 col-sm-12 text-center shadow rounded">
-    <h3 class="my-4">
+    <h3 class="my-4 p-3 border-bottom">
       <%= t('.title', resource: resource.model_name.human) %>
     </h3>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
-      <i class="fas fa-user-plus fa-4x ms-3"></i>
-      <div class="field p-3 m-5 border-bottom">
-        <%= f.label "アイコン画像" %><br>
-        <%= f.file_field :icon_img %>
-      </div>
-      <div class="field">
-        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control col-10 px-2", placeholder: "アカウント名" %>
-      </div>
       <div class="field">
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control col-10 px-2", placeholder: "メールアドレス" %>
       </div>
@@ -41,7 +33,6 @@
     <p>
       <%= link_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete, class: "btn btn-danger my-5" %>
     </p>
-
     <%= link_to t('devise.shared.links.back'), :back %>
   </div>
 </div>

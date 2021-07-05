@@ -63,3 +63,5 @@ gem 'aws-sdk-s3'
 gem 'devise'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+
+gem 'ransack'

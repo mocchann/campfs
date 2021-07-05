@@ -1,0 +1,53 @@
+<h2><%= "検索結果:#{@results.count}件" %></h2>
+<% if @results.length != 0 %>
+  <% @resource.each do |result| %>
+    <%= result.name %>
+    <%= result.address %>
+    <%= result.phone_number %>
+    <%= result.season %>
+    <%= result.check_in_out %>
+    <%= result.place %>
+    <%= result.elevation %>
+    <%= result.section_site %>
+    <%= result.free_site %>
+    <%= result.ground %>
+    <%= result.fire %>
+    <%= result.car %>
+    <%= result.security %>
+    <%= result.trash %>
+    <%= result.bath %>
+    <%= result.toilet%>
+  <% end %>
+<% else %>
+  <p>キャンプ場が見つかりませんでした</p>
+<% end %>
+
+<div class="search-number-container">
+  <p class="search-number"><%#= show_current_number(@results.current_page,@results.size) %>件を表示 ／ 全<%#= @results.total_entries %>件</p>
+</div>
+<div class="row">
+  <%# @results.each do |results| %>
+  <div class="col-sm-12 col-md-6 col-lg-4">
+    <div class="card img-thumbnail h-100">
+      <%#= image_tag results.image.url, class:"card-img-top", size:"300x250" %>
+      <div class="card-body px-2 py-3">
+        <h5 class="card-title"><%#= link_to results.name, studio_path(results) %></h5>
+        <small class="small-block"><i class="fas fa-map-marker-alt"></i> <cite title="<%#= results.address %>"><%#= results.address %> </small>
+        <small class="small-block"><i class="fas fa-subway"></i><%#= access_info(results.accesses) %></small>
+        <small class="small-block"><i class="far fa-clock"></i><%#= results.opening_hours %></small>
+        <small class="small-block"><i class="fas fa-yen-sign"></i><%#= results.weekday_fee&.fee %></small>
+        <div class="star-review" data-score="<%#= rating(results.reviews) %>"></div>
+        <div class="score-review"><%#= rating(results.reviews) %></div>
+        <p class="count-review"><i class="fa fa-comments"></i> <%#= results.reviews.count %></p>
+        <p class="hash_tags"><i class="fas fa-tags"></i> 
+          <%# results.hash_tags.each do |hash_tag| %>
+            <%#= link_to hash_tag.tag, results_path(q: { hash_tags_id_in: [hash_tag.id] }) %> <!-- 配列じゃないと検索できないため、idを[]で括っている -->
+          <%# end %>
+        </p>
+      </div><!-- /.card-body -->
+    </div><!-- /.card -->
+  </div><!-- /.col-sm-6.col-md-3 -->
+<%# end %>
+</div><!-- /.row -->
+<%#= will_paginate(@results, class: "pagination justify-content-center", renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+</div>
