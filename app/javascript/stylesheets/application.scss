@@ -1,0 +1,114 @@
+@import "~bootstrap/scss/bootstrap"; 
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+img {
+  width:100%;
+  max-width: 100%;
+  height: auto;
+  }
+
+  .icon_img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    object-fit: cover;
+  }
+
+body {
+  background-color: #EDEAD8;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template:
+    "... ...... ...... ...... ...... ...... ..."
+    "... header header header header header ..." 250px
+    "... ...... ...... ...... ...... ...... ..." 10px
+    "... left   ...... center ...... right  ..."  1fr
+    "... ...... ...... ...... ...... ...... ..." 10px
+    "... footer footer footer footer footer ..." 150px
+    "... ...... ...... ...... ...... ...... ..."
+
+    / auto 150px 10px 1fr 10px 150px auto;
+  
+}
+
+header {
+  grid-area: header;
+}
+
+nav {
+  grid-area: left;
+}
+
+main {
+  grid-area: center;
+  .container {
+    padding-top: 36px;
+    padding-bottom : 36px;
+    font-size: 16px;
+    .login-form-wrapper, .registration-wrapper {
+      padding: 36px;
+    }
+      .field {
+        margin-bottom: 30px;
+      }
+  }
+}
+
+aside {
+  grid-area: right;
+}
+
+footer {
+  background-color: #fff;
+  grid-area: footer;
+}
+
+.top-main {
+  background-image: url("https://picsum.photos/200");
+  background-size: cover;
+  width: 100%;
+  height: 800px;
+    h1 {
+      font-size: xx-large;
+      color: white;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      right: 50%;
+    }
+}
+
+.middle-main {
+  background-color: white;
+  background-size: cover;
+  width: 100%;
+  height: 800px;
+}
+
+.under-main {
+  background-color: #E9967A;
+  background-size: cover;
+  width: 100%;
+  height: 800px;
+}
+
+.featured-text {
+  padding: 0 0 0 2rem;
+  border-left: 0.5rem solid #64a19d;
+}
+
+@media screen and (max-width: 1000px) {
+  body {
+    grid-template:
+      "header" 150px
+      "center" 1fr
+      "left  "
+      "right "
+      "footer" 300px;
+  }
+}
