@@ -1,6 +1,7 @@
 <% if current_user.blank? %>
   <nav class="navbar navbar-light bg-light">
     <div class="container-fluid justify-content-end">
+      <%= link_to 'ゲストログイン（閲覧用）', home_guest_sign_in_path, method: :post %>
       <%= link_to "/users/sign_in" do %>
         <button class="btn btn-outline-success me-3" type="button">ログイン</button>
       <% end %>
