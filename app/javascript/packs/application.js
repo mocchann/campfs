@@ -16,4 +16,5 @@ Turbolinks.start()
 ActiveStorage.start()
 
 require("bootstrap");
-require('jquery')
+window.$ = window.jQuery = require('jquery');
+require('packs/raty')
