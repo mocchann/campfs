@@ -1,188 +1,65 @@
-<h2><%= "#{@results.name}" %></h2>
-<%# @resource.each do |result| %>
-  <%#= result.name %>
-  <div class="card">
-    <div class="card-header text-left">
-      <h2 class="show-result-header"><%#= @result.name %> <%#= render "favorite_form" if logged_in? %></h2>
-      <div class="rating"><div id="star-head" data-score="<%#= rating(@reviews) %>"></div> <p class="rate-score"><%#= rating(@reviews) %></p></div>
-    </div>
-    <div>
-      <%#= image_tag @result.image.url, class:"card-img img-responsive" %>
-    </div>
-    <div class="card-body">
-      <p><i class="fas fa-tags"></i> <%#= render "hash_tag" %></p>
-      <p class="card-text updated_at"><%#= link_to "編集", edit_result_path %> | 最終更新日：<%#= @result.updated_at %></p>
-      <div class="share_btn_container">
-        <div class="twitter share_btn">
-        　<a href="//twitter.com/share" class="twitter-share-button" data-text="<%#= @result.name %> <%#= @result_url %> #campfs" data-lang="ja"></a>
-        </div>
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        <div class="fb-share-button share_btn pb-10" data-href="<%= @studio_url %>" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">シェア</a></div>
-        <div class="line-it-button share_btn" data-lang="ja" data-type="share-a" data-url="<%#= @result.url %>" style="display: none;"></div>
-        <script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <h5>施設情報</h5>
-    </div>
-    <div class="card-body">
-      <div class="row">
-        <div class="col-sm-4 col-5 text-left pl-2">
-          <i class="fas fa-map-marker-alt fa-fw"></i> 住所
-        </div>
-        <div class="col-sm-8 col-7 text-left px-0">
-          <%#= result.address %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-4 col-5 text-left pl-2">
-          <i class="fas fa-subway fa-fw"></i> 電話番号
-        </div>
-        <div class="col-sm-8 col-7 text-left px-0">
-          <%#= result.phone_number %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-4 col-5 text-left pl-2">
-          <i class="fas fa-phone fa-fw"></i> 期間
-        </div>
-        <div class="col-sm-8 col-7 text-left px-0">
-          <%#= result.season %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-4 col-5 text-left pl-2">
-          <i class="fas fa-globe-europe fa-fw"></i> チェックイン〜チェックアウト
-        </div>
-        <div class="col-sm-8 col-7 text-left px-0">
-          <%#= result.check_in_out %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-4 col-5 text-left pl-2">
-          <i class="far fa-clock fa-fw"></i> 場所
-        </div>
-        <div class="col-sm-8 col-7 text-left px-0">
-          <%#= result.place %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-4 col-5 text-left pl-2">
-          <i class="fas fa-yen-sign fa-fw"></i> 標高
-        </div>
-        <div class="col-sm-8 col-7 text-left px-0">
-          <%#= result.elevation %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-4 col-5 text-left pl-2">
-          <span class="holiday"></span> 区画サイト
-        </div>
-        <div class="col-sm-8 col-7 text-left px-0">
-          <%#= result.section_site %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-4 col-5 text-left pl-2">
-          <span class="holiday"></span> フリーサイト
-        </div>
-        <div class="col-sm-8 col-7 text-left px-0">
-          <%#= result.free_site %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-4 col-5 text-left pl-2">
-          <span class="holiday"></span> 地面
-        </div>
-        <div class="col-sm-8 col-7 text-left px-0">
-          <%#= result.ground %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-4 col-5 text-left pl-2">
-          <span class="holiday"></span> 焚き火・直火
-        </div>
-        <div class="col-sm-8 col-7 text-left px-0">
-          <%#= result.fire %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-4 col-5 text-left pl-2">
-          <span class="holiday"></span> 車の横付け
-        </div>
-        <div class="col-sm-8 col-7 text-left px-0">
-          <%#= result.car %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-4 col-5 text-left pl-2">
-          <span class="holiday"></span> セキュリティ
-        </div>
-        <div class="col-sm-8 col-7 text-left px-0">
-          <%#= result.security %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-4 col-5 text-left pl-2">
-          <span class="holiday"></span> ゴミ
-        </div>
-        <div class="col-sm-8 col-7 text-left px-0">
-          <%#= result.trash %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-4 col-5 text-left pl-2">
-          <span class="holiday"></span> 風呂・シャワー
-        </div>
-        <div class="col-sm-8 col-7 text-left px-0">
-          <%#= result.bath %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-4 col-5 text-left pl-2">
-          <span class="holiday"></span> トイレ
-        </div>
-        <div class="col-sm-8 col-7 text-left px-0">
-          <%#= result.toilet%>
-        </div>
-      </div>
-      <div class="">
-        <%= link_to "キャンプ場のリンク" %>
-      </div>
-    </div>
-  </div>
-<%# end %>
-<div class="card">
-    <div class="card-header">
-      <h5>マップ</h5>
-    </div>
-    <div class="card-body">
-      <div id="map" style='width: 100%; height: 28vh;'></div>
-    </div>
-    <p class="access">
-      <%#= line_info(@result.accesses&.first) %><%#= @result.accesses&.first.name %>から<%#= @result.accesses&.first.distanceKm %>
-    </p>
-    <p class="access">
-      <%#= @result.accesses&.first.traveltime %>
-    </p>
-    <p class="access">
-      <%#= link_to "GoogleMapで開く", "https://www.google.com/maps/search/?api=1&query=#{@result.latitude},#{@result.longitude}&query_place_id=#{@result.place_id}" , target: "_blank" %>
-    </p>
-  </div>
+<div class="search-number-container">
+  <p class="search-number">
+    <%#= show_current_number(@fields.current_page, @fields.size) %>件を表示 ／ 全<%#= @fields.total_entries %>件
+  </p>
 </div>
 <div class="row">
-  <div class="col-12">
-    <div class="card">
-      <div class="card-header">
-        レビュー　全<%#= @reviews.count %>件
-        <%#= render "more" %>
-      </div>
-      <div id="reviews">
-        <%#= render "reviews" %>
-      </div>
-      <%#= link_to "レビュー投稿", new_review_path(studio_id: @result.id) %>
-    </div>
-  </div>
-</div>
+  <h2><%= "検索結果:#{@fields.count}件" %></h2>
+  <% if @fields.length != 0 %>
+    <% @fields.each do |field| %>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="card img-thumbnail h-100">
+          <%= image_tag("https://picsum.photos/244", size:"300x250") %>
+          <%#= image_tag fields.image.url, class:"card-img-top", size:"300x250" %>
+          <div class="card-body px-2 py-3">
+            <h5 class="card-title">
+              <%= link_to field.name, field_path(field) %>
+            </h5>
+            <div class="small-block">
+              <i class="fas fa-map-marker-alt"></i>
+              <cite title="<%= field.address %>">
+              <%= field.address %>
+            </div>
+            <div class="small-block">
+              <i class="fas fa-phone fa-fw"></i>
+              <a href="<%= field.phone_number %>"><%= field.phone_number %></a>
+            </div>
+            <div class="small-block">
+              <i class="fas fa-yen-sign"></i>
+              区画サイト：<%= field.section_site %>
+            </div>
+            <div class="small-block">
+              <i class="fas fa-yen-sign"></i>
+              フリーサイト：<%= field.free_site %>
+            </div>
+            <div class="small-block">
+              <i class="fas fa-mobile-alt"></i>
+              <%= field.reservation %>
+            </div>
+            <div class="small-block">
+              <i class="fas fa-clock"></i>
+              <%= field.check_in_out %>
+            </div>
+            <div class="star-review" data-score="<%#= rating(fields.reviews) %>"></div>
+            <div class="score-review">
+              <%#= rating(fields.reviews) %>
+            </div>
+            <p class="count-review">
+              <i class="fa fa-comments"></i>
+              <%#= field.reviews.count %>
+            </p>
+            <p class="hash_tags">
+              <i class="fas fa-tags"></i> 
+              <%# fields.hash_tags.each do |hash_tag| %>
+                <%#= link_to hash_tag.tag, results_path(q: { hash_tags_id_in: [hash_tag.id] }) %> <!-- 配列じゃないと検索できないため、idを[]で括っている -->
+              <%# end %>
+            </p>
+          </div><!-- /.card-body -->
+        </div><!-- /.card -->
+      </div><!-- /.col-sm-6.col-md-3 -->
+    <% end %>
+  <% else %>
+    キャンプ場は見つかりませんでした
+  <% end %>
+</div><!-- /.row -->
+<%= paginate @fields %>

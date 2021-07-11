@@ -1,0 +1,326 @@
+
+  <div class="card">
+    <div class="card-header text-left">
+      <h2 class="show-field-header"><%= @field.name %> <%#= render "favorite_form" if logged_in? %></h2>
+      <div class="rating"><div id="star-head" data-score="<%#= rating(@reviews) %>"></div> <p class="rate-score"><%#= rating(@reviews) %></p></div>
+    </div>
+    <div>
+      <%= image_tag("https://picsum.photos/244") %>
+    </div>
+    <div class="card-body">
+      <p><i class="fas fa-tags"></i> <%#= render "hash_tag" %></p>
+      <div class="share_btn_container">
+        <div class="twitter share_btn">
+        　<a href="//twitter.com/share" class="twitter-share-button" data-text="<%= @field.name %> <%#= @result_url %> #campfs" data-lang="ja"></a>
+        </div>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <div class="fb-share-button share_btn pb-10" data-href="<%= @studio_url %>" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">シェア</a></div>
+        <div class="line-it-button share_btn" data-lang="ja" data-type="share-a" data-url="<%#= @field.url %>" style="display: none;"></div>
+        <script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h5>施設情報</h5>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-4 col-5 text-left pl-2">
+          <i class="fas fa-map-marker-alt fa-fw"></i> 住所
+        </div>
+        <div class="col-sm-8 col-7 text-left px-0">
+          <%= @field.address %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 col-5 text-left pl-2">
+          <i class="fas fa-map-marker-alt fa-fw"></i> 予約方法
+        </div>
+        <div class="col-sm-8 col-7 text-left px-0">
+          <%= @field.reservation %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 col-5 text-left pl-2">
+          <i class="fas fa-phone fa-fw"></i> 電話番号
+        </div>
+        <div class="col-sm-8 col-7 text-left px-0">
+          <a href="<%= @field.phone_number %>"><%= @field.phone_number %></a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 col-5 text-left pl-2">
+          <i class="fas fa-calendar-check"></i> 期間
+        </div>
+        <div class="col-sm-8 col-7 text-left px-0">
+          <%= @field.season %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 col-5 text-left pl-2">
+          <i class="fas fa-clock"></i> アーリーチェックイン/アーリーチェックアウト
+        </div>
+        <div class="col-sm-8 col-7 text-left px-0">
+          <%= @field.early_in_late_out %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 col-5 text-left pl-2">
+          <i class="fas fa-clock"></i> チェックイン〜チェックアウト
+        </div>
+        <div class="col-sm-8 col-7 text-left px-0">
+          <%= @field.check_in_out %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 col-5 text-left pl-2">
+          <i class="fas fa-map-marker-alt fa-fw"></i> デイキャンプ
+        </div>
+        <div class="col-sm-8 col-7 text-left px-0">
+          <%= @field.day_camp %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 col-5 text-left pl-2">
+          <i class="far fa-clock fa-fw"></i> 場所
+        </div>
+        <div class="col-sm-8 col-7 text-left px-0">
+          <%= @field.place %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 col-5 text-left pl-2">
+          <i class="fas fa-yen-sign fa-fw"></i> 最寄りのIC
+        </div>
+        <div class="col-sm-8 col-7 text-left px-0">
+          <%= @field.near_ic %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 col-5 text-left pl-2">
+          <i class="fas fa-yen-sign fa-fw"></i> 最寄りの温泉
+        </div>
+        <div class="col-sm-8 col-7 text-left px-0">
+          <%= @field.near_spa %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 col-5 text-left pl-2">
+          <i class="fas fa-yen-sign fa-fw"></i> 標高(m)
+        </div>
+        <div class="col-sm-8 col-7 text-left px-0">
+          <%= @field.elevation %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 col-5 text-left pl-2">
+          <span class="holiday"></span> 区画サイト
+        </div>
+        <div class="col-sm-8 col-7 text-left px-0">
+          <%= @field.section_site %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 col-5 text-left pl-2">
+          <span class="holiday"></span> フリーサイト
+        </div>
+        <div class="col-sm-8 col-7 text-left px-0">
+          <%= @field.free_site %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 col-5 text-left pl-2">
+          <i class="fas fa-map-marker-alt fa-fw"></i> キャンセル
+        </div>
+        <div class="col-sm-8 col-7 text-left px-0">
+          <%= @field.cancel %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 col-5 text-left pl-2">
+          <span class="holiday"></span> 地面
+        </div>
+        <div class="col-sm-8 col-7 text-left px-0">
+          <%= @field.ground %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 col-5 text-left pl-2">
+          <i class="fas fa-campfire"></i>
+          <span class="holiday"></span> 焚き火・直火
+        </div>
+        <div class="col-sm-8 col-7 text-left px-0">
+          <%= @field.fire %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 col-5 text-left pl-2">
+          <span class="holiday"></span> 車の横付け
+        </div>
+        <div class="col-sm-8 col-7 text-left px-0">
+          <%= @field.car %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 col-5 text-left pl-2">
+          <span class="holiday"></span> セキュリティ
+        </div>
+        <div class="col-sm-8 col-7 text-left px-0">
+          <%= @field.security %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 col-5 text-left pl-2">
+          <span class="holiday"></span> ゴミ
+        </div>
+        <div class="col-sm-8 col-7 text-left px-0">
+          <%= @field.trash %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 col-5 text-left pl-2">
+          <i class="fas fa-bath"></i>
+          <span class="holiday"></span> 風呂・シャワー
+        </div>
+        <div class="col-sm-8 col-7 text-left px-0">
+          <%= @field.bath %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 col-5 text-left pl-2">
+          <span class="holiday"></span> トイレ
+        </div>
+        <div class="col-sm-8 col-7 text-left px-0">
+          <%= @field.toilet %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 col-5 text-left pl-2">
+          <span class="holiday"></span> ペット
+        </div>
+        <div class="col-sm-8 col-7 text-left px-0">
+          <%= @field.pet %>
+        </div>
+      </div>
+      <div class="">
+        <%= link_to "その他詳細：#{@field.name}へどうぞ", "#{@field.field_url}", target: :_blank %>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h5>マップ</h5>
+    </div>
+    <div class="card-body">
+      <div id="map" style='width: 100%; height: 28vh;'></div>
+    </div>
+    <p class="access">
+      <%#= line_info(@field.accesses&.first) %><%#= @field.accesses&.first.name %>から<%#= @field.accesses&.first.distanceKm %>
+    </p>
+    <p class="access">
+      <%#= @field.accesses&.first.traveltime %>
+    </p>
+    <p class="access">
+      <%= link_to "GoogleMapで開く", "https://www.google.com/maps/search/?api=1&query=#{@field.latitude},#{@field.longitude}&query_place_id=#{@field.place_id}" , target: "_blank" %>
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <% if @reviews.present? %>
+        <div class="card-header">
+          レビュー　全<%= @reviews.count %>件
+        </div>
+        <div id="reviews">
+          <% @reviews.each do |review| %>
+            <div class="review row text-left">
+              <div class="icon col-sm-2 offset-sm-1 col-4">
+                <%= review.user.name %>
+                <% if review.user.icon_img.present? %>
+                  <%= image_tag review.user.icon_img, class:"rounded-circle", size:"100x100" %>
+                <% else %>
+                  <i class="fas fa-user-plus fa-4x ms-3"></i>
+                <% end %>
+              </div>
+              <div class="balloon col-8 text-left">
+                <div class="review_title">
+                  <p>タイトル:<%= review.title %></p>
+                </div>
+                <p>評価 : <%= review.rate %> / 5.0</p>
+                <div class="review_content">
+                  <%= simple_format(review.content) %>
+                </div>
+              </div>
+              <div id="star-rate<%= review.id %>"></div>
+              <script>
+                $('#star-rate<%= review.id %>').raty({
+                  size      : 36,
+                  starOff   : '<%= asset_path('star-off.png') %>',
+                  starOn    : '<%= asset_path('star-on.png') %>',
+                  starHalf  : '<%= asset_path('star-half.png') %>',
+                  readOnly: true,
+                  half: true,
+                  score: <%= review.rate %>,
+                });
+              </script>
+              <% if current_user.id == review.user.id %>
+                <%= link_to "削除する", review_path(review), method: :delete, data: { confirm: '削除しますか?' }  %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <p>口コミはありません</p>
+      <% end %>
+      <div class="review row text-left">
+        <div class="icon col-sm-2 offset-sm-1 col-4">
+          <%#= image_tag @review.user.icon_img, class:"review-icon", size:"100x100" %>
+        </div>
+        <div class="balloon col-8 text-left">
+          <div class="review_title">
+          </div>
+          <div class="star-review" data-score=""></div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <%= link_to "口コミを投稿する", new_review_path(field_id: @field.id) %>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  function initMap() {
+
+    var test = {lat: <%= @field.latitude %>, lng: <%= @field.longitude %>};
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15,
+      center: test
+    });
+    var transitLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
+
+    var contentString = '住所：<%= @field.address %>';
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
+    var marker = new google.maps.Marker({
+      position:test,
+      map: map,
+      title: contentString
+    });
+
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
+  }
+</script>
+
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
+</script>

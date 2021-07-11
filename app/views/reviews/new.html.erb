@@ -1,0 +1,31 @@
+<div class="container">
+  <h1>口コミ投稿</h1>
+  <%= form_for [@review] do |f| %>
+    <div class="form-group">
+      <%= f.label :タイトル %>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+    <div class="form-group" id="star">
+      <%= f.label :rate, "評価" %>
+      <%= f.hidden_field :rate, id: :review_rate %>
+    </div>
+    <div class="form-group">
+      <%= f.label :口コミ内容 %>
+      <%= f.text_area :content, class: "form-control" %>
+    </div>
+    <%= hidden_field_tag :field_id,  params[:field_id] %>
+    <%= f.submit "保存", class: "btn btn-primary mt-3" %>
+
+    <script>
+      $('#star').raty({
+        size     : 36,
+        starOff:  '<%= asset_path('star-off.png') %>',
+        starOn : '<%= asset_path('star-on.png') %>',
+        starHalf: '<%= asset_path('star-half.png') %>',
+        scoreName: 'review[rate]',
+        half: true,
+      });
+    </script>
+  <% end %>
+  <%= link_to "戻る", request.referer, class: "btn btn-success" %>
+</div>

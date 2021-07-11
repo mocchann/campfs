@@ -2,8 +2,8 @@
   <div class="container-fluid">
     <%= link_to image_tag("https://picsum.photos/200", size: "100x100", alt: "アイコン" ), "/" %>
     <div class="d-flex">
-      <%= search_form_for @q, url: fields_path do |f| %> <!--@qはOKなのに@resultsはだめ、なぜ？-->
-        <%= f.text_field :name_cont, class: 'form-control me-2', placeholder: 'キャンプ場を探す' %>
+      <%= search_form_for @q, url: search_fields_path do |f| %>
+        <%= f.text_field :name_or_address_cont, class: 'form-control me-2', placeholder: 'キャンプ場を探す' %>
         <%= f.submit "検索" , class: 'btn btn-outline-success'%>
       <% end %>
     </div>
