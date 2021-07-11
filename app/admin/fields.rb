@@ -4,7 +4,7 @@ ActiveAdmin.register Field do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :name, :address, :reservation, :phone_number, :season, :early_in_late_out, :check_in_out, :day_camp, :place, :near_ic, :near_spa, :elevation, :section_site, :free_site, :cancel, :ground, :fire, :car, :security, :trash, :bath, :toilet, :pet, :latitude, :longitude, :image
+  permit_params :name, :address, :reservation, :phone_number, :season, :early_in_late_out, :check_in_out, :day_camp, :place, :near_ic, :near_spa, :elevation, :section_site, :free_site, :cancel, :ground, :fire, :car, :security, :trash, :bath, :toilet, :pet, :latitude, :longitude, :image, :place_id, :field_url
   #
   # or
   #
@@ -42,6 +42,8 @@ ActiveAdmin.register Field do
       f.input :latitude, :precision => 12, :scale => 9
       f.input :longitude, :precision => 12, :scale => 9
       f.input :image
+      f.input :place_id
+      f.input :field_url
     end
     f.actions
   end
