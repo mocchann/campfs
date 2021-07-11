@@ -1,7 +1,6 @@
 <div class="top-main">
   <h1>さあ、次なる旅へ出掛けよう</h1>
 </div>
-
 <div class="middle-main">
   <div class="row row-cols-1 row-cols-md-2 g-4">
     <div class="col">
@@ -21,6 +20,14 @@
           <p class="card-text">直火OKなキャンプ場はこちら</p>
         </div>
       </div>
+    </div>
+    <div class="col-sm-6 col-md-3">
+      <%= link_to search_fields_path(q: { name_or_address_cont: "岡山" }), class: "card area-card h-100" do %>
+        <%= image_tag "https://picsum.photos/244", class: "card-img-top" %>
+        <div class="card-body">
+          <h3>岡山</h3>
+        </div>
+      <% end %>
     </div>
     <div class="col">
       <div class="card">
@@ -44,7 +51,6 @@
     </div>
   </div>
 </div>
-
 <div class="under-main">
   <div class="card mb-3" style="max-width: 540px;">
     <div class="row g-0">

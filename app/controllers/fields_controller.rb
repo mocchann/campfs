@@ -1,26 +1,12 @@
 class FieldsController < ApplicationController
-#fieldsコントローラーは検索に使う
-  def index #indexは検索結果一覧
-  end
-
-  def new
-  end
-
-  def create
-  end
-
-  def update
-  end
+#fieldsコントローラーはキャンプ場検索に使う
 
   def show
+    @field = Field.find(params[:id])
+    @reviews = Review.includes(:user)
   end
 
-  def edit
-  end
-
-  def destroy
-  end
-
-  def search #searchは各キャンプ場詳細ページ
+  def search
+    @fields = Field.page(params[:page]).per(1)
   end
 end

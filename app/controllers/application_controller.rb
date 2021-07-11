@@ -8,8 +8,8 @@ class ApplicationController < ActionController::Base
   end
 
   def set_q
-    @q = Field.ransack(params[:q]) #この@qにも同じ情報がはいる？
-    @results = @q.result #@qには１つの？キャンプ場のカラム情報すべてが入る
+    @q = Field.ransack(params[:q])
+    @fields = @q.result(distinct: true)
   end
 
   protected

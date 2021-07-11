@@ -13,10 +13,8 @@
       <%= f.label :口コミ内容 %>
       <%= f.text_area :content, class: "form-control" %>
     </div>
-    <%= f.hidden_field :user_id, value: @review.user_id %>
-    <%= f.hidden_field :field_id, value: @review.field_id %>
+    <%= hidden_field_tag :field_id,  params[:field_id] %>
     <%= f.submit "保存", class: "btn btn-primary mt-3" %>
-    <%#= link_to "戻る", field_path(current_user),class: "btn btn-success" %>
 
     <script>
       $('#star').raty({
@@ -29,4 +27,5 @@
       });
     </script>
   <% end %>
+  <%= link_to "戻る", request.referer, class: "btn btn-success" %>
 </div>
