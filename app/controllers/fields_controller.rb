@@ -1,6 +1,4 @@
 class FieldsController < ApplicationController
-#fieldsコントローラーはキャンプ場検索に使う
-
   def show
     @field = Field.find(params[:id])
     @reviews = Review.includes(:user)

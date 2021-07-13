@@ -1,0 +1,44 @@
+<div class="container user_show_container">
+  <div class="row">
+    <aside class="col-md-3">
+      <% if @user.icon_img.present? %>
+        <%= image_tag @user.icon_img, class:"rounded-circle", size:"100x100" %>
+      <% else %>
+        <i class="fas fa-user-plus fa-4x ms-3"></i>
+      <% end %>
+      <h3><%= @user.name %></h3>
+    </aside>
+    <div class="col-md-9">
+      <h3>お気に入り</h3>
+        <div class="row">
+          <% if Bookmark.find_by(params[:id]).present? %>
+            <% @fields.each do |field| %>
+              <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="card img-thumbnail h-100">
+                  <%= image_tag "https://picsum.photos/244", class:"card-img-top", size:"300x250" %>
+                  <div class="card-body px-2 py-3">
+                    <h5 class="card-title"><%= link_to field.name, field_path(field) %></h5>
+                    <small class="small-block"><i class="fas fa-map-marker-alt"></i> <cite title="<%= field.address %>"><%= field.address %> </small>
+                    <small class="small-block"><i class="fas fa-subway"></i><%#= access_info(field.accesses) %></small>
+                    <small class="small-block"><i class="far fa-clock"></i><%#= field.opening_hours %></small>
+                    <small class="small-block"><i class="fas fa-yen-sign"></i><%#= field.weekday_fee&.fee %></small>
+                    <div class="star-review" data-score="<%#= rating(field.reviews) %>"></div>
+                    <div class="score-review"><%#= rating(field.reviews) %></div>
+                    <p class="count-review"><i class="fa fa-comments"></i> <%#= field.reviews.count %></p>
+                    <p class="hash_tags"><i class="fas fa-tags"></i> 
+                      <%# field.hash_tags.each do |hash_tag| %>
+                        <%#= link_to hash_tag.tag, fields_path(q: { hash_tags_id_in: [hash_tag.id] }) %>
+                      <%# end %>
+                    </p>
+                  </div><!-- /.card-body -->
+                </div><!-- /.card -->
+              </div><!-- /.col-sm-6.col-md-3 -->
+            <% end %>
+          <% else %>
+            <p>気になるキャンプ場をブックマークしてみよう！</p>
+          <% end %>
+        </div><!-- /.row -->
+      <%= paginate @fields %>
+    </div>
+  </div>
+</div>

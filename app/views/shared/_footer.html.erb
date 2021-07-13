@@ -26,7 +26,7 @@
       <ul class="dropdown-menu">
         <li><%= link_to "アイコン・ネーム編集", "/users/profile", class: "dropdown-item" %></li>
         <li><%= link_to "メール・パスワード編集", "/users/edit", class: "dropdown-item" %></li>
-        <li><%= link_to "行きたいキャンプ場リスト", "#", class: "dropdown-item" %></li>
+        <li><%= link_to "行きたいキャンプ場リスト", user_path(@user), class: "dropdown-item" %></li>
         <li><%= link_to "#", "#", class: "dropdown-item" %></li>
         <li><%= link_to "ログアウト", destroy_user_session_path, class: "dropdown-item", method: :delete %></li>
       </ul>

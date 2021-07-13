@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def new
     @review = Review.new
@@ -26,7 +26,7 @@ before_action :authenticate_user!
 
   private
 
-    def review_params
-      params.require(:review).permit(:title, :content, :rate).merge(field_id: params[:field_id])
-    end
+  def review_params
+    params.require(:review).permit(:title, :content, :rate).merge(field_id: params[:field_id])
+  end
 end

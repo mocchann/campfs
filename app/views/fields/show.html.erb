@@ -1,7 +1,9 @@
 
   <div class="card">
     <div class="card-header text-left">
-      <h2 class="show-field-header"><%= @field.name %> <%#= render "favorite_form" if logged_in? %></h2>
+      <h2 class="show-field-header">
+        <%= @field.name %> <%= render "bookmark_tag" if user_signed_in? %>
+      </h2>
       <div class="rating"><div id="star-head" data-score="<%#= rating(@reviews) %>"></div> <p class="rate-score"><%#= rating(@reviews) %></p></div>
     </div>
     <div>

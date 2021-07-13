@@ -1,15 +1,15 @@
-ActiveAdmin.register Review do
+ActiveAdmin.register Bookmark do
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :title, :content, :rate, :user_id, :field_id
+  # permit_params :user_id, :field_id
   #
   # or
   #
   # permit_params do
-  #   permitted = [:title, :content, :rate, :user_id, :field_id]
+  #   permitted = [:user_id, :field_id]
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
