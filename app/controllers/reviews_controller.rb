@@ -25,8 +25,8 @@ class ReviewsController < ApplicationController
   end
 
   private
-  
-    def review_params
-      params.require(:review).permit(:title, :content, :rate).merge(field_id: params[:field_id])
-    end
+
+  def review_params
+    params.require(:review).permit(:title, :content, :rate).merge(field_id: params[:field_id])
+  end
 end
