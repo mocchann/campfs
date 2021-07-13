@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def new
     @review = Review.new
@@ -23,6 +23,7 @@ before_action :authenticate_user!
     @review.destroy
     redirect_to request.referer
   end
+
 
   private
 

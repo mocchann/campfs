@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  # before_action :login_user, except: [:profile_update]
 
   def show
     @user = User.find(params[:id])
@@ -22,10 +21,6 @@ class UsersController < ApplicationController
 
 
   private
-
-  # def login_user
-  #   @user = User.find(current_user.id)
-  # end
 
   def user_params
     params.require(:user).permit(:new_icon_img, :name, :email, :description, :password)
