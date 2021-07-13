@@ -6,7 +6,9 @@ class User < ApplicationRecord
 
   has_many :reviews, dependent: :destroy
   has_many :fields, through: :reviews
-
+  has_many :bookmarks, dependent: :destroy
+  has_many :bookmark_fields, through: :bookmarks, source: :field
+  
   has_one_attached :icon_img
   attribute :new_icon_img
 
