@@ -24,9 +24,8 @@ class ReviewsController < ApplicationController
     redirect_to request.referer
   end
 
-
   private
-
+  
     def review_params
       params.require(:review).permit(:title, :content, :rate).merge(field_id: params[:field_id])
     end
