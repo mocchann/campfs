@@ -1,35 +1,31 @@
-<% if current_user.blank? %>
-  <nav class="navbar navbar-light bg-light">
-    <div class="container-fluid justify-content-end">
-      <%= link_to 'ゲストログイン（閲覧用）', home_guest_sign_in_path, method: :post %>
-      <%= link_to "/users/sign_in" do %>
-        <button class="btn btn-outline-success me-3" type="button">ログイン</button>
-      <% end %>
-      <%= link_to "/users/sign_up" do %>
-        <button class="btn btn-outline-secondary" type="button">新規登録</button>
-      <% end %>
-    </div>
-  </nav>
-<% else %>
-  <div class="d-flex align-items-center justify-content-end">
-    <div class="nav-item d-sm-inline-block d-none me-3 text-black">
-      <%= current_user.name %>
-    </div>
-    <div class="btn-group dropup me-3">
-      <div class="btn rounded-circle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="0,5">
-        <% if current_user.icon_img.attached? %>
-          <%= image_tag current_user.icon_img, class: "icon_img rounded-circle" %>
-        <% else %>
-          <i class="fas fa-user-plus fa-4x ms-3"></i>
-        <% end %>
+<div class="footer-login">
+  <% if current_user.blank? %>
+      <div class="d-flex align-items-center justify-content-end my-4 me-1">
+        <%= link_to 'ゲストログイン（閲覧用）', home_guest_sign_in_path, method: :post, class: "text-white" %>
+        <%= link_to "ログイン", "/users/sign_in", class: "btn btn-outline-light me-3" %>
+        <%= link_to "新規登録", "/users/sign_up", class: "btn btn-light me-3" %>
       </div>
-      <ul class="dropdown-menu">
-        <li><%= link_to "アイコン・ネーム編集", "/users/profile", class: "dropdown-item" %></li>
-        <li><%= link_to "メール・パスワード編集", "/users/edit", class: "dropdown-item" %></li>
-        <li><%= link_to "行きたいキャンプ場リスト", user_path(@user), class: "dropdown-item" %></li>
-        <li><%= link_to "#", "#", class: "dropdown-item" %></li>
-        <li><%= link_to "ログアウト", destroy_user_session_path, class: "dropdown-item", method: :delete %></li>
-      </ul>
+  <% else %>
+    <div class="d-flex align-items-center justify-content-end">
+      <div class="nav-item d-sm-inline-block d-none me-3 text-white">
+        <%= current_user.name %>
+      </div>
+      <div class="btn-group dropup me-3">
+        <div class="btn rounded-circle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="0,5">
+          <% if current_user.icon_img.attached? %>
+            <%= image_tag current_user.icon_img, class: "icon_img rounded-circle h-100" %>
+          <% else %>
+            <i class="fas fa-user-plus fa-4x ms-3"></i>
+          <% end %>
+        </div>
+        <ul class="dropdown-menu">
+          <li><%= link_to "アイコン・ネーム編集", "/users/profile", class: "dropdown-item" %></li>
+          <li><%= link_to "メール・パスワード編集", "/users/edit", class: "dropdown-item" %></li>
+          <li><%= link_to "行きたいキャンプ場リスト", user_path(@user), class: "dropdown-item" %></li>
+          <li><%= link_to "#", "#", class: "dropdown-item" %></li>
+          <li><%= link_to "ログアウト", destroy_user_session_path, class: "dropdown-item", method: :delete %></li>
+        </ul>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

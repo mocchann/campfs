@@ -8,11 +8,6 @@ class ApplicationController < ActionController::Base
     root_path
   end
 
-  def set_q
-    @q = Field.ransack(params[:q])
-    @fields = @q.result(distinct: true)
-  end
-
   def set_user
     if current_user.present?
       @user = User.find(current_user.id)
@@ -24,5 +19,10 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :icon_img])
     devise_parameter_sanitizer.permit(:sign_in, keys: [:email])
+  end
+
+  private
+  def set_q
+    @q = Field.ransack(params[:q])
   end
 end

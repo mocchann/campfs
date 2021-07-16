@@ -5,6 +5,7 @@ class FieldsController < ApplicationController
   end
 
   def search
+    @fields = @q.result(distinct: true)
     @fields = Field.page(params[:page]).per(1)
   end
 end
