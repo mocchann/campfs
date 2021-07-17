@@ -1,16 +1,34 @@
-<div class="search-number-container">
+<div class="container">
   <p class="search-number">
-    <%#= show_current_number(@fields.current_page, @fields.size) %>件を表示 ／ 全<%#= @fields.total_entries %>件
+    <%#= show_current_number(@fields.current_page, @fields.size) %>件を表示 / 全<%#= @fields.total_entries %>件
   </p>
 </div>
 <div class="row">
-  <h2><%= "検索結果:#{@fields.count}件" %></h2>
+  <div class="d-flex align-items-center flex-column my-5">
+    <h2>
+      <span class="camp-style">S</span>
+      <span class="camp-style">E</span>
+      <span class="camp-style">A</span>
+      <span class="camp-style">R</span>
+      <span class="camp-style">C</span>
+      <span class="camp-style">H</span>
+      <span class="camp-style">-</span>
+      <span class="camp-style">R</span>
+      <span class="camp-style">E</span>
+      <span class="camp-style">S</span>
+      <span class="camp-style">U</span>
+      <span class="camp-style">L</span>
+      <span class="camp-style">T</span>
+      <span class="camp-style">S</span>
+    </h2>
+    <h3 class="camp-search text-center"><%= "検索結果:#{@fields.count}件" %></h3>
+  </div>
   <% if @fields.length != 0 %>
     <% @fields.each do |field| %>
       <div class="col-sm-12 col-md-6 col-lg-4">
-        <div class="card img-thumbnail h-100">
-          <%= image_tag("https://picsum.photos/244", size:"300x250") %>
-          <%#= image_tag fields.image.url, class:"card-img-top", size:"300x250" %>
+        <div class="card shadow bg-white rounded">
+          <%= image_tag("https://picsum.photos/244") %>
+          <%#= image_tag fields.image.url, class:"card-img-top" %>
           <div class="card-body px-2 py-3">
             <h5 class="card-title">
               <%= link_to field.name, field_path(field) %>
