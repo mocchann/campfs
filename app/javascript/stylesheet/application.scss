@@ -39,7 +39,7 @@ body {
     "... footer footer footer footer footer ..."
     "... ...... ...... ...... ...... ...... ..."
 
-    / auto 150px auto minmax(480px, 1fr) auto 150px auto;
+    / auto 150px auto 1fr auto 150px auto;
   
 }
 
@@ -93,9 +93,9 @@ nav {
 main {
   grid-area: center;
   .container {
-    padding-top: 36px;
-    padding-bottom : 36px;
-    font-size: 16px;
+    // padding-top: 36px;
+    // padding-bottom : 36px;
+    // font-size: 16px;
     .login-form-wrapper, .registration-wrapper {
       padding: 36px;
     }
@@ -121,6 +121,7 @@ aside {
 footer {
   background-color: #64a19d;
   grid-area: footer;
+  width: 100%;
 }
 
 .top-main {
@@ -176,31 +177,30 @@ footer {
 @media screen and (max-width: 1000px) {
   body {
     grid-template:
-      "header" 100px
-      "top   " 300px
-      "center" 1fr
+      "header"
+      "top   "
+      "center"
       "left  "
       "right "
-      "footer" 100px;
+      "footer"
   }
 }
 
-// pagenation
-/*ページネーション自体のデザイン*/
-.pagination>li>a {          
-  border: none;     /*枠線をなくす*/
-  color: #696969;   /*文字の色を変える*/
+//ページネーション
+.page-item.active .page-link {
+  z-index: 3;
+  color: #fff;
+  background-color: #64a19d;
+  border-color: #64a19d;
 }
 
-/* 表示しているページ番号のデザイン */
-.pagination>.active>a {     
-  background-color: #93c9ff;     /*背景の色を変える*/
-  border-radius: 15px;     /*角を丸くする*/
+.page-link {
+  color: #64a19d;
 }
 
-/*ホバー時のデザイン*/
-.pagination>li>a:hover {        
-  border-radius: 15px;    /*角を丸くする*/
+.pagination {
+  justify-content: center;
+  margin-top: 50px;
 }
 
 
@@ -320,4 +320,61 @@ footer {
   .japan_map .area_btn{
       font-size: 4vw;
   }
+}
+
+/* 吹き出し本体 */
+.bubble{
+  position: relative;
+  display: inline-block;
+  min-width: 200px;
+  max-width: 100%;
+  color: #64a19d;
+  border-radius: 50px;
+}
+/* 大円 */
+.bubble::before{
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  transform: rotate(45deg);
+  left: -45px;
+  top: 90px;
+  border-left:   17px solid #64a19d;
+  border-top:    17px solid #64a19d;
+  border-right:  17px solid #64a19d;
+  border-bottom: 17px solid #64a19d;
+}
+/* 小円 */
+.bubble::after{
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  transform: rotate(45deg);
+  left: -75px;
+  top: 120px;
+  border-left:   13px solid #64a19d;
+  border-top:    13px solid #64a19d;
+  border-right:  13px solid #64a19d;
+  border-bottom: 13px solid #64a19d;
+}
+
+.result-btn {
+  color: white;
+  background-color: #64a19d;
+}
+
+.delete-btn {
+  color: white;
+  background-color: #FF0000;
+}
+
+.back-btn {
+  color: #64a19d;
+  background-color: white;
+  border: #64a19d;
 }
