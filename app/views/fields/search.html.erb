@@ -1,27 +1,27 @@
 <div class="container">
   <p class="search-number">
-    <%#= show_current_number(@fields.current_page, @fields.size) %>件を表示 / 全<%#= @fields.total_entries %>件
+    <%= @fields_search.current_page %>ページ目を表示 / 全<%= @fields_search.total_count %>ページ
   </p>
 </div>
 <div class="row">
   <div class="d-flex align-items-center flex-column my-5">
     <h2>
-      <span class="camp-style">S</span>
-      <span class="camp-style">E</span>
-      <span class="camp-style">A</span>
-      <span class="camp-style">R</span>
-      <span class="camp-style">C</span>
-      <span class="camp-style">H</span>
-      <span class="camp-style">-</span>
-      <span class="camp-style">R</span>
-      <span class="camp-style">E</span>
-      <span class="camp-style">S</span>
-      <span class="camp-style">U</span>
-      <span class="camp-style">L</span>
-      <span class="camp-style">T</span>
-      <span class="camp-style">S</span>
+      <span class="page-title">S</span>
+      <span class="page-title">E</span>
+      <span class="page-title">A</span>
+      <span class="page-title">R</span>
+      <span class="page-title">C</span>
+      <span class="page-title">H</span>
+      <span class="page-title">-</span>
+      <span class="page-title">R</span>
+      <span class="page-title">E</span>
+      <span class="page-title">S</span>
+      <span class="page-title">U</span>
+      <span class="page-title">L</span>
+      <span class="page-title">T</span>
+      <span class="page-title">S</span>
     </h2>
-    <h3 class="camp-search text-center"><%= "検索結果:#{@fields.count}件" %></h3>
+    <h3 class="camp-search text-center"><%= "検索結果:#{@fields_search.total_count}件" %></h3>
   </div>
   <% if @fields.length != 0 %>
     <% @fields.each do |field| %>
@@ -72,12 +72,14 @@
                 <%#= link_to hash_tag.tag, results_path(q: { hash_tags_id_in: [hash_tag.id] }) %> <!-- 配列じゃないと検索できないため、idを[]で括っている -->
               <%# end %>
             </p>
-          </div><!-- /.card-body -->
-        </div><!-- /.card -->
-      </div><!-- /.col-sm-6.col-md-3 -->
+          </div>
+        </div>
+      </div>
     <% end %>
   <% else %>
+  <div class="text-center">
     キャンプ場は見つかりませんでした
+  </div>
   <% end %>
-</div><!-- /.row -->
-<%= paginate @fields %>
+</div>
+<%= paginate @fields_search %>

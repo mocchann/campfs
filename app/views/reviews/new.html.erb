@@ -1,11 +1,11 @@
 <div class="d-flex align-items-center flex-column mt-5">
   <h2>
-    <span class="camp-style">R</span>
-    <span class="camp-style">E</span>
-    <span class="camp-style">V</span>
-    <span class="camp-style">I</span>
-    <span class="camp-style">E</span>
-    <span class="camp-style">W</span>
+    <span class="page-title">R</span>
+    <span class="page-title">E</span>
+    <span class="page-title">V</span>
+    <span class="page-title">I</span>
+    <span class="page-title">E</span>
+    <span class="page-title">W</span>
   </h2>
   <p class="camp-search text-center">口コミ投稿</p>
 </div>
@@ -23,7 +23,8 @@
       <%= f.label :口コミ内容 %>
       <%= f.text_area :content, class: "form-control" %>
     </div>
-    <%= hidden_field_tag :field_id,  params[:field_id] %>
+    <%= hidden_field_tag :field_id, params[:field_id] %>
+    <%#= hidden_field_tag :review_id, params[:review_id] %>
     <div class="text-center">
       <%= f.submit "保存", class: "result-btn btn rounded-pill w-50 m-auto my-5" %>
     </div>

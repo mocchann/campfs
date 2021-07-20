@@ -1,19 +1,19 @@
 <div class="d-flex align-items-center flex-column my-5">
   <h2>
-    <span class="camp-style">F</span>
-    <span class="camp-style">I</span>
-    <span class="camp-style">E</span>
-    <span class="camp-style">L</span>
-    <span class="camp-style">D</span>
-    <span class="camp-style">S</span>
-    <span class="camp-style">-</span>
-    <span class="camp-style">D</span>
-    <span class="camp-style">E</span>
-    <span class="camp-style">T</span>
-    <span class="camp-style">A</span>
-    <span class="camp-style">I</span>
-    <span class="camp-style">L</span>
-    <span class="camp-style">S</span>
+    <span class="page-title">F</span>
+    <span class="page-title">I</span>
+    <span class="page-title">E</span>
+    <span class="page-title">L</span>
+    <span class="page-title">D</span>
+    <span class="page-title">S</span>
+    <span class="page-title">-</span>
+    <span class="page-title">D</span>
+    <span class="page-title">E</span>
+    <span class="page-title">T</span>
+    <span class="page-title">A</span>
+    <span class="page-title">I</span>
+    <span class="page-title">L</span>
+    <span class="page-title">S</span>
   </h2>
   <h3 class="camp-search text-center">キャンプ場詳細</h3>
 </div>
@@ -77,7 +77,7 @@
           </div>
           <div class="row">
             <div class="col-sm-4 col-5 text-left pl-2">
-              <i class="fas fa-calendar-check"></i> 期間
+              <i class="fas fa-calendar-check"></i> 営業期間
             </div>
             <div class="col-sm-8 col-7 text-left px-0">
               <%= @field.season %>
@@ -85,7 +85,7 @@
           </div>
           <div class="row">
             <div class="col-sm-4 col-5 text-left pl-2">
-              <i class="fas fa-clock"></i> アーリーチェックイン/アーリーチェックアウト
+              <i class="fas fa-clock"></i> アーリーチェックイン/レイトチェックアウト
             </div>
             <div class="col-sm-8 col-7 text-left px-0">
               <%= @field.early_in_late_out %>
@@ -133,6 +133,14 @@
           </div>
           <div class="row">
             <div class="col-sm-4 col-5 text-left pl-2">
+              <i class="fas fa-yen-sign fa-fw"></i> 最寄りの温泉
+            </div>
+            <div class="col-sm-8 col-7 text-left px-0">
+              <%= @field.near_supermarket %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4 col-5 text-left pl-2">
               <i class="fas fa-yen-sign fa-fw"></i> 標高(m)
             </div>
             <div class="col-sm-8 col-7 text-left px-0">
@@ -174,10 +182,19 @@
           <div class="row">
             <div class="col-sm-4 col-5 text-left pl-2">
               <i class="fas fa-campfire"></i>
-              <span class="holiday"></span> 焚き火・直火
+              <span class="holiday"></span> 焚き火
             </div>
             <div class="col-sm-8 col-7 text-left px-0">
-              <%= @field.fire %>
+              <%= @field.bonfire %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4 col-5 text-left pl-2">
+              <i class="fas fa-campfire"></i>
+              <span class="holiday"></span> 直火
+            </div>
+            <div class="col-sm-8 col-7 text-left px-0">
+              <%= @field.direct_fire %>
             </div>
           </div>
           <div class="row">
@@ -207,7 +224,7 @@
           <div class="row">
             <div class="col-sm-4 col-5 text-left pl-2">
               <i class="fas fa-bath"></i>
-              <span class="holiday"></span> 風呂・シャワー
+              <span class="holiday"></span> 入浴設備
             </div>
             <div class="col-sm-8 col-7 text-left px-0">
               <%= @field.bath %>
@@ -226,7 +243,7 @@
               <span class="holiday"></span> ペット
             </div>
             <div class="col-sm-8 col-7 text-left px-0">
-              <%= @field.pet %>
+              <%= @field.pets %>
             </div>
           </div>
           <div class="">
@@ -266,15 +283,15 @@
         <div class="card-header text-center">
           <h4>口コミ</h4>
         </div>
+        <%= link_to "口コミを投稿する", new_review_path(field_id: @field.id), class: "result-btn btn rounded-pill w-50 m-auto mt-5" %>
         <% if @reviews.present? %>
-          <div class="card-header">
+          <div class="card-header mt-5">
             レビュー　全<%= @reviews.count %>件
           </div>
-          <%= link_to "口コミを投稿する", new_review_path(field_id: @field.id), class: "result-btn btn rounded-pill w-50 m-auto mt-5" %>
           <div id="reviews">
             <% @reviews.each do |review| %>
               <div class="review row text-left">
-                <div class="icon col-2 p-5">
+                <div class="col-2 p-5">
                   <% if review.user.icon_img.present? %>
                     <%= image_tag review.user.icon_img, class:"rounded-circle", size:"100x100" %>
                   <% else %>
@@ -291,10 +308,10 @@
                     <%= simple_format(review.content) %>
                   </div>
                   <div class="text-end">
-                    <%= review.user.name %>
+                    <p><%= review.user.name %> さん</p>
                   </div>
                 </div>
-                <% if current_user.id == review.user.id %>
+                <% if user_signed_in? && current_user.id == review.user.id %>
                   <%= link_to "削除する", review_path(review), method: :delete, data: { confirm: '削除しますか?' }, class: "delete-btn btn rounded-pill w-50 m-auto mb-5" %>
                 <% end %>
                 <script>
@@ -312,7 +329,7 @@
             <% end %>
           </div>
         <% else %>
-          <p>口コミはありません</p>
+          <p class="text-center mt-5">口コミはありません</p>
         <% end %>
         <div class="review row text-left">
           <div class="balloon col-8 text-left">
@@ -322,8 +339,8 @@
       </div>
     </div>
     <div class="text-center">
-          <%= link_to "トップページへ戻る", root_path, class: "back-btn btn rounded-pill w-50 m-auto mt-5" %>
-        </div>
+      <%= link_to "トップページへ戻る", root_path, class: "back-btn btn rounded-pill w-50 m-auto mt-5" %>
+    </div>
   </div>
 </div>
 
