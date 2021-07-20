@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   private
-  
+
   def set_q
     @q = Field.ransack(params[:q])
   end
