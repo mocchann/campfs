@@ -1,5 +1,5 @@
 module FieldsHelper
-  def show_current_number(current_page,size)
+  def show_current_number(current_page, size)
     if size > 8
       first = 1
       last  = size
