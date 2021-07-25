@@ -1,7 +1,7 @@
 <div id="bookmark_tag">
-  <% if Bookmark.find_by(user_id: current_user.id, field_id: @field.id) %>
-    <%= render "unbookmark" %>
+  <% if Bookmark.find_by(user_id: current_user.id, field_id: field.id) %>
+    <%= render "unbookmark", field: @field %>
   <% else %>
-    <%= render "bookmark" %>
+    <%= render "bookmark",field: @field %>
   <% end %>
 </div>

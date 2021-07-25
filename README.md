@@ -17,10 +17,19 @@
 -アイコン設定、ユーザー名登録<br>
 -ゲストログイン機能<br>
 ・検索機能(Ransack)<br>
+-名前、住所検索
+-都道府県検索
+-焚き火・直火可検索
+-標高検索
+-ペット可検索
+-車横付け検索
+-ウォシュレットトイレ検索
+-ゆるキャン検索
+-
 ・口コミ機能<br>
 ・星評価機能<br>
 -JQuery Raty.js<br>
 ・ページネーション(Kaminari)<br>
 ・ブックマーク機能<br>
-・Twiter、Facebook、LINEシェア<br>
+・Twitter、Facebook、LINEシェア<br>
 ・Google maps API<br>

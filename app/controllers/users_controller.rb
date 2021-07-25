@@ -3,8 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @fields = @user.bookmark_fields.includes(:reviews)
-    @fields = Field.page(params[:page]).per(1)
+    @fields = @user.bookmark_fields.includes(:reviews).page(params[:page]).per(9)
   end
 
   def profile

@@ -18,6 +18,7 @@ AllCops:
     - Rakefile
     - channels/application_cable/*
     - 'spec/spec_helper.rb'
+    - 'app/helpers/*'
 
 MixinUsage:
   Include:

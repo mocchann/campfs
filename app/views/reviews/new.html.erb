@@ -1,5 +1,16 @@
+<% provide(:title, "口コミ投稿") %>
+<div class="d-flex align-items-center flex-column mt-5">
+  <h2>
+    <span class="page-title">R</span>
+    <span class="page-title">E</span>
+    <span class="page-title">V</span>
+    <span class="page-title">I</span>
+    <span class="page-title">E</span>
+    <span class="page-title">W</span>
+  </h2>
+  <p class="camp-search text-center">口コミ投稿</p>
+</div>
 <div class="container">
-  <h1>口コミ投稿</h1>
   <%= form_for [@review] do |f| %>
     <div class="form-group">
       <%= f.label :タイトル %>
@@ -13,12 +24,13 @@
       <%= f.label :口コミ内容 %>
       <%= f.text_area :content, class: "form-control" %>
     </div>
-    <%= hidden_field_tag :field_id,  params[:field_id] %>
-    <%= f.submit "保存", class: "btn btn-primary mt-3" %>
-
+    <%= hidden_field_tag :field_id, params[:field_id] %>
+    <div class="text-center">
+      <%= f.submit "保存", class: "result-btn btn rounded-pill w-50 m-auto my-5" %>
+    </div>
     <script>
       $('#star').raty({
-        size     : 36,
+        size: 36,
         starOff:  '<%= asset_path('star-off.png') %>',
         starOn : '<%= asset_path('star-on.png') %>',
         starHalf: '<%= asset_path('star-half.png') %>',
@@ -27,5 +39,7 @@
       });
     </script>
   <% end %>
-  <%= link_to "戻る", request.referer, class: "btn btn-success" %>
+  <div class="text-center">
+    <%= link_to "戻る", request.referer, class: "back-btn btn rounded-pill w-50 m-auto mb-5" %>
+  </div>
 </div>

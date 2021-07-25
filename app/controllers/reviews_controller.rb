@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
-    @field = Field.find(params[:field_id])
+    # @field = Field.find(params[:field_id])
   end
 
   def create

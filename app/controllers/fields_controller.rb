@@ -1,10 +1,11 @@
 class FieldsController < ApplicationController
   def show
     @field = Field.find(params[:id])
-    @reviews = Review.includes(:user)
+    @reviews = @field.reviews.includes(:user)
   end
 
   def search
-    @fields = Field.page(params[:page]).per(1)
+    @fields = @q.result
+    @fields_search = @fields.page(params[:page]).per(9)
   end
 end

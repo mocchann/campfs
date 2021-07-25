@@ -1,31 +1,45 @@
-<div class="container user-registration-wrapper">
-  <div class="registration-wrapper col-md-6 offset-md-3 col-sm-12 text-center shadow rounded">
-    <h3 class="my-4">
-      <%= t('.sign_up') %>
-    </h3>
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
-      <i class="fas fa-user-plus fa-4x ms-3"></i>
-      <div class="field p-3 m-5 border-bottom">
-        <%= f.label "アイコン画像" %><br>
-        <%= f.file_field :icon_img, autofocus: true, autocomplete: "icon_img" %>
-      </div>
-      <div class="field form-row">
-        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control col-10 px-2", placeholder: "アカウント名" %>
-      </div>
-      <div class="field form-row">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control col-10 px-2", placeholder: "メールアドレス" %>
-      </div>
-      <div class="field form-row">
-        <%= f.password_field :password, autocomplete: "new-password", class: "form-control col-10 px-2", placeholder: "パスワード" %>
-      </div>
-      <div class="field form-row">
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control col-10 px-2", placeholder: "パスワード確認" %>
-      </div>
-      <div class="mt-4 mb-3">
-        <%= f.submit t('.sign_up'), class: "btn btn-primary" %>
-      </div>
-    <% end %>
-    <%= render "devise/shared/links" %>
+<% provide(:title, "新規登録") %>
+<div class="d-flex align-items-center flex-column mt-5">
+  <h2>
+    <span class="page-title">S</span>
+    <span class="page-title">I</span>
+    <span class="page-title">G</span>
+    <span class="page-title">N</span>
+    <span class="page-title">-</span>
+    <span class="page-title">U</span>
+    <span class="page-title">P</span>
+  </h2>
+  <p class="camp-search text-center">新規登録</p>
+</div>
+<div class="container">
+  <div class="col-md-8 text-center col-sm-12 offset-md-2 rounded shadow my-5">
+    <div class="col-md-10 offset-md-1 col-sm-12 col-xs-12 pt-5">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <i class="fas fa-user-plus fa-4x ms-3 mt-3"></i>
+        <div class="border-bottom my-3">
+          <%= f.label "アイコン画像" %>
+        </div>
+        <div class="offset-1 my-3">
+          <%= f.file_field :icon_img, autofocus: true, autocomplete: "icon_img" %>
+        </div>
+        <div class="form-group form-row p-3">
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control col-10 px-2", placeholder: "アカウント名" %>
+        </div>
+        <div class="form-group form-row p-3">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control col-10 px-2", placeholder: "メールアドレス" %>
+        </div>
+        <div class="form-group form-row p-3">
+          <%= f.password_field :password, autocomplete: "new-password", class: "form-control col-10 px-2", placeholder: "パスワード" %>
+        </div>
+        <div class="form-group form-row p-3">
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control col-10 px-2", placeholder: "パスワード確認" %>
+        </div>
+        <div class="mt-4 mb-3">
+          <%= f.submit t('.sign_up'), class: "result-btn btn rounded-pill w-50 m-auto my-4" %>
+        </div>
+      <% end %>
+      <%= render "devise/shared/links", class: "login-btn btn rounded-pill w-50 m-auto my-4" %>
+    </div>
   </div>
 </div>

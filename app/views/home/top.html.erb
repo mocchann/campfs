@@ -1,91 +1,39 @@
-<div class="top-main">
-  <h1>さあ、次なる旅へ出掛けよう</h1>
-</div>
-<div class="middle-main">
-  <div class="row row-cols-1 row-cols-md-2 g-4">
-    <div class="col">
-      <div class="card">
-        <%= link_to image_tag("https://picsum.photos/244", alt: "ゆるキャン" ), "#" %>
-        <div class="card-body">
-          <h5 class="card-title">標高別まとめ</h5>
-          <p class="card-text">標高別にキャンプ場をまとめました</p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-       <%= link_to image_tag("https://picsum.photos/244", alt: "ゆるキャン" ), "#" %>
-        <div class="card-body">
-          <h5 class="card-title">直火可！キャンプ場まとめ</h5>
-          <p class="card-text">直火OKなキャンプ場はこちら</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-3">
-      <%= link_to search_fields_path(q: { name_or_address_cont: "岡山" }), class: "card area-card h-100" do %>
-        <%= image_tag "https://picsum.photos/244", class: "card-img-top" %>
-        <div class="card-body">
-          <h3>岡山</h3>
-        </div>
-      <% end %>
-    </div>
-    <div class="col">
-      <div class="card">
-       <%= link_to image_tag("https://picsum.photos/244", alt: "ゆるキャン" ), "#" %>
-        <div class="card-body">
-          <h5 class="card-title">女性キャンパー必見</h5>
-          <p class="card-text">セキュリティが充実しているキャンプ場集めました</p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <%= link_to root_path do %>
-          <%= image_tag("https://picsum.photos/244", alt: "ゆるキャン") %>
-          <div class="card-body">
-            <h5 class="card-title">ゆるキャン△</h5>
-            <p class="card-text">ゆるキャン聖地巡礼特集</p>
-          </div>
-        <% end %>
-      </div>
+<%= render "top_main" %>
+<%= render "middle_main", q: @q %>
+<%= render "under_main", q: @q %>
+<div class="row gx-0 mb-lg-5 align-items-center mt-5">
+  <div class="col-xl-8 col-lg-7">
+    <%= image_tag "top-under-img.png", class: "under-img" %>
+  </div>
+  <div class="col-xl-4 col-lg-5">
+    <div class="featured-text-left text-center text-lg-left mb-5">
+      <h4>最高の旅へ出て、癒やしの空間を作ろう</h4>
+      <p class="text-black-50 mb-0">Camping begins when you think about going camping. You choose your gear, get in the car, and drive to the campsite with a beautiful view. Build a tent, start a fire, and cook a meal. Then, light the lanterns, and you have a relaxing space!</p>
     </div>
   </div>
 </div>
-<div class="under-main">
-  <div class="card mb-3" style="max-width: 540px;">
-    <div class="row g-0">
-      <div class="col-md-4">
-        <%= link_to image_tag("https://picsum.photos/244", alt: "ゆるキャン" ), "#" %>
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title">歩いていけるキャンプ場特集</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row g-0">
-      <div class="col-md-4">
-        <%= link_to image_tag("https://picsum.photos/244", alt: "ゆるキャン" ), "#" %>
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title">地方・市町村単位検索</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
-    <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="https://picsum.photos/244" alt="..." /></div>
-    <div class="col-xl-4 col-lg-5">
-      <div class="featured-text text-center text-lg-left">
-        <h4>最高の旅へ出て、癒やしの空間を作ろう</h4>
-        <p class="text-black-50 mb-0">Grayscale is open source and MIT licensed. This means you can use it for any project - even commercial projects! Download it, customize it, and publish your website!</p>
-      </div>
-    </div>
-  </div>
-</div>
+<script>
+  $(function(){
+    $('.area_btn').click(function(){
+      $('.area_overlay').show();
+      $('.pref_area').show();
+      var area = $(this).data('area');
+      $('[data-list]').hide();
+      $('[data-list="' + area + '"]').show();
+    });
+    $('.area_overlay').click(function(){
+      prefReset();
+    });
+    $('.pref_list [data-id]').click(function(){
+      if($(this).data('id')){
+        var id = $(this).data('id');
+        prefReset();
+      }
+    });
+    function prefReset(){
+      $('[data-list]').hide();
+      $('.pref_area').hide();
+      $('.area_overlay').hide();
+    }
+  });
+</script>
