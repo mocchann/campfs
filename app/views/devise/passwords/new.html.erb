@@ -1,16 +1,30 @@
-<h2><%= t('.forgot_your_password') %></h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<%= provide(:title, t('.forgot_your_password')) %>
+<div class="d-flex align-items-center flex-column mt-5">
+  <h2>
+    <span class="page-title">P</span>
+    <span class="page-title">A</span>
+    <span class="page-title">S</span>
+    <span class="page-title">S</span>
+    <span class="page-title">W</span>
+    <span class="page-title">O</span>
+    <span class="page-title">R</span>
+    <span class="page-title">D</span>
+  </h2>
+  <p class="camp-search text-center"><%= t('.forgot_your_password') %></p>
+</div>
+<div class="container">
+  <div class="col-md-8 text-center col-sm-12 offset-md-2 rounded shadow my-5">
+    <div class="col-md-10 offset-md-1 col-sm-12 col-xs-12 pt-5">
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <div class="form-group form-row m-4">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "メールアドレスを入力", class: "form-control col-10 px-2" %>
+        </div>
+        <div class="actions mt-4 mb-3">
+          <%= f.submit t('.send_me_reset_password_instructions'), class: "result-btn btn rounded-pill w-50 m-auto my-4" %>
+        </div>
+      <% end %>
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit t('.send_me_reset_password_instructions') %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

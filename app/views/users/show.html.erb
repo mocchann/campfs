@@ -1,3 +1,4 @@
+<% provide(:title, "気になるキャンプ場") %>
 <div class="d-flex align-items-center flex-column mt-5">
   <h2>
     <span class="page-title">B</span>
@@ -16,11 +17,11 @@
   <div class="row">
     <aside class="col-md-3">
       <% if @user.icon_img.present? %>
-        <%= image_tag @user.icon_img, class:"rounded-circle", size:"100x100" %>
+        <%= image_tag @user.icon_img, class:"rounded-circle mb-3", size:"100x100" %>
       <% else %>
         <i class="fas fa-user-plus fa-4x ms-3"></i>
       <% end %>
-      <h3><%= @user.name %></h3>
+      <h3><%= @user.name %>さん</h3>
     </aside>
     <div class="col-md-9">
       <div class="row">
@@ -30,27 +31,27 @@
               <div class="card img-thumbnail p-0 rounded shadow">
                 <%= image_tag "https://picsum.photos/244", width: "100%", height: "100%" %>
                 <div class="card-body px-2 py-3">
-                  <h5 class="card-title"><%= link_to field.name, field_path(field) %></h5>
-                  <small class="small-block"><i class="fas fa-map-marker-alt"></i> <cite title="<%= field.address %>"><%= field.address %> </small>
-                  <small class="small-block"><i class="fas fa-subway"></i><%#= access_info(field.accesses) %></small>
-                  <small class="small-block"><i class="far fa-clock"></i><%#= field.opening_hours %></small>
-                  <small class="small-block"><i class="fas fa-yen-sign"></i><%#= field.weekday_fee&.fee %></small>
+                  <h5 class="card-title">
+                    <%= link_to field.name, field_path(field) %>
+                  </h5>
+                  <small class="small-block">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <cite title="<%= field.address %>">
+                    <%= field.address %>
+                  </small>
                   <div class="star-review" data-score="<%#= rating(field.reviews) %>"></div>
                   <div class="score-review"><%#= rating(field.reviews) %></div>
-                  <p class="count-review"><i class="fa fa-comments"></i> <%#= field.reviews.count %></p>
-                  <p class="hash_tags"><i class="fas fa-tags"></i> 
-                    <%# field.hash_tags.each do |hash_tag| %>
-                      <%#= link_to hash_tag.tag, fields_path(q: { hash_tags_id_in: [hash_tag.id] }) %>
-                    <%# end %>
+                  <p class="count-review">
+                    <i class="fa fa-comments"></i> <%#= field.reviews.count %>
                   </p>
-                </div><!-- /.card-body -->
-              </div><!-- /.card -->
-            </div><!-- /.col-sm-6.col-md-3 -->
+                </div>
+              </div>
+            </div>
           <% end %>
         <% else %>
-          <p>気になるキャンプ場をブックマークしてみよう！</p>
+          <p>気になるキャンプ場や行ってみたいキャンプ場をブックマークしてみよう！</p>
         <% end %>
-      </div><!-- /.row -->
+      </div>
       <%= paginate @fields %>
     </div>
     <div class="text-center">

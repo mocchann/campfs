@@ -4,9 +4,9 @@
       <h1 class="site-title">TO CAMP</h1>
     <% end %>
     <div class="d-flex">
-      <i class="fas fa-map-marker-alt" style="margin-top: 12px; margin-left: 10px; position:absolute;"></i>
-      <%= search_form_for @q, url: search_fields_path do |f| %>
-        <%= f.search_field :name_or_address_cont, required: true, class: "form-control me-2 px-4", placeholder: ' キャンプ場を探す' %>
+      <i class="fas fa-search ms-2" style=" margin-top: 12px; position:absolute;"></i>
+      <%= search_form_for q, url: search_fields_path do |f| %>
+        <%= f.search_field :name_cont, required: true, class: "form-control me-2 px-4", placeholder: ' キャンプ場名を入力' %>
         <% f.submit %>
       <% end %>
     </div>

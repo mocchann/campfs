@@ -1,3 +1,4 @@
+<% provide(:title, "アイコン・ネーム編集") %>
 <div class="d-flex align-items-center flex-column mt-5">
   <h2>
     <span class="page-title">I</span>
@@ -12,34 +13,36 @@
   </h2>
   <p class="camp-search text-center">アイコン・ネーム編集</p>
 </div>
-<div class="container user-registration-wrapper">
-  <div class="registration-wrapper col-md-6 offset-md-3 col-sm-12 text-center shadow rounded p-5 my-5">
-    <%= form_with model: @user, url: users_profile_update_path, local: true, method: :patch do |f| %>
-      <%= hidden_field_tag :id, @user.id %>
-      <div class="p-3 mx-2 border-bottom text-center">
-        <% if current_user.icon_img.attached? %>
-          <%= image_tag current_user.icon_img, class: "rounded-circle", size: "65x65" %>
-        <% else %>
-          <i class="fas fa-user-plus fa-4x ms-3"></i>
-        <% end %>
-      </div>
-      <div class="form-group form-row p-3 mx-2 border-bottom">
-        <div class="col-md-3 required-b pt-2">
-          <%= f.label :new_icon_img, "アイコン画像" %>
+<div class="container">
+  <div class="col-md-8 text-center offset-md-2 col-sm-12 shadow rounded my-5">
+    <div class="col-md-10 offset-md-1 col-sm-12 col-xs-12 pt-5">
+      <%= form_with model: @user, url: users_profile_update_path, local: true, method: :patch do |f| %>
+        <%= hidden_field_tag :id, @user.id %>
+        <div class="border-bottom my-3 pb-3">
+          <% if current_user.icon_img.attached? %>
+            <%= image_tag current_user.icon_img, class: "rounded-circle", size: "65x65" %>
+          <% else %>
+            <i class="fas fa-user-plus fa-4x ms-4"></i>
+          <% end %>
         </div>
-        <div id="icon-img" class="col-md-9 mb-4">
-          <%= f.file_field :new_icon_img, autocomplete: "name" %>
+        <div class="form-group form-row border-bottom">
+          <div class="my-3">
+            <%= f.label :new_icon_img, "アイコン画像" %>
+          </div>
+          <div class="">
+            <%= f.file_field :new_icon_img, autocomplete: "name" %>
+          </div>
         </div>
-      </div>
-      <div class="form-group form-row p-3 mx-2 border-bottom">
-        <%= f.text_field :name, autocomplete: "name", class: "form-control col-md-9 px-2 mb-4", placeholder: "" %>
-      </div>
-      <div class="pb-3 p-3 mx-2">
-        <%= f.submit "更新", class: "col-2 result-btn btn rounded-pill w-50 m-auto my-4" %>
-      </div>
-      <div class="pb-3 p-3 mx-2">
-        <%= link_to "戻る", request.referer, class: "back-btn btn rounded-pill w-50 m-auto mb-5" %>
-      </div>
-    <% end %>
+        <div class="form-group form-row border-bottom m-3">
+          <%= f.text_field :name, autocomplete: "name", class: "form-control col-10 px-2", placeholder: "" %>
+        </div>
+        <div class="pb-3">
+          <%= f.submit "更新", class: "result-btn btn rounded-pill w-50 m-auto my-4" %>
+        </div>
+        <div class="pb-3">
+          <%= link_to "戻る", request.referer, class: "back-btn btn rounded-pill w-50 mb-5" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

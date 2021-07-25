@@ -1,3 +1,4 @@
+<% provide(:title, "ログイン") %>
 <div class="d-flex align-items-center flex-column mt-5">
   <h2>
     <span class="page-title">L</span>
@@ -10,17 +11,17 @@
   <p class="camp-search text-center">ログイン</p>
 </div>
 <div class="container">
-  <div class="login-form-wrapper col-md-6 text-center col-sm-12 offset-md-3 rounded shadow my-5">
-    <div class="col-md-10 offset-md-1 col-sm-12 col-xs-12">
+  <div class="col-md-8 text-center col-sm-12 offset-md-2 rounded shadow my-5">
+    <div class="col-md-10 offset-md-1 col-sm-12 col-xs-12 pt-5">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="field form-group form-row mt-5">
+        <div class="form-group form-row m-4">
           <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "メールアドレス", class: "form-control col-10 px-2" %>
         </div>
-        <div class="field  form-group form-row">
+        <div class="form-group form-row m-4">
           <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: "form-control col-10 px-2" %>
         </div>
         <% if devise_mapping.rememberable? %>
-          <div class="field form-group form-row">
+          <div class="form-group form-row">
             <%= f.check_box :remember_me %>
             <%= f.label :remember_me %>
           </div>
