@@ -6,7 +6,7 @@ ActiveAdmin.register Field do
   #
   permit_params :name, :address, :reservation, :phone_number, :business_hours, :holiday, :all_season, :season, :early_in, :early_in_description, :late_out, :late_out_description,
                 :check_in, :check_out, :day_camp, :day_camp_description, :sea, :lake, :river, :mountain, :woods, :near_station, :near_station_km, :near_ic, :near_spa, :near_supermarket,
-                :elevation, :section_site, :section_site_price, :section_site_size, :free_site,  :free_site_price, :free_site_size, :cancel, :ground_turf, :ground_soil, :ground_wood_deck,
+                :elevation, :section_site, :section_site_price, :section_site_size, :free_site, :free_site_price, :free_site_size, :cancel, :ground_turf, :ground_soil, :ground_wood_deck,
                 :ground_sand, :bonfire, :direct_fire, :car, :gate, :manager_resident, :manager_on_time, :security, :trash, :coin_shower, :free_shower, :washlet, :flush_toilet, :simple_toilet,
                 :pets, :latitude, :longitude, :image, :place_id, :field_url, :laid_back_camp, :two_people_solo_camp
   #
