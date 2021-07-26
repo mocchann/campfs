@@ -15,10 +15,10 @@
 <div class="container">
   <div class="col-md-8 text-center col-sm-12 offset-md-2 rounded shadow my-5">
     <div class="col-md-10 offset-md-1 col-sm-12 col-xs-12 pt-5">
-      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= form_with model: @user, url: user_password_path do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
         <div class="form-group form-row m-4">
-          <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "メールアドレスを入力", class: "form-control col-10 px-2" %>
+          <%= f.email_field :email, class:"form-control col-10 px-2", id:"email", placeholder:"メールアドレスを入力して下さい", autofocus: true %>
         </div>
         <div class="actions mt-4 mb-3">
           <%= f.submit t('.send_me_reset_password_instructions'), class: "result-btn btn rounded-pill w-50 m-auto my-4" %>
