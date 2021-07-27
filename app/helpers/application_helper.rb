@@ -1,5 +1,5 @@
 module ApplicationHelper
-  BASE_TITLE = "TO CAMP".freeze
+  BASE_TITLE = "TO_CAMP".freeze
   
   def full_title(page_title = '')
     if page_title.empty?
