@@ -17,6 +17,7 @@
 ・ログイン機能(Devise)<br>
 -アイコン設定、ユーザー名登録<br>
 -ゲストログイン機能<br>
+・パスワード再設定機能(devise mailer)<br>
 ・検索機能(Ransack)<br>
 -キャンプ場名検索<br>
 -都道府県検索<br>
@@ -28,11 +29,13 @@
 ・ページネーション(Kaminari)<br>
 -並べ替え機能<br>
 ・ブックマーク機能<br>
-・Twitter、Facebook、LINEシェア<br>
+・SNSシェアボタン<br>
+-Twitter、Facebook、LINE<br>
 ・Google maps API<br>
 ・管理者機能(active admin)<br>
 
 ## テスト
 ・RSpec<br>
+-models spec<br>
+-requests spec<br>
 -system spec<br>
--request spec<br>
