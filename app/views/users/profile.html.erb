@@ -1,4 +1,6 @@
 <% provide(:title, "アイコン・ネーム編集") %>
+  <%= flash[:notice] %>
+  <%= flash[:alert] %>
 <div class="d-flex align-items-center flex-column mt-5">
   <h2>
     <span class="page-title">I</span>
@@ -29,9 +31,7 @@
           <div class="my-3">
             <%= f.label :new_icon_img, "アイコン画像" %>
           </div>
-          <div class="">
-            <%= f.file_field :new_icon_img, autocomplete: "name" %>
-          </div>
+          <%= f.file_field :new_icon_img, autocomplete: "name" %>
         </div>
         <div class="form-group form-row border-bottom m-3">
           <%= f.text_field :name, autocomplete: "name", class: "form-control col-10 px-2", placeholder: "" %>
@@ -40,7 +40,7 @@
           <%= f.submit "更新", class: "result-btn btn rounded-pill w-50 m-auto my-4" %>
         </div>
         <div class="pb-3">
-          <%= link_to "戻る", request.referer, class: "back-btn btn rounded-pill w-50 mb-5" %>
+          <%= link_to "トップページに戻る", root_path, class: "back-btn btn rounded-pill w-50 mb-5" %>
         </div>
       <% end %>
     </div>

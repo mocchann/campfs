@@ -29,7 +29,7 @@
             <div>〜</div>
             <%= f.number_field :elevation_lteq, placeholder: "MAX", class: "form-control" %>
             <div>
-              <%= f.submit "検索", class: "btn btn-outline-light select-btn mt-4 w-100" %>
+              <%= f.submit "検索", class: "camp-style btn btn-outline-light select-btn mt-4 w-100" %>
             </div>
           <% end %>
         </div>
@@ -60,7 +60,7 @@
     <div class="container">
       <div class="row text-center">
         <div class="col-md-4 my-5">
-          <%= link_to search_fields_path(q: { place_eq: "湖" }) do %>
+          <%= link_to search_fields_path(q: { near_station_km_lteq: 1 }) do %>
             <span class="fa-stack fa-4x">
               <i class="fas fa-circle fa-stack-2x text-primary"></i>
               <i class="fas fa-hiking fa-stack-1x fa-inverse"></i>

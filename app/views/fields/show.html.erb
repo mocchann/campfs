@@ -23,7 +23,7 @@
     <div class="col-xl-4 col-12 mt-5">
       <div class="card shadow rounded">
         <div class="card-header">
-          <h3 class="show-field-header d-flex">
+          <h3 class="show-field-header">
             <%= @field.name %>
             <p class="me-3">
               <%= render "bookmark_tag", field: @field if user_signed_in? %>
@@ -33,18 +33,19 @@
             <%= image_tag "star-on.png",class: "me-2" %> <%= rating(@reviews) %>
           </div>
         </div>
-        <div>
-          <%= image_tag "https://picsum.photos/244", width: "100%", height: "100%" %>
-        </div>
+        <% if @field.image.blank? %>
+          <i class="text-center my-3">no image</i>
+        <% else %>
+          <div>
+            <%= image_tag @field.image, width: "100%", height: "100%" %>
+          </div>
+        <% end %>
         <div class="card-body">
-          <div class="share_btn_container">
-            <div class="twitter share_btn">
-            　<a href="//twitter.com/share" class="twitter-share-button" data-text="<%= @field.name %> <%= @field_url %> #TO_CAMP" data-lang="ja"></a>
-            </div>
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            <div class="fb-share-button share_btn pb-10" data-href="<%= @field_url %>" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">シェア</a></div>
-            <div class="line-it-button share_btn" data-lang="ja" data-type="share-a" data-url="<%= @field_url %>" style="display: none;"></div>
-            <script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+          <div class="d-flex justify-content-center">
+            <a href="//twitter.com/share" class="twitter-share-button" data-text="<%= @field.name %> <%= @field_url %> #TO_CAMP" data-lang="ja"></a>
+            <div id="fb-root"></div>
+            <div class="fb-share-button mx-4" data-href="<%= @field_url %>" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">シェア</a></div>
+            <div class="line-it-button" data-lang="ja" data-type="share-a" data-url="<%= @field_url %>" style="display: none;"></div>
           </div>
         </div>
       </div>
@@ -202,7 +203,7 @@
               <i class="fas fa-mountain"></i> 標高(m)
             </div>
             <div class="col-sm-8 col-7 text-left px-0">
-              <%= @field.elevation %>
+              <%= @field.elevation %> m
             </div>
           </div>
           <div class="row">
@@ -274,9 +275,9 @@
             </div>
             <div class="col-sm-8 col-7 text-left px-0">
               <% if @field.bonfire %>
-                <i>可</i>
+                可
               <% else %>
-                <i>禁止</i>
+                禁止
               <% end %>
             </div>
           </div>
@@ -286,9 +287,9 @@
             </div>
             <div class="col-sm-8 col-7 text-left px-0">
               <% if @field.direct_fire %>
-                <i>可</i>
+                可
               <% else %>
-                <i>禁止</i>
+                禁止
               <% end %>
             </div>
           </div>
@@ -298,9 +299,9 @@
             </div>
             <div class="col-sm-8 col-7 text-left px-0">
               <% if @field.car %>
-                <i>可</i>
+                可
               <% else %>
-                <i>不可</i>
+                不可
               <% end %>
             </div>
           </div>
@@ -377,9 +378,9 @@
             </div>
             <div class="col-sm-8 col-7 text-left px-0">
               <% if @field.pets %>
-                <i>可</i>
+                可
               <% else %>
-                <i>不可</i>
+                不可
               <% end %>
             </div>
           </div>
@@ -389,7 +390,7 @@
             </div>
             <div class="col-sm-8 col-7 text-left px-0">
               <% if @field.laid_back_camp %>
-                <i>ゆるキャン聖地△</i>
+                <p>ゆるキャン聖地△</p>
               <% else %>
                 -
               <% end %>
@@ -401,7 +402,7 @@
             </div>
             <div class="col-sm-8 col-7 text-left px-0">
               <% if @field.two_people_solo_camp %>
-                <i>ふたりソロキャンプ地！</i>
+                <p>ふたりソロキャンプ地！</p>
               <% else %>
                 -
               <% end %>
@@ -493,7 +494,7 @@
       </div>
     </div>
     <div class="text-center">
-      <%= link_to "トップページへ戻る", root_path, class: "back-btn btn rounded-pill w-50 m-auto mt-5" %>
+      <%= link_to "トップページに戻る", root_path, class: "back-btn btn rounded-pill w-50 m-auto mt-5" %>
     </div>
   </div>
 </div>
@@ -525,3 +526,7 @@
 <script async defer
   src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
 </script>
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v11.0" nonce="BrpiAESd"></script>
+<script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>

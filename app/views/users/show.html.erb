@@ -1,19 +1,19 @@
 <% provide(:title, "気になるキャンプ場") %>
-<div class="d-flex align-items-center flex-column mt-5">
-  <h2>
-    <span class="page-title">B</span>
-    <span class="page-title">O</span>
-    <span class="page-title">O</span>
-    <span class="page-title">K</span>
-    <span class="page-title">-</span>
-    <span class="page-title">M</span>
-    <span class="page-title">A</span>
-    <span class="page-title">R</span>
-    <span class="page-title">K</span>
-  </h2>
-  <p class="camp-search text-center">気になるキャンプ場</p>
-</div>
-<div class="container user_show_container p-5 my-5">
+<div class="container">
+  <div class="d-flex align-items-center flex-column mt-5">
+    <h2>
+      <span class="page-title">B</span>
+      <span class="page-title">O</span>
+      <span class="page-title">O</span>
+      <span class="page-title">K</span>
+      <span class="page-title">-</span>
+      <span class="page-title">M</span>
+      <span class="page-title">A</span>
+      <span class="page-title">R</span>
+      <span class="page-title">K</span>
+    </h2>
+    <p class="camp-search text-center">気になるキャンプ場</p>
+  </div>
   <div class="row">
     <aside class="col-md-3">
       <% if @user.icon_img.present? %>
@@ -23,39 +23,16 @@
       <% end %>
       <h3><%= @user.name %>さん</h3>
     </aside>
-    <div class="col-md-9">
-      <div class="row">
-        <% if Bookmark.find_by(params[:id]).present? %>
-          <% @fields.each do |field| %>
-            <div class="col-sm-12 col-md-6 col-lg-4">
-              <div class="card img-thumbnail p-0 rounded shadow">
-                <%= image_tag "https://picsum.photos/244", width: "100%", height: "100%" %>
-                <div class="card-body px-2 py-3">
-                  <h5 class="card-title">
-                    <%= link_to field.name, field_path(field) %>
-                  </h5>
-                  <small class="small-block">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <cite title="<%= field.address %>">
-                    <%= field.address %>
-                  </small>
-                  <div class="star-review" data-score="<%#= rating(field.reviews) %>"></div>
-                  <div class="score-review"><%#= rating(field.reviews) %></div>
-                  <p class="count-review">
-                    <i class="fa fa-comments"></i> <%#= field.reviews.count %>
-                  </p>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        <% else %>
-          <p>気になるキャンプ場や行ってみたいキャンプ場をブックマークしてみよう！</p>
-        <% end %>
-      </div>
-      <%= paginate @fields %>
-    </div>
-    <div class="text-center">
-      <%= link_to "トップページへ戻る", root_path, class: "back-btn btn rounded-pill w-50 m-auto my-5" %>
-    </div>
+  </div>
+  <div class="row">
+    <% if Bookmark.find_by(params[:id]).present? %>
+      <%= render "shared/search_bookmark", fields: @fields %>
+    <% else %>
+      <p>気になるキャンプ場や行ってみたいキャンプ場をブックマークしてみよう！</p>
+    <% end %>
+  </div>
+  <%= paginate @fields %>
+  <div class="text-center">
+    <%= link_to "トップページに戻る", root_path, class: "back-btn btn rounded-pill w-50 m-auto my-5" %>
   </div>
 </div>

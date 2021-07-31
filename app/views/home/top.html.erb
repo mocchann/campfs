@@ -1,3 +1,6 @@
+<% provide(:title, "TOP") %>
+<%= flash[:notice] %>
+<%= flash[:alert] %>
 <%= render "top_main" %>
 <%= render "middle_main", q: @q %>
 <%= render "under_main", q: @q %>
@@ -6,7 +9,7 @@
     <%= image_tag "top-under-img.png", class: "under-img" %>
   </div>
   <div class="col-xl-4 col-lg-5">
-    <div class="featured-text-left text-center text-lg-left mb-5">
+    <div class="featured-text-left text-center text-lg-left">
       <h4>最高の旅へ出て、癒やしの空間を作ろう</h4>
       <p class="text-black-50 mb-0">Camping begins when you think about going camping. You choose your gear, get in the car, and drive to the campsite with a beautiful view. Build a tent, start a fire, and cook a meal. Then, light the lanterns, and you have a relaxing space!</p>
     </div>
