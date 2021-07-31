@@ -41,6 +41,7 @@ group :development, :test do
   gem 'rubocop-airbnb'
   gem 'annotate'
   gem "rspec_junit_formatter"
+  gem 'selenium-webdriver'
 end
 
 group :development do
