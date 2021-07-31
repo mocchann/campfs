@@ -19,8 +19,14 @@ services:
       - "3000:3000"
     depends_on:
       - db
+      - chrome
     stdin_open: true
     tty: true
+  chrome:
+    image: selenium/standalone-chrome:latest
+    shm_size: 256m
+    ports:
+    - 4444:4444
 volumes:
   mysql-data:
     driver: local
