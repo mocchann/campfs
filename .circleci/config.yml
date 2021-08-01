@@ -53,6 +53,7 @@ jobs:
       - run:
           name: yarn Install
           command: yarn install
+      - run: bundle exec bin/webpack
       - ruby/rspec-test
       - ruby/rubocop-check
 
