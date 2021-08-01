@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-
   it "すべてのフォームを入力しているとき登録できること" do
     user = build(:user)
     expect(user).to be_valid
@@ -13,7 +12,7 @@ RSpec.describe User, type: :model do
     expect(user.errors[:name]).to include("を入力してください")
   end
 
-  it "メールアドレスを入力していないとき登録できないこと"  do
+  it "メールアドレスを入力していないとき登録できないこと" do
     user = build(:user, email: nil)
     user.valid?
     expect(user.errors[:email]).to include("を入力してください", "は不正な値です")

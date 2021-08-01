@@ -14,7 +14,7 @@ RSpec.describe "Users", type: :request do
       end
 
       it "タイトルが正しく表示されること" do
-        expect(response.body).to include ('アイコン・ネーム編集 △ TO_CAMP')
+        expect(response.body).to include('アイコン・ネーム編集 △ TO_CAMP')
       end
     end
   end
@@ -30,7 +30,7 @@ RSpec.describe "Users", type: :request do
       end
 
       it "タイトルが正しく表示されること" do
-        expect(response.body).to include ('気になるキャンプ場 △ TO_CAMP')
+        expect(response.body).to include('気になるキャンプ場 △ TO_CAMP')
       end
     end
   end
@@ -46,7 +46,7 @@ RSpec.describe "Users", type: :request do
       end
 
       it "タイトルが正しく表示されること" do
-        expect(response.body).to include ('メール・パスワード編集 △ TO_CAMP')
+        expect(response.body).to include('メール・パスワード編集 △ TO_CAMP')
       end
     end
   end
@@ -61,7 +61,7 @@ RSpec.describe "Users", type: :request do
       end
 
       it "タイトルが正しく表示されること" do
-        expect(response.body).to include ('新規登録 △ TO_CAMP')
+        expect(response.body).to include('新規登録 △ TO_CAMP')
       end
     end
   end
@@ -76,7 +76,7 @@ RSpec.describe "Users", type: :request do
       end
 
       it "タイトルが正しく表示されること" do
-        expect(response.body).to include ('ログイン △ TO_CAMP')
+        expect(response.body).to include('ログイン △ TO_CAMP')
       end
     end
   end
@@ -91,7 +91,7 @@ RSpec.describe "Users", type: :request do
       end
 
       it "タイトルが正しく表示されること" do
-        expect(response.body).to include ('パスワード再設定 △ TO_CAMP')
+        expect(response.body).to include('パスワード再設定 △ TO_CAMP')
       end
     end
   end

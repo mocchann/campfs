@@ -16,7 +16,7 @@ RSpec.describe "Reviews", type: :request do
         expect(response.status).to eq 200
       end
       it "タイトルが正しく表示されること" do
-        expect(response.body).to include ('口コミ投稿 △ TO_CAMP')
+        expect(response.body).to include('口コミ投稿 △ TO_CAMP')
       end
     end
   end

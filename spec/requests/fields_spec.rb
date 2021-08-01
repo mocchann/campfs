@@ -13,7 +13,7 @@ RSpec.describe "Fields", type: :request do
       end
 
       it "タイトルが正しく表示されること" do
-        expect(response.body).to include ('検索結果 △ TO_CAMP')
+        expect(response.body).to include('検索結果 △ TO_CAMP')
       end
     end
   end
@@ -28,7 +28,7 @@ RSpec.describe "Fields", type: :request do
       end
 
       it "タイトルが正しく表示されること" do
-        expect(response.body).to include (field.name + ' △ TO_CAMP')
+        expect(response.body).to include(field.name + ' △ TO_CAMP')
       end
     end
   end

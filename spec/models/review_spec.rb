@@ -15,7 +15,7 @@ RSpec.describe Review, type: :model do
     expect(review.errors[:title]).to include("を入力してください")
   end
 
-  it "星評価を入力していないとき登録できないこと"  do
+  it "星評価を入力していないとき登録できないこと" do
     review.rate = nil
     review.valid?
     expect(review.errors[:rate]).to include("を入力してください", "は数値で入力してください")

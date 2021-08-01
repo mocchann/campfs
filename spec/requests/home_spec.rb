@@ -11,7 +11,7 @@ RSpec.describe "Homes", type: :request do
       end
 
       it "タイトルが正しく表示されること" do
-        expect(response.body).to include ('TO_CAMP')
+        expect(response.body).to include('TO_CAMP')
       end
     end
 

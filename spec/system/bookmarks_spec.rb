@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe 'bookmarks', type: :system, js: true do
   let(:user) { create(:user) }
   let(:field) { create(:field) }
-  # let(:bookmark) { create(:bookmark, user_id: user.id, field_id: field.id) }
 
   before do
     visit new_user_session_path
