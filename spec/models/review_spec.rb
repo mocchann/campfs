@@ -5,7 +5,7 @@ RSpec.describe Review, type: :model do
   let(:field) { create(:field) }
   let(:review) { create(:review) }
 
-  it "すべてのフォームを入力しているとき登録できること" do 
+  it "すべてのフォームを入力しているとき登録できること" do
     expect(create(:review)).to be_valid
   end
 
