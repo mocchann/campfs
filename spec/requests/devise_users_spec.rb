@@ -9,6 +9,7 @@ RSpec.describe "UserAuthentications", type: :request do
     before do
       ActionMailer::Base.deliveries.clear
     end
+
     context 'パラメータが適正な場合' do
       it 'リクエストが成功すること' do
         post user_registration_path, params: { user: user_params }

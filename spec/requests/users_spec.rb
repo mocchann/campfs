@@ -9,6 +9,7 @@ RSpec.describe "Users", type: :request do
         sign_in user
         get users_profile_path
       end
+
       it "リクエストが200 OKとなること" do
         expect(response.status).to eq 200
       end
@@ -25,6 +26,7 @@ RSpec.describe "Users", type: :request do
         sign_in user
         get user_path(user)
       end
+
       it "リクエストが200 OKとなること" do
         expect(response.status).to eq 200
       end
@@ -41,6 +43,7 @@ RSpec.describe "Users", type: :request do
         sign_in user
         get edit_user_registration_path
       end
+
       it "リクエストが200 OKとなること" do
         expect(response.status).to eq 200
       end
@@ -56,6 +59,7 @@ RSpec.describe "Users", type: :request do
       before do
         get new_user_registration_path
       end
+
       it "リクエストが200 OKとなること" do
         expect(response.status).to eq 200
       end
@@ -71,6 +75,7 @@ RSpec.describe "Users", type: :request do
       before do
         get new_user_session_path
       end
+
       it "リクエストが200 OKとなること" do
         expect(response.status).to eq 200
       end
@@ -86,6 +91,7 @@ RSpec.describe "Users", type: :request do
       before do
         get new_user_password_path
       end
+
       it "リクエストが200 OKとなること" do
         expect(response.status).to eq 200
       end

@@ -6,6 +6,7 @@ RSpec.describe "Homes", type: :request do
       before do
         get root_path
       end
+
       it "リクエストが200 OKとなること" do
         expect(response.status).to eq 200
       end
@@ -19,6 +20,7 @@ RSpec.describe "Homes", type: :request do
       before do
         post users_guest_sign_in_path
       end
+
       it "リクエストが302となること" do
         expect(response.status).to eq 302
       end

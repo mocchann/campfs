@@ -12,6 +12,7 @@ RSpec.describe "Reviews", type: :request do
         get field_path(field)
         get new_review_path, params: { field_id: field.id }
       end
+
       it "リクエストが200 OKとなること" do
         expect(response.status).to eq 200
       end

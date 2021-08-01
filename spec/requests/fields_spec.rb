@@ -8,6 +8,7 @@ RSpec.describe "Fields", type: :request do
       before do
         get search_fields_path
       end
+
       it "リクエストが200 OKとなること" do
         expect(response.status).to eq 200
       end
@@ -23,6 +24,7 @@ RSpec.describe "Fields", type: :request do
       before do
         get field_path(field)
       end
+
       it "リクエストが200 OKとなること" do
         expect(response.status).to eq 200
       end
