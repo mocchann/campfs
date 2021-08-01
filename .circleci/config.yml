@@ -16,6 +16,8 @@ jobs:
           command: gem install bundler -v 1.17.2
       - ruby/install-deps
 
+    working_directory: ~/campfs
+
   test:
     parallelism: 3
     docker:
