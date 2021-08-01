@@ -30,7 +30,7 @@ jobs:
         command: --default-authentication-plugin=mysql_native_password
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
-          MYSQL_ROOT_HOST: '%'
+          MYSQL_ROOT_HOST: "127.0.0.1"
           MYSQL_DB: ci_test
     steps:
       - checkout
