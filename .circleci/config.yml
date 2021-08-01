@@ -11,6 +11,9 @@ jobs:
           BUNDLER_VERSION: 1.17.2
     steps:
       - checkout
+      - run:
+          name: bundler
+          command: gem install bundler -v 1.17.2
       - ruby/install-deps
 
   test:
