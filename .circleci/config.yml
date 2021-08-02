@@ -86,6 +86,8 @@ jobs:
         environment:
           - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
           - MYSQL_ROOT_HOST: '%'
+      - image: selenium/standalone-chrome-debug:latest
+        name: chrome
 
     working_directory: ~/campfs
 
