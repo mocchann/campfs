@@ -86,8 +86,7 @@ jobs:
         environment:
           - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
           - MYSQL_ROOT_HOST: '%'
-        ports:
-        - 4444:4444
+        ports: 4444:4444
 
     working_directory: ~/campfs
 
