@@ -52,7 +52,7 @@ jobs:
       - run: mv config/database.yml.ci config/database.yml 
       - run:
           name: Wait for DB
-          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
+          command: dockerize -wait tcp://127.0.0.1:4444 -timeout 1m
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
       - run:
