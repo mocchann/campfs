@@ -19,10 +19,25 @@
     <nav></nav>
     <main>
       <%= yield %>
+      <span id="back">
+        <a href="">
+          <%= image_tag asset_path('scroll_btn.jpg'), data: {"turbolinks"=>false}, class: "arrow rounded-circle" %>
+        </a>
+      </span>
     </main>
     <aside></aside>
     <footer>
       <%= render "shared/footer", user: @user %>
     </footer>
+    <script>
+      $(function() {
+        $('#back a').on('click',function(event){
+          $('body, html').animate({
+            scrollTop:0
+          }, 200);
+          event.preventDefault();
+        });
+      });
+    </script>
   </body>
 </html>

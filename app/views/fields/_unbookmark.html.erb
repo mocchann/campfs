@@ -1,3 +1,4 @@
 <%= link_to bookmark_path(current_user.bookmarks.find_by(field_id: @field.id), :field_id => @field.id), method: :delete, remote: true do %>
   <i class="fas fa-bookmark"></i>
+  <small><%= flash[:success] = "気になるキャンプ場△" %></small>
 <% end %>

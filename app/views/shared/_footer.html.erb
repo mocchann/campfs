@@ -1,7 +1,7 @@
 <div class="footer-login">
   <% if current_user.blank? %>
       <div class="d-flex align-items-center justify-content-end my-4 me-1">
-        <%= link_to 'ゲストログイン', home_guest_sign_in_path, method: :post, class: "text-white me-3" %>
+        <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: "text-white me-3" %>
         <%= link_to "ログイン", "/users/sign_in", class: "btn btn-outline-light me-3" %>
         <%= link_to "新規登録", "/users/sign_up", class: "btn btn-light me-3" %>
       </div>
@@ -21,14 +21,14 @@
         <ul class="dropdown-menu rounded shadow">
           <li><%= link_to "アイコン・ネーム編集", "/users/profile", class: "dropdown-item text-white" %></li>
           <li><%= link_to "メール・パスワード編集", "/users/edit", class: "dropdown-item text-white" %></li>
-          <li><%= link_to "行きたいキャンプ場リスト", user_path(user), class: "dropdown-item text-white" %></li>
+          <li><%= link_to "気になるキャンプ場リスト", user_path(user), class: "dropdown-item text-white" %></li>
           <!-- <li><%= link_to "#", "#", class: "dropdown-item text-white" %></li> -->
           <li><%= link_to "ログアウト", destroy_user_session_path, class: "dropdown-item text-white", method: :delete %></li>
         </ul>
       </div>
     </div>
   <% end %>
-  <div class="text-center mb-3">
-    ©2021 TO CAMP All Rights Resered.
+  <div class="text-center mb-3 text-white">
+    ©2021 TO_CAMP All Rights Reserved.
   </div>
 </div>

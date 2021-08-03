@@ -3,17 +3,17 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
-    # @field = Field.find(params[:field_id])
+    @field = Field.find(params[:field_id])
   end
 
   def create
     @review = Review.new(review_params)
     @review.user_id = current_user.id
     if @review.save
-      # flash[:success] = "口コミを投稿しました。"
+      flash[:success] = "口コミを投稿しました。"
       redirect_to field_path(params[:field_id])
     else
-      # flash.now[:danger] = "口コミの投稿に失敗しました。"
+      flash.now[:danger] = "口コミの投稿に失敗しました。空欄を埋めて下さい。"
       render :new
     end
   end

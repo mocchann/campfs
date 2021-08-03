@@ -5,7 +5,6 @@ class BookmarksController < ApplicationController
     @field = Field.find(params[:field_id])
     bookmark = Bookmark.new(user_id: @current_user.id, field_id: @field.id)
     if bookmark.save
-      # flash[:success] = "お気に入りに追加しました。"
       respond_to do |format|
         format.html { redirect_to field }
         format.js

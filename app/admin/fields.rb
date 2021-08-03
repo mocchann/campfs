@@ -73,7 +73,7 @@ ActiveAdmin.register Field do
       f.input :pets
       f.input :latitude, :precision => 12, :scale => 9
       f.input :longitude, :precision => 12, :scale => 9
-      f.input :image
+      f.input :image, as: :file
       f.input :place_id
       f.input :field_url
       f.input :laid_back_camp

@@ -1,4 +1,5 @@
 <% provide(:title, "口コミ投稿") %>
+<%= flash[:danger] %>
 <div class="d-flex align-items-center flex-column mt-5">
   <h2>
     <span class="page-title">R</span>
@@ -40,6 +41,6 @@
     </script>
   <% end %>
   <div class="text-center">
-    <%= link_to "戻る", request.referer, class: "back-btn btn rounded-pill w-50 m-auto mb-5" %>
+    <%= link_to "戻る", field_path(params[:field_id]), class: "back-btn btn rounded-pill w-50 m-auto mb-5" %>
   </div>
 </div>

@@ -36,139 +36,15 @@
   </thead>
   <div class="row">
     <% if @fields.length != 0 %>
-      <% @fields.each do |field| %>
-        <div class="col-sm-12 col-md-6 col-lg-4">
-          <div class="card shadow bg-white rounded my-5">
-            <%= image_tag("https://picsum.photos/244") %>
-            <%#= image_tag fields.image.url, class:"card-img-top" %>
-            <div class="card-body">
-              <h5 class="card-title">
-                <%= link_to field.name, field_path(field) %>
-              </h5>
-              <div class="rating d-flex align-items-center m-2">
-                <%= image_tag "star-on.png",class: "me-2" %><%= rating(field.reviews) %>
-              </div>
-              <div class="small-block">
-                <i class="fas fa-map-marker-alt"></i>
-                <cite title="<%= field.address %>">
-                <%= field.address %>
-              </div>
-              <div class="small-block">
-                <i class="fas fa-mobile-alt"></i>
-                <a href="<%= field.phone_number %>">
-                  <%= field.phone_number %>
-                </a>
-              </div>
-              <div class="small-block">
-                <i class="fas fa-clock"></i>
-                チェックイン：<%= field.check_in %><br>
-                <i class="fas fa-clock"></i>
-                チェックアウト：<%= field.check_out %>
-              </div>
-              <div class="small-block">
-                <i class="fas fa-campground"></i>
-                <% if field.day_camp %>
-                  デイキャンプ：可
-                <% else %>
-                  デイキャンプ：<%= field.day_camp %>
-                <% end %>
-              </div>
-              <div class="small-block">
-                <i class="fas fa-map-marked-alt"></i> 立地：
-                <% if field.sea %>
-                  <i class="fas fa-umbrella-beach"></i>海
-                <% end %>
-                <% if field.lake %>
-                  <i class="far fa-circle"></i>湖
-                <% end %>
-                <% if field.river %>
-                  <i class="fas fa-water"></i>川
-                <% end %>
-                <% if field.mountain %>
-                  <i class="fas fa-mountain"></i>山
-                <% end %>
-                <% if field.woods %>
-                  <i class="fas fa-tree"></i>林間
-                <% end %>
-              </div>
-              <div class="small-block">
-                <i class="fas fa-mountain"></i>
-                標高：<%= field.elevation %>
-              </div>
-              <div class="small-block">
-                <i class="fas fa-th-large"></i>
-                <% if field.section_site %>
-                  区画サイト：<%= field.section_site_price %>/<%= field.section_site_size %>
-                <% else %>
-                  区画サイト：無
-                <% end %>
-              </div>
-              <div class="small-block">
-                <i class="far fa-square"></i>
-                <% if field.section_site %>
-                  フリーサイト：<%= field.free_site_price %>/<%= field.free_site_size %>
-                <% else %>
-                  <p>フリーサイト：無</p>
-                <% end %>
-              </div>
-              <div class="small-block">
-                <i class="fas fa-chess-board"></i> サイトの地面：
-                <% if field.ground_turf %>
-                  芝
-                <% end %>
-                <% if field.ground_soil %>
-                  土
-                <% end %>
-                <% if field.ground_wood_deck %>
-                  ウッドデッキ
-                <% end %>
-                <% if field.ground_sand %>
-                  砂
-                <% end %>
-              </div>
-              <div class="small-block">
-                <i class="fas fa-fire-alt"></i>
-                <% if field.bonfire %>
-                  <i>焚き火：可</i>
-                <% else %>
-                  <i>焚き火：禁止</i>
-                <% end %>
-              </div>
-              <div class="small-block">
-                <i class="fas fa-burn"></i>
-                <% if field.direct_fire %>
-                  <i>直火：可</i>
-                <% else %>
-                  <i>直火：禁止</i>
-                <% end %>
-              </div>
-              <div class="small-block">
-                <i class="fas fa-car"></i>
-                車の横付け：
-                <% if field.car %>
-                  可
-                <% else %>
-                  不可
-                <% end %>
-              </div>
-              <div class="small-block">
-                <i class="fas fa-paw"></i>
-                ペット：
-                <% if field.pets %>
-                  可
-                <% else %>
-                  不可
-                <% end %>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
+      <%= render "shared/search_bookmark", fields: @fields %>
     <% else %>
     <div class="text-center">
       キャンプ場は見つかりませんでした
     </div>
     <% end %>
+  </div>
+  <div class="text-center">
+    <%= link_to "トップページに戻る", root_path, class: "back-btn btn rounded-pill w-50 m-auto my-5" %>
   </div>
 </div>
 <%= paginate @fields_search %>

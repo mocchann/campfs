@@ -1,7 +1,8 @@
-# CAMP_FIELD_SEARCH(仮)
-個人開発しているキャンプ場検索サービスです。
+# TO_CAMP
+個人開発している「キャンプ場検索サービス」です。<br>
+最終的には、全国約4000箇所以上のキャンプ場情報を検索対象にします。<br>
 
-<h2>使用技術</h2>
+## 使用技術
 ・Ruby 2.6.8<br>
 ・Ruby on Rails 6.1.3<br>
 ・Puma<br>
@@ -12,24 +13,29 @@
 ・RSpec<br>
 ・Rubocop<br>
 
-<h2>機能一覧</h2>
+## 機能一覧
 ・ログイン機能(Devise)<br>
 -アイコン設定、ユーザー名登録<br>
 -ゲストログイン機能<br>
+・パスワード再設定機能(devise mailer)<br>
 ・検索機能(Ransack)<br>
--名前、住所検索
--都道府県検索
--焚き火・直火可検索
--標高検索
--ペット可検索
--車横付け検索
--ウォシュレットトイレ検索
--ゆるキャン検索
--
+-キャンプ場名検索<br>
+-都道府県検索<br>
+-各種条件絞り込み検索<br>
 ・口コミ機能<br>
 ・星評価機能<br>
 -JQuery Raty.js<br>
+-星評価平均値算出<br>
 ・ページネーション(Kaminari)<br>
+-並べ替え機能<br>
 ・ブックマーク機能<br>
-・Twitter、Facebook、LINEシェア<br>
+・SNSシェアボタン<br>
+-Twitter、Facebook、LINE<br>
 ・Google maps API<br>
+・管理者機能(active admin)<br>
+
+## テスト
+・RSpec<br>
+-models spec<br>
+-requests spec<br>
+-system spec<br>

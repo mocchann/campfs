@@ -50,6 +50,10 @@ test:
 #
 production:
   <<: *default
-  database: campfs_production
-  username: campfs
-  password: <%= ENV['CAMPFS_DATABASE_PASSWORD'] %>
+  # database: campfs_production
+  # username: campfs
+  # password: <%= ENV['CAMPFS_DATABASE_PASSWORD'] %>
+
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
