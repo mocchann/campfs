@@ -4,7 +4,7 @@ jobs:
     docker:
       - image: circleci/ruby:2.6.8-node-browsers
         environment:
-          - BUNDLER_VERSION: 1.17.2
+          - BUNDLER_VERSION: 2.1.0
           - RAILS_ENV: 'test'
 
       - image: circleci/mysql:8.0
@@ -47,7 +47,7 @@ jobs:
 
       - run:
           name: bundlerをインストール
-          command: gem install bundler -v 1.17.2
+          command: gem install bundler -v 2.1.0
 
       - run:
           name: プロジェクトローカルにGemをインストールするよう設定
