@@ -51,7 +51,8 @@ test:
 production:
   <<: *default
   adapter: postgresql
-  encoding: unicode
+  # encoding: unicode
+  client_encoding: utf8
   pool: 5
   url: <%= ENV['DATABASE_URL'] %>
 
