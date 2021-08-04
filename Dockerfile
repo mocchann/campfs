@@ -10,7 +10,11 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
 WORKDIR /campfs
 COPY Gemfile /campfs/Gemfile
 COPY Gemfile.lock /campfs/Gemfile.lock
-RUN bundle install
+ENV BUNDLER_VERSION 2.1.0
+RUN gem update --system \
+    && gem install bundler -v $BUNDLER_VERSION \
+    && bundle install -j 4
+# RUN bundle install
 RUN yarn install
 COPY . /campfs
 
