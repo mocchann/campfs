@@ -53,6 +53,7 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: 5
+  url: <%= ENV['DATABASE_URL'] %>
 
   # database: campfs_production
   # username: campfs
