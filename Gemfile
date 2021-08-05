@@ -6,7 +6,7 @@ ruby '2.6.8'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
 # Use mysql as the database for Active Record
-# gem 'mysql2', '~> 0.5'
+gem 'mysql2', '~> 0.5'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
@@ -42,8 +42,6 @@ group :development, :test do
   gem 'annotate'
   gem "rspec_junit_formatter"
   gem 'selenium-webdriver'
-
-  gem 'mysql2', '~> 0.5'
 end
 
 group :development do
@@ -72,7 +70,3 @@ gem 'rails-i18n'
 gem 'dotenv-rails'
 gem 'kaminari'
 gem 'active_hash'
-
-group :production do
-  gem 'pg'
-end
