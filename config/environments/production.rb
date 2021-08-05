@@ -24,18 +24,18 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
 
 # 変更前
-  # config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
+  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 # 変更後
-  config.public_file_server.enabled = true
+  # config.public_file_server.enabled = true
 
   # Compress CSS using a preprocessor.
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
 # 変更前
-  # config.assets.compile = false
+  config.assets.compile = false
 # 変更後
-  config.assets.compile = true
+  # config.assets.compile = true
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.asset_host = 'http://assets.example.com'
