@@ -23,18 +23,13 @@ Rails.application.configure do
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
 
-# 変更前
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
-# 変更後
-  # config.public_file_server.enabled = true
 
   # Compress CSS using a preprocessor.
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-# 変更前
-  # config.assets.compile = false
-# 変更後
+  
   config.assets.compile = true
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
