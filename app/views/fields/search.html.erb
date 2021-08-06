@@ -1,12 +1,6 @@
 <% provide(:title, "検索結果") %>
 <div class="container">
-  <p class="search-number">
-    <% if @fields_search.present? %>
-      <%= show_current_number(@fields_search.current_page,@fields_search.size) %>件を表示 / 全<%= @fields_search.total_count %>件
-    <% else %>
-      0件を表示 / 全<%= @fields_search.total_count %>件
-    <% end %>
-  </p>
+  <%= render "shared/show_count", fields: @fields %>
   <div class="row m-0">
     <div class="d-flex align-items-center flex-column my-5">
       <h2>
@@ -25,7 +19,7 @@
         <span class="page-title">T</span>
         <span class="page-title">S</span>
       </h2>
-      <h3 class="camp-search text-center"><%= "検索結果：#{@fields_search.total_count}件" %></h3>
+      <h3 class="camp-search text-center"><%= "検索結果：#{@fields.total_count}件" %></h3>
     </div>
   </div>
   <thead>
@@ -47,4 +41,4 @@
     <%= link_to "トップページに戻る", root_path, class: "back-btn btn rounded-pill w-50 m-auto my-5" %>
   </div>
 </div>
-<%= paginate @fields_search %>
+<%= paginate @fields %>

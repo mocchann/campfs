@@ -14,7 +14,7 @@ class User < ApplicationRecord
   has_many :fields, through: :reviews
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_fields, through: :bookmarks, source: :field
-
+  paginates_per 9
   has_one_attached :icon_img
   attribute :new_icon_img
 

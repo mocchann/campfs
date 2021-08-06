@@ -5,7 +5,6 @@ class FieldsController < ApplicationController
   end
 
   def search
-    @fields = @q.result
-    @fields_search = @fields.page(params[:page]).per(9)
+    @fields = @q.result.page(params[:page])
   end
 end
