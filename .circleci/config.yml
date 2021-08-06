@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  build_test_deploy:
+  build:
     docker:
       - image: circleci/ruby:2.6.8-node-browsers
         environment:
