@@ -208,7 +208,7 @@ RSpec.describe 'fields', type: :system, js: true do
       end
 
       it "MAXに入力した標高より高いキャンプ場は検索できないこと" do
-        fill_in "q[elevation_lteq]", with: 500
+        fill_in "q[elevation_lteq]", with: 1
         find('.camp-style').click
         expect(page).to have_content "キャンプ場は見つかりませんでした"
       end

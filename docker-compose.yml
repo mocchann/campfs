@@ -24,11 +24,9 @@ services:
     tty: true
   chrome:
     image: selenium/standalone-chrome:latest
-    # image: selenium/standalone-chrome-debug:latest
     shm_size: 256m
     ports:
     - 4444:4444
-    # - 5900:5900
 volumes:
   mysql-data:
     driver: local
