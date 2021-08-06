@@ -1,5 +1,6 @@
 <% provide(:title, "気になるキャンプ場") %>
 <div class="container">
+  <%= render "shared/show_count", fields: @fields %>
   <div class="d-flex align-items-center flex-column mt-5">
     <h2>
       <span class="page-title">B</span>
@@ -12,7 +13,7 @@
       <span class="page-title">R</span>
       <span class="page-title">K</span>
     </h2>
-    <p class="camp-search text-center">気になるキャンプ場</p>
+    <h3 class="camp-search text-center"><%= "気になるキャンプ場：#{@fields.total_count}件" %></h3>
   </div>
   <div class="row">
     <aside class="col-md-3">
@@ -21,14 +22,14 @@
       <% else %>
         <i class="fas fa-user-plus fa-4x ms-3"></i>
       <% end %>
-      <h3><%= @user.name %>さん</h3>
+      <p><%= @user.name %>さん</p>
     </aside>
   </div>
   <div class="row">
     <% if Bookmark.find_by(params[:id]).present? %>
       <%= render "shared/search_bookmark", fields: @fields %>
     <% else %>
-      <p>気になるキャンプ場や行ってみたいキャンプ場をブックマークしてみよう！</p>
+      <p>気になるキャンプ場や行ってみたいキャンプ場をブックマークしてみよう！<br>キャンプ場詳細ページの <i class="far fa-bookmark"></i> このマークを押すと登録完了！</p>
     <% end %>
   </div>
   <%= paginate @fields %>
