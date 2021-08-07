@@ -1,4 +1,7 @@
 <% provide(:title, @field.name) %>
+<%= flash[:success] %>
+<%= flash[:danger] %>
+<%= flash[:alert] %>
 <div class="d-flex align-items-center flex-column my-5">
   <h2>
     <span class="page-title">F</span>
@@ -55,7 +58,7 @@
         <div class="card-header">
           <h4>施設情報</h4>
         </div>
-        <div class="card-body">
+        <div class="card-body show-card-body">
           <div class="row">
             <div class="col-sm-4 col-5 text-left pl-2">
               <i class="fas fa-map-marker-alt"></i> 住所

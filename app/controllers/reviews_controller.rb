@@ -21,6 +21,7 @@ class ReviewsController < ApplicationController
   def destroy
     @review = Review.find(params[:id])
     @review.destroy
+    flash[:alert] = "口コミを削除しました。"
     redirect_to request.referer
   end
 
