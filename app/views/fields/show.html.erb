@@ -79,9 +79,13 @@
             <div class="col-sm-4 col-5 text-left pl-2">
               <i class="fas fa-mobile-alt"></i> 電話番号
             </div>
-            <div class="col-sm-8 col-7 text-left px-0">
-              <a href="tel:<%= @field.phone_number %>"><%= @field.phone_number %></a>
-            </div>
+            <% if @field.phone_number.present? %>
+              <div class="col-sm-8 col-7 text-left px-0">
+                <a href="tel:<%= @field.phone_number %>"><%= @field.phone_number %></a>
+              </div>
+            <% else %>
+              -
+            <% end %>
           </div>
           <div class="row">
             <div class="col-sm-4 col-5 text-left pl-2">

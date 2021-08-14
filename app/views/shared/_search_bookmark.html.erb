@@ -22,9 +22,11 @@
         </div>
         <div class="small-block">
           <i class="fas fa-mobile-alt"></i>
-          <a href="tel:<%= field.phone_number %>">
-            <%= field.phone_number %>
-          </a>
+          <% if field.phone_number.present? %>
+            <a href="tel:<%= field.phone_number %>"><%= field.phone_number %></a>
+          <% else %>
+            -
+          <% end %>
         </div>
         <div class="small-block">
           <i class="fas fa-clock"></i>
