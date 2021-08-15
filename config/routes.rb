@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
 
   root 'home#top'
+  post '/', to: 'home#create'
   resources :fields, only: [:show, :search] do
     get 'search', on: :collection
   end
