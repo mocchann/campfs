@@ -14,7 +14,7 @@ RSpec.describe "StaticPages", type: :request do
         expect(response.body).to include('利用規約 △ TO_CAMP')
       end
     end
-    
+
     context "プライバシーポリシーが正しく表示されること" do
       before do
         get static_pages_privacy_policy_path
