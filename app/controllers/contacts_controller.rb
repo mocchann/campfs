@@ -10,7 +10,7 @@ class ContactsController < ApplicationController
       flash[:notice] = "お問い合わせを送信しました。TO_CAMPのご利用ありがとうございます。"
       redirect_to root_path
     else
-      flash[:danger] = "お問い合わせを送信できませんでした。フォームの空欄を正しく入力して下さい"
+      flash[:danger] = "お問い合わせを送信できませんでした。フォームの空欄を正しく入力して下さい。"
       render :new
     end
   end
