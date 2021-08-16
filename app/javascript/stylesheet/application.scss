@@ -22,6 +22,10 @@ a {
   color: #64a19d;
 }
 
+.show-card-body {
+  font-size: 0.7rem;
+}
+
 body {
   min-height: 100vh;
   position: relative;
@@ -143,7 +147,10 @@ footer {
   width: 100%;
   position: absolute;
   bottom: 0;
-  margin-bottom: -150px;
+  margin-bottom: -250px;
+  ul {
+    color: white;
+  }
 }
 
 .dropdown-menu {
@@ -155,13 +162,13 @@ footer {
 #back {
   position: fixed;
   right: 20px;
-  bottom: 110px;
+  bottom: 200px;
   z-index: 2;
 }
 
 .arrow{
-  width:      50px;
-  height:     50px;
+  width: 50px;
+  height: 50px;
 }
 
 .featured-text-right {

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'contacts/new'
+  get 'contacts/create'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users, controllers: {
@@ -17,6 +19,7 @@ Rails.application.routes.draw do
   end
   resources :bookmarks, only: [:create, :destroy]
   resources :reviews
+  resources :contacts, only: [:new, :create]
 
   namespace :users do
     get 'profile'

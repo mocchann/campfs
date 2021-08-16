@@ -10,10 +10,10 @@
       <div class="nav-item d-sm-inline-block me-3 text-white">
         <%= current_user.name %>
       </div>
-      <div class="btn-group dropup me-3">
+      <div class="btn-group dropup me-2">
         <div class="btn rounded-circle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="0,5">
           <% if current_user.icon_img.attached? %>
-            <%= image_tag current_user.icon_img, class: "icon_img rounded-circle h-100" %>
+            <%= image_tag current_user.icon_img, class: "icon_img rounded-circle" %>
           <% else %>
             <i class="fas fa-user-plus fa-4x ms-3"></i>
           <% end %>
@@ -28,6 +28,11 @@
       </div>
     </div>
   <% end %>
+  <ul>
+    <li><%= link_to "お問い合わせ(キャンプ場追加希望もこちら)", new_contact_path, class: "text-white" %></li>
+    <li><%= link_to "利用規約", "#", class: "text-white" %></li>
+    <li><%= link_to "プライバシーポリシー", "#", class: "text-white" %></li>
+  </ul>
   <div class="text-center mb-3 text-white">
     ©2021 TO_CAMP All Rights Reserved.
   </div>

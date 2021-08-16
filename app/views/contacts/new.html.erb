@@ -1,0 +1,41 @@
+<% provide(:title, "お問い合わせフォーム") %>
+<%= flash[:danger] %>
+<div class="d-flex align-items-center flex-column mt-5">
+  <h2>
+    <span class="page-title">C</span>
+    <span class="page-title">O</span>
+    <span class="page-title">N</span>
+    <span class="page-title">T</span>
+    <span class="page-title">A</span>
+    <span class="page-title">C</span>
+    <span class="page-title">T</span>
+    <span class="page-title">-</span>
+    <span class="page-title">F</span>
+    <span class="page-title">O</span>
+    <span class="page-title">R</span>
+    <span class="page-title">M</span>
+  </h2>
+  <p class="camp-search text-center">お問い合わせフォーム</p>
+</div>
+<div class="container">
+  <%= form_with model: @contact do |f| %>
+    <div class="form-group">
+      <%= f.label :name, 'お名前' %>
+      <%= f.text_field :name, autofocus: true, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :email, 'メールアドレス' %>
+      <%= f.text_field :email, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :message, '内容' %>
+      <%= f.text_area :message, size: '10x10', class: 'form-control' %>
+    </div>
+    <div class="text-center">
+      <%= f.submit '送信', class: "result-btn btn rounded-pill w-50 m-auto my-5" %>
+    </div>
+  <% end %>
+  <div class="text-center">
+    <%= link_to "トップページに戻る", root_path, class: "back-btn btn rounded-pill w-50 m-auto mb-5" %>
+  </div>
+</div>
