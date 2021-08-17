@@ -17,6 +17,16 @@ class User < ApplicationRecord
   paginates_per 9
   has_one_attached :icon_img
   attribute :new_icon_img
+  validate :validate_icon_img
+
+  def validate_icon_img
+    errors.add(:icon_img, "は画像データではありません。") unless image?
+  end
+
+  def image?
+    return '' unless icon_img.attached?
+    %w[image/jpg image/jpeg image/png image/gif].include?(icon_img.blob.content_type)
+  end
 
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
