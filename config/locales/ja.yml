@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        icon_img: 選択されたアイコン
+        name: ニックネーム
+        email: メールアドレス

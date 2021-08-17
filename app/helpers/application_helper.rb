@@ -20,4 +20,23 @@ module ApplicationHelper
       return "1 ~ #{size}"
     end
   end
+
+  def default_meta_tags
+    {
+      description: "TO_CAMPは、キャンプ場の検索、口コミの投稿・閲覧、気になるキャンプ場の保存ができる、キャンプ好きによるキャンプ好きのためのWebサービスです。",
+      icon: image_url("favicon.ico"),
+      noindex: ! Rails.env.production?, 
+      charset: "UTF-8",
+      viewport: "width=device-width, initial-scale=1",
+
+      og: {
+        title: "TO_CAMP △ キャンプ好きがキャンプ好きのために作った、キャンプ場を便利に検索できるWebサービス",
+        type: "website",
+        url: request.original_url,
+        site_name: "TO_CAMP",
+        description: "TO_CAMPは、キャンプ場の検索、口コミの投稿・閲覧、気になるキャンプ場の保存ができる、キャンプ好きによるキャンプ好きのためのWebサービスです。",
+        locale: "ja_JP"
+      } 
+    }
+  end
 end
