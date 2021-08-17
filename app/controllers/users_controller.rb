@@ -10,12 +10,16 @@ class UsersController < ApplicationController
   end
 
   def profile_update
-    @user = User.find_by(id: params[:id])
-    if @user.update(user_params)
-      redirect_to users_profile_path, notice: "プロフィールを更新しました"
+    if current_user.email != 'guest@example.com'
+      @user = User.find_by(id: params[:id])
+      if @user.update(user_params)
+        redirect_to users_profile_path, notice: "プロフィールを更新しました"
+      else
+        flash.now[:alert] = "プロフィールを更新できませんでした"
+        render :profile
+      end
     else
-      flash.now[:alert] = "プロフィールを更新できませんでした"
-      render :profile
+      redirect_to root_path, alert: 'ゲストユーザーさんは、データの編集・削除などができない設定になっています。'
     end
   end
 

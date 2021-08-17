@@ -133,9 +133,11 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = { host: 'to-camp.herokuapp.com' }
   ActionMailer::Base.delivery_method = :smtp
+  user = ENV['SENDGRID_USERNAME']
+  pass = ENV['SENDGRID_PASSWORD']
   ActionMailer::Base.smtp_settings = {
-    user_name: ENV['SENDGRID_USERNAME'],
-    password: ENV['SENDGRID_PASSWORD'],
+    user_name: user,
+    password: pass,
     domain: "heroku.com",
     address: "smtp.sendgrid.net",
     port: 587,
