@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= display_meta_tags(default_meta_tags) %>
+    <%= analytics_init if Rails.env.production? %>
     <%= favicon_link_tag('favicon.ico') %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= display_meta_tags(default_meta_tags) %>
-    <%= analytics_init if Rails.env.production? %>
   </head>
   <body>
     <header>
