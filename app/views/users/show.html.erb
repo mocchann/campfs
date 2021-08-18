@@ -29,7 +29,7 @@
     <% if Bookmark.find_by(params[:id]).present? %>
       <%= render "shared/search_bookmark", fields: @fields %>
     <% else %>
-      <p>気になるキャンプ場や行ってみたいキャンプ場をブックマークしてみよう！<br>キャンプ場詳細ページの <i class="far fa-bookmark"></i> このマークを押すと登録完了！</p>
+      <p>気になるキャンプ場やお気に入りキャンプ場をブックマークしてみよう！<br>キャンプ場詳細ページの <i class="far fa-bookmark"></i> このマークを押すと登録完了！</p>
     <% end %>
   </div>
   <%= paginate @fields %>
