@@ -16,14 +16,14 @@
   border-radius: 50px;
   object-fit: cover;
 }
-
+//リンク色
 a {
   text-decoration: none;
   color: #64a19d;
 }
 
 .show-card-body {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
 }
 
 body {
@@ -98,6 +98,22 @@ main {
 .svg-inline--fa.fa-stack-2x {
   height: 1em;
   width: 1.1em;
+}
+
+.under-main-link:hover {
+  opacity: .6;
+  transition: .2s;
+}
+
+.footer-link:hover {
+  opacity: .85;
+  transition: .2s;
+}
+
+.create-btn:hover {
+  color: white;
+  background-color: #64a19d;
+  border-color: white;
 }
 
 //FBシェアボタン
@@ -220,21 +236,21 @@ footer {
 
 
 // 日本地図
-.japan_map{
+.japan_map {
   position: relative;
   box-sizing: border-box;
   margin: 0 auto;
   display: table;
 }
 // 日本地図(レスポンシブ)
-.japan_map img{
+.japan_map img {
   max-width: 100%;
   height: auto;
   border: 0;
   -webkit-backface-visibility: hidden;
 }
 // 日本地図ボタン
-.japan_map .area_btn{
+.japan_map .area_btn {
   position: absolute;
   z-index: 1;
   box-sizing: border-box;
@@ -247,41 +263,50 @@ footer {
   text-align: center;
   white-space: nowrap;
   color: #64a19d;
+  transition: .2s;
+}
+
+.japan_map .area_btn:hover {
+  // border: 3px solid #fff;
+  background-color: #64a19d;
+  color: #fff;
+  transition: .2s;
+  transform: translateY(-3px);
 }
 
 // ボタン配置
-.japan_map .area_btn.area1{
+.japan_map .area_btn.area1 {
   top: 30%;
   right: 0;
   width: 30%;
 }
-.japan_map .area_btn.area2{
+.japan_map .area_btn.area2 {
   top: 58%;
   right: 11%;
   width: 13%;
 }
-.japan_map .area_btn.area3{
+.japan_map .area_btn.area3 {
   top: 56%;
   right: 27.5%;
   width: 13%;
 }
-.japan_map .area_btn.area4{
+.japan_map .area_btn.area4 {
   top: 65%;
   right: 44%;
   width: 13%;
 }
-.japan_map .area_btn.area5{
+.japan_map .area_btn.area5 {
   top: 52%;
   left: 20%;
   width: 25%;
 }
-.japan_map .area_btn.area6{
+.japan_map .area_btn.area6 {
   top: 70%;
   left: 0;
   width: 25%;
 }
 // オーバーレイ
-.japan_map .area_overlay{
+.japan_map .area_overlay {
   display: none;
   position: absolute;
   z-index: 2;
@@ -297,12 +322,12 @@ footer {
 }
 
 // 選択前は表示を隠す
-.japan_map .pref_area{
+.japan_map .pref_area {
   display: none;
 }
 
 // 都道府県リスト
-.japan_map .pref_list{
+.japan_map .pref_list {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -318,7 +343,16 @@ footer {
   background-color: #64a19d;
   color: white;
 }
-.japan_map .pref_list > .pref-btn{
+
+.japan_map .pref_list a {
+  color: white;
+}
+
+.japan_map .pref_list a:hover {
+  color: #64a19d;
+}
+
+.japan_map .pref_list > .pref-btn {
   box-sizing: border-box;
   width: 50%;
   border: 1px solid white;
@@ -326,11 +360,18 @@ footer {
   text-align: center;
   padding: 0.5em;
   cursor: pointer;
+  transition: .2s;
 }
 
-@media screen and (max-width: 480px){
+.japan_map .pref_list > .pref-btn:hover {
+  background-color: white;
+  transition: .2s;
+  transform: translateY(-3px);
+}
+
+@media screen and (max-width: 480px) {
   // レスポンシブ(ボタン文字サイズ調整)
-  .japan_map .area_btn{
+  .japan_map .area_btn {
       font-size: 4vw;
   }
 }
@@ -345,7 +386,7 @@ footer {
   border-radius: 50px;
 }
 // 大円
-.bubble::before{
+.bubble::before {
   content: '';
   position: absolute;
   width: 0;
@@ -360,7 +401,7 @@ footer {
   border-bottom: 17px solid #64a19d;
 }
 // 小円
-.bubble::after{
+.bubble::after {
   content: '';
   position: absolute;
   display: block;
@@ -380,17 +421,66 @@ footer {
 .result-btn {
   color: white;
   background-color: #64a19d;
+  transition: .2s;
+}
+
+.result-btn:hover {
+  color: #64a19d;
+  background-color: white;
+  border-color: #64a19d;
+  transition: .2s;
 }
 
 .delete-btn {
   color: white;
   background-color: #FF0000;
+  transition: .2s;
+}
+
+.delete-btn:hover {
+  color: #ff0000;
+  background-color: white;
+  border-color: #ff0000;
+  transition: .2s;
 }
 
 .back-btn {
   color: #64a19d;
   background-color: white;
-  border: #64a19d;
+  border-color: #64a19d;
+  transition: .2s;
+}
+
+.back-btn:hover {
+  color: white;
+  background-color: #64a19d;
+  transition: .2s;
+}
+
+.registration-btn {
+  color: #64a19d;
+  background-color: white;
+  border-color: #64a19d;
+  transition: .2s;
+}
+
+.registration-btn:hover {
+  color: white;
+  background-color: #64a19d;
+  transition: .2s;
+}
+
+.session-btn {
+  color: white;
+  background-color: #64a19d;
+  transition: .2s;
+}
+
+.session-btn:hover {
+  color: #64a19d;
+  background-color: white;
+  border-color: #64a19d;
+  transition: .2s;
 }
 
 // 絞り込み検索
@@ -400,6 +490,13 @@ footer {
   padding: 10px;
   border-radius: 5px;
   border-color: #64a19d;
+  transition: .2s;
+}
+
+#q_address_cont:hover {
+  color: #64a19d;
+  background-color: white;
+  transition: .2s;
 }
 
 .form-check-input:checked {
@@ -409,5 +506,11 @@ footer {
 
 .select-btn {
   background-color: #64a19d;
+  border-color: #64a19d;
+}
+
+.select-btn:hover {
+  background-color: white;
+  color: #64a19d;
   border-color: #64a19d;
 }
