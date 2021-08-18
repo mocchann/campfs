@@ -35,6 +35,10 @@ class User < ApplicationRecord
     end
   end
 
+  def remember_me
+    true
+  end
+
   before_save do
     if new_icon_img
       self.icon_img = new_icon_img
