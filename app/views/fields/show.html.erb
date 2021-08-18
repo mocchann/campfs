@@ -60,27 +60,27 @@
         </div>
         <div class="card-body show-card-body">
           <div class="row">
-            <div class="col-sm-4 col-5 text-left pl-2">
+            <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-map-marker-alt"></i> 住所
             </div>
-            <div class="col-sm-8 col-7 text-left px-0">
+            <div class="col-sm-8 col-6 text-left px-0">
               <%= @field.address %>
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-4 col-5 text-left pl-2">
+            <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-calendar-alt"></i> 予約方法
             </div>
-            <div class="col-sm-8 col-7 text-left px-0">
+            <div class="col-sm-8 col-6 text-left px-0">
               <%= @field.reservation %>
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-4 col-5 text-left pl-2">
+            <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-mobile-alt"></i> 電話番号
             </div>
             <% if @field.phone_number.present? %>
-              <div class="col-sm-8 col-7 text-left px-0">
+              <div class="col-sm-8 col-6 text-left px-0">
                 <a href="tel:<%= @field.phone_number %>"><%= @field.phone_number %></a>
               </div>
             <% else %>
@@ -88,74 +88,74 @@
             <% end %>
           </div>
           <div class="row">
-            <div class="col-sm-4 col-5 text-left pl-2">
+            <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-history"></i> 営業時間
             </div>
-            <div class="col-sm-8 col-7 text-left px-0">
+            <div class="col-sm-8 col-6 text-left px-0">
               <%= @field.business_hours %>
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-4 col-5 text-left pl-2">
+            <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-calendar-check"></i> 定休日
             </div>
-            <div class="col-sm-8 col-7 text-left px-0">
+            <div class="col-sm-8 col-6 text-left px-0">
               <%= @field.holiday %>
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-4 col-5 text-left pl-2">
+            <div class="col-sm-4 col-6 text-left pl-2">
               <i class="far fa-calendar-check"></i> 営業期間
             </div>
-            <div class="col-sm-8 col-7 text-left px-0">
+            <div class="col-sm-8 col-6 text-left px-0">
               <%= @field.season %>
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-4 col-5 text-left pl-2">
+            <div class="col-sm-4 col-6 text-left pl-2">
               <i class="far fa-clock"></i> アーリーチェックイン
             </div>
-            <div class="col-sm-8 col-7 text-left px-0">
+            <div class="col-sm-8 col-6 text-left px-0">
               <%= @field.early_in_description %>
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-4 col-5 text-left pl-2">
+            <div class="col-sm-4 col-6 text-left pl-2">
               <i class="far fa-clock"></i> レイトチェックアウト
             </div>
-            <div class="col-sm-8 col-7 text-left px-0">
+            <div class="col-sm-8 col-6 text-left px-0">
               <%= @field.late_out_description %>
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-4 col-5 text-left pl-2">
+            <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-clock"></i> チェックイン
             </div>
-            <div class="col-sm-8 col-7 text-left px-0">
+            <div class="col-sm-8 col-6 text-left px-0">
               <%= @field.check_in %>
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-4 col-5 text-left pl-2">
+            <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-clock"></i> チェックアウト
             </div>
-            <div class="col-sm-8 col-7 text-left px-0">
+            <div class="col-sm-8 col-6 text-left px-0">
               <%= @field.check_out %>
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-4 col-5 text-left pl-2">
+            <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-campground"></i> デイキャンプ
             </div>
-            <div class="col-sm-8 col-7 text-left px-0">
+            <div class="col-sm-8 col-6 text-left px-0">
               <%= @field.day_camp_description %>
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-4 col-5 text-left pl-2">
+            <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-map-marked-alt"></i> 立地
             </div>
-            <div class="col-sm-8 col-7 text-left px-0">
+            <div class="col-sm-8 col-6 text-left px-0">
               <% if @field.sea %>
                 <i class="fas fa-umbrella-beach"></i>海
               <% end %>
@@ -174,82 +174,82 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-4 col-5 text-left pl-2">
+            <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-train"></i> 最寄り駅
             </div>
-            <div class="col-sm-8 col-7 text-left px-0">
+            <div class="col-sm-8 col-6 text-left px-0">
               <%= @field.near_station %>：距離(約<%= @field.near_station_km %>km)
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-4 col-5 text-left pl-2">
+            <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-route"></i> 最寄りのIC
             </div>
-            <div class="col-sm-8 col-7 text-left px-0">
+            <div class="col-sm-8 col-6 text-left px-0">
               <%= @field.near_ic %>
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-4 col-5 text-left pl-2">
+            <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-hot-tub"></i> 最寄りの温泉
             </div>
-            <div class="col-sm-8 col-7 text-left px-0">
+            <div class="col-sm-8 col-6 text-left px-0">
               <%= @field.near_spa %>
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-4 col-5 text-left pl-2">
+            <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-shopping-cart"></i> 最寄りのスーパー
             </div>
-            <div class="col-sm-8 col-7 text-left px-0">
+            <div class="col-sm-8 col-6 text-left px-0">
               <%= @field.near_supermarket %>
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-4 col-5 text-left pl-2">
+            <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-mountain"></i> 標高(m)
             </div>
-            <div class="col-sm-8 col-7 text-left px-0">
+            <div class="col-sm-8 col-6 text-left px-0">
               <%= @field.elevation %> m
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-4 col-5 text-left pl-2">
+            <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-yen-sign"></i> 区画サイト
             </div>
-            <div class="col-sm-8 col-7 text-left px-0">
+            <div class="col-sm-8 col-6 text-left px-0">
               <%= @field.section_site_price %>
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-4 col-5 text-left pl-2">
+            <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-th-large"></i> サイトの大きさ
             </div>
-            <div class="col-sm-8 col-7 text-left px-0">
+            <div class="col-sm-8 col-6 text-left px-0">
               <%= @field.section_site_size %>
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-4 col-5 text-left pl-2">
+            <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-yen-sign"></i> フリーサイト
             </div>
-            <div class="col-sm-8 col-7 text-left px-0">
+            <div class="col-sm-8 col-6 text-left px-0">
               <%= @field.free_site_price %>
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-4 col-5 text-left pl-2">
+            <div class="col-sm-4 col-6 text-left pl-2">
               <i class="far fa-square"></i> サイトの大きさ
             </div>
-            <div class="col-sm-8 col-7 text-left px-0">
+            <div class="col-sm-8 col-6 text-left px-0">
               <%= @field.free_site_size %>
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-4 col-5 text-left pl-2">
+            <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-window-close"></i> キャンセル料
             </div>
-            <div class="col-sm-8 col-7 text-left px-0">
+            <div class="col-sm-8 col-6 text-left px-0">
               <% if @field.cancel %>
                 有
               <% else %>
@@ -258,10 +258,10 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-4 col-5 text-left pl-2">
+            <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-chess-board"></i> 地面
             </div>
-            <div class="col-sm-8 col-7 text-left px-0">
+            <div class="col-sm-8 col-6 text-left px-0">
               <% if @field.ground_turf %>
                 芝
               <% end %>
@@ -277,10 +277,10 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-4 col-5 text-left pl-2">
+            <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-fire-alt"></i> 焚き火
             </div>
-            <div class="col-sm-8 col-7 text-left px-0">
+            <div class="col-sm-8 col-6 text-left px-0">
               <% if @field.bonfire %>
                 可
               <% else %>
@@ -289,10 +289,10 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-4 col-5 text-left pl-2">
+            <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-burn"></i> 直火
             </div>
-            <div class="col-sm-8 col-7 text-left px-0">
+            <div class="col-sm-8 col-6 text-left px-0">
               <% if @field.direct_fire %>
                 可
               <% else %>
@@ -301,10 +301,10 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-4 col-5 text-left pl-2">
+            <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-car"></i> 車の横付け
             </div>
-            <div class="col-sm-8 col-7 text-left px-0">
+            <div class="col-sm-8 col-6 text-left px-0">
               <% if @field.car %>
                 可
               <% else %>
@@ -313,10 +313,10 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-4 col-5 text-left pl-2">
+            <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-unlock-alt"></i> ゲート
             </div>
-            <div class="col-sm-8 col-7 text-left px-0">
+            <div class="col-sm-8 col-6 text-left px-0">
               <% if @field.gate %>
                 有
               <% else %>
@@ -325,10 +325,10 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-4 col-5 text-left pl-2">
+            <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-user-lock"></i> 管理人
             </div>
-            <div class="col-sm-8 col-7 text-left px-0">
+            <div class="col-sm-8 col-6 text-left px-0">
               <% if @field.manager_resident %>
                 24時間常駐
               <% else %>
@@ -337,10 +337,10 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-4 col-5 text-left pl-2">
+            <div class="col-sm-4 col-6 text-left pl-2">
               <i class="far fa-trash-alt"></i> ゴミ
             </div>
-            <div class="col-sm-8 col-7 text-left px-0">
+            <div class="col-sm-8 col-6 text-left px-0">
               <% if @field.trash %>
                 ゴミ捨て：可
               <% else %>
@@ -349,11 +349,11 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-4 col-5 text-left pl-2">
+            <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-shower"></i>
               <span class="holiday"></span> シャワー
             </div>
-            <div class="col-sm-8 col-7 text-left px-0">
+            <div class="col-sm-8 col-6 text-left px-0">
               <% if @field.coin_shower %>
                 コインシャワー
               <% elsif @field.free_shower %>
@@ -364,10 +364,10 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-4 col-5 text-left pl-2">
+            <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-restroom"></i> トイレ
             </div>
-            <div class="col-sm-8 col-7 text-left px-0">
+            <div class="col-sm-8 col-6 text-left px-0">
               <% if @field.washlet %>
                 ウォシュレット式
               <% elsif @field.flush_toilet %>
@@ -380,10 +380,10 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-4 col-5 text-left pl-2">
+            <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-paw"></i> ペット
             </div>
-            <div class="col-sm-8 col-7 text-left px-0">
+            <div class="col-sm-8 col-6 text-left px-0">
               <% if @field.pets %>
                 可
               <% else %>
@@ -392,24 +392,24 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-4 col-5 text-left pl-2">
+            <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-book-reader"></i> ゆるキャン△
             </div>
-            <div class="col-sm-8 col-7 text-left px-0">
+            <div class="col-sm-8 col-6 text-left px-0">
               <% if @field.laid_back_camp %>
-                <p>ゆるキャン聖地△</p>
+                ゆるキャン聖地△
               <% else %>
                 -
               <% end %>
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-4 col-5 text-left pl-2">
+            <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-book-open"></i> ふたりソロキャンプ
             </div>
-            <div class="col-sm-8 col-7 text-left px-0">
+            <div class="col-sm-8 col-6 text-left px-0">
               <% if @field.two_people_solo_camp %>
-                <p>ふたりソロキャンプ地！</p>
+                ふたりソロキャンプ地！
               <% else %>
                 -
               <% end %>
@@ -466,7 +466,7 @@
                   </div>
                   <div id="star-rate<%= review.id %>"></div>
                   <p><%= review.rate %> / 5.0</p>
-                  <div class="review_content">
+                  <div class="review_content text-break">
                     <%= simple_format(review.content) %>
                   </div>
                   <div class="text-end">
