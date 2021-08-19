@@ -1,3 +1,4 @@
+<% set_meta_tags description: "#{@field.name}の詳細情報ページ" %>
 <% provide(:title, @field.name) %>
 <%= flash[:success] %>
 <%= flash[:danger] %>
@@ -45,7 +46,7 @@
         <% end %>
         <div class="card-body">
           <div class="d-flex justify-content-center">
-            <a href="//twitter.com/share" class="twitter-share-button" data-text="<%= @field.name %> <%= @field_url %> #TO_CAMP" data-lang="ja"></a>
+            <a href="//twitter.com/share" class="twitter-share-button" data-text="<%= @field.name %> #TO_CAMP" data-lang="ja"></a>
             <div id="fb-root"></div>
             <div class="fb-share-button mx-4" data-href="<%= @field_url %>" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">シェア</a></div>
             <div class="line-it-button" data-lang="ja" data-type="share-a" data-url="<%= @field_url %>" style="display: none;"></div>
