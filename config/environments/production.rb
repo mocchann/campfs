@@ -130,19 +130,5 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { host: 'to-camp.herokuapp.com' }
-  ActionMailer::Base.delivery_method = :smtp
-  user = ENV['SENDGRID_USERNAME']
-  pass = ENV['SENDGRID_PASSWORD']
-  ActionMailer::Base.smtp_settings = {
-    user_name: user,
-    password: pass,
-    domain: "heroku.com",
-    address: "smtp.sendgrid.net",
-    port: 587,
-    authentication: :plain,
-    enable_starttls_auto: true
-    }
   GA.tracker = "UA-174174667-2"
 end
