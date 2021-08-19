@@ -1,5 +1,5 @@
 # TO_CAMP
-個人開発している「キャンプ場検索サービス」です。<br>
+キャンプ場をお好みの条件で検索できる「キャンプ場検索サービス」です。<br>
 最終的には、全国約4000箇所以上のキャンプ場情報を検索対象にします。<br>
 
 ## 使用技術
@@ -12,6 +12,7 @@
 ・CircleCI<br>
 ・RSpec<br>
 ・Rubocop<br>
+・Heroku<br>
 
 ## 機能一覧
 ・ログイン機能(Devise)<br>
@@ -33,6 +34,8 @@
 -Twitter、Facebook、LINE<br>
 ・Google maps API<br>
 ・管理者機能(active admin)<br>
+・問い合わせ機能(Google form)<br>
+・画像リサイズ(imagemagick)
 
 ## テスト
 ・RSpec<br>

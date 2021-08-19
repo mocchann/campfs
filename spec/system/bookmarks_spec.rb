@@ -28,7 +28,7 @@ RSpec.describe 'bookmarks', type: :system, js: true do
         find('.fa-bookmark').click
         find('.fa-bookmark').click
         visit user_path(user)
-        expect(page).to have_content "気になるキャンプ場や行ってみたいキャンプ場をブックマークしてみよう！"
+        expect(page).to have_content "気になるキャンプ場やお気に入りのキャンプ場をブックマークしてみよう！"
       end
     end
   end

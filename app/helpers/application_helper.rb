@@ -23,20 +23,30 @@ module ApplicationHelper
 
   def default_meta_tags
     {
+      title: "TO_CAMP △ キャンプ場を好みの条件で検索できるWebサービス",
       description: "TO_CAMPは、キャンプ場の検索、口コミの投稿・閲覧、気になるキャンプ場の保存ができる、キャンプ好きによるキャンプ好きのためのWebサービスです。",
-      icon: image_url("favicon.ico"),
+      icon: [
+        { href: image_url('favicon.ico' )},
+        { href: image_url('top-img.png'), rel: 'apple-touch-icon', sizes: '180x180', type: 'image/png' },
+      ],
+      keywords: 'キャンプ,トゥーキャンプ,TO_CAMP,to_camp,to-camp',
       noindex: ! Rails.env.production?, 
       charset: "UTF-8",
       viewport: "width=device-width, initial-scale=1",
 
       og: {
-        title: "TO_CAMP △ キャンプ好きがキャンプ好きのために作った、キャンプ場を便利に検索できるWebサービス",
+        site_name: "TO_CAMP",
+        title: "TO_CAMP △ キャンプ場を好みの条件で検索できるWebサービス",
         type: "website",
         url: request.original_url,
-        site_name: "TO_CAMP",
         description: "TO_CAMPは、キャンプ場の検索、口コミの投稿・閲覧、気になるキャンプ場の保存ができる、キャンプ好きによるキャンプ好きのためのWebサービスです。",
-        locale: "ja_JP"
-      } 
+        image: image_url('top-img.png'),
+        locale: "ja_JP",
+      },
+      twitter: {
+        card: "summary",
+        site: "@freebblog"
+      }
     }
   end
 end
