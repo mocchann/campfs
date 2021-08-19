@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
   resources :bookmarks, only: [:create, :destroy]
   resources :reviews
-  resources :contacts, only: [:new, :create]
+  resources :contacts, only: [:new]
   get 'static_pages/terms'
   get 'static_pages/privacy_policy'
 

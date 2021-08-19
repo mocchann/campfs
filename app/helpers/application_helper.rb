@@ -40,7 +40,7 @@ module ApplicationHelper
         type: "website",
         url: request.original_url,
         description: "TO_CAMPは、キャンプ場の検索、口コミの投稿・閲覧、気になるキャンプ場の保存ができる、キャンプ好きによるキャンプ好きのためのWebサービスです。",
-        image: image_url('top-img.png'),
+        image: image_url('top-img.png'),#このイメージを変更すればSNSカードの画像が変わる
         locale: "ja_JP",
       },
       twitter: {
