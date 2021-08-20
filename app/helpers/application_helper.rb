@@ -9,18 +9,6 @@ module ApplicationHelper
     end
   end
 
-  def show_current_number(current_page, size)
-    if size > 8
-      first = 1
-      last  = size
-      last *= current_page
-      first = last -8
-      return "#{first} ~ #{last}"
-    else
-      return "1 ~ #{size}"
-    end
-  end
-
   def default_meta_tags
     {
       title: "TO_CAMP △ キャンプ場を好みの条件で検索できるWebサービス",
@@ -40,7 +28,7 @@ module ApplicationHelper
         type: "website",
         url: request.original_url,
         description: "TO_CAMPは、キャンプ場の検索、口コミの投稿・閲覧、気になるキャンプ場の保存ができる、キャンプ好きによるキャンプ好きのためのWebサービスです。",
-        image: image_url('top-img.png'),#このイメージを変更すればSNSカードの画像が変わる
+        image: image_url('top-img.png'),#TODO:あとでイメージを設定して、SNSカードの画像を変更
         locale: "ja_JP",
       },
       twitter: {
