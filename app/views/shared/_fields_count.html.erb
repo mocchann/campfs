@@ -1,6 +1,6 @@
 <p class="search-number">
   <% if fields.present? %>
-    <%= show_current_number(fields.current_page,fields.size) %>件を表示 / 全<%= fields.total_count %>件
+    <%= fields_current_number(fields.current_page,fields.size) %>件を表示 / 全<%= fields.total_count %>件
   <% else %>
     0件を表示 / 全<%= fields.total_count %>件
   <% end %>

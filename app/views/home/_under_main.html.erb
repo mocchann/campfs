@@ -14,7 +14,7 @@
     </h2>
     <p class="camp-search text-center">スタイルごとにキャンプ場を探す</p>
   </div>
-  <section class="page-section" id="services">
+  <div class="page-section">
     <div class="container">
       <div class="row text-center">
         <div class="col-md-4 my-5">
@@ -29,7 +29,7 @@
             <div>〜</div>
             <%= f.number_field :elevation_lteq, placeholder: "MAX", class: "form-control" %>
             <div>
-              <%= f.submit "検索", class: "camp-style btn btn-outline-light select-btn mt-4 w-100" %>
+              <%= f.submit "検索", class: "camp-style btn btn-outline-light search-btn mt-4 w-100" %>
             </div>
           <% end %>
         </div>
@@ -46,8 +46,8 @@
         <div class="under-main-link col-md-4 my-5">
           <%= link_to search_fields_path(q: { washlet_eq: "true" }) do %>
             <span class="fa-stack fa-4x">
-                <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                <i class="fas fa-toilet fa-stack-1x fa-inverse"></i>
+              <i class="fas fa-circle fa-stack-2x text-primary"></i>
+              <i class="fas fa-toilet fa-stack-1x fa-inverse"></i>
             </span>
             <h4 class="my-3">ウォシュレット検索</h4>
             <p class="text-muted">ウォシュレット式トイレ完備のキャンパーに優しいキャンプ場</p>
@@ -55,8 +55,8 @@
         </div>
       </div>
     </div>
-  </section>
-  <section class="page-section" id="services">
+  </div>
+  <div class="page-section">
     <div class="container">
       <div class="row text-center">
         <div class="under-main-link col-md-4 my-5">
@@ -72,8 +72,8 @@
         <div class="under-main-link col-md-4 my-5">
           <%= link_to search_fields_path(q: { laid_back_camp_eq: "true" }) do %>
             <span class="fa-stack fa-4x">
-                <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                <i class="fas fa-book-reader fa-stack-1x fa-inverse"></i>
+              <i class="fas fa-circle fa-stack-2x text-primary"></i>
+              <i class="fas fa-book-reader fa-stack-1x fa-inverse"></i>
             </span>
             <h4 class="my-3">ゆるキャン△聖地(キャンプ場)巡礼</h4>
             <p class="text-muted">人気漫画ゆるキャンに登場するキャンプ場をまとめました</p>
@@ -82,8 +82,8 @@
         <div class="under-main-link col-md-4 my-5">
           <%= link_to search_fields_path(q: { two_people_solo_camp_eq: "true" }) do %>
             <span class="fa-stack fa-4x">
-                <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                <i class="fas fa-book-open fa-stack-1x fa-inverse"></i>
+              <i class="fas fa-circle fa-stack-2x text-primary"></i>
+              <i class="fas fa-book-open fa-stack-1x fa-inverse"></i>
             </span>
             <h4 class="my-3">ふたりソロキャンプ検索</h4>
             <p class="text-muted">ふたりソロキャンプ地に出掛けよう！</p>
@@ -91,5 +91,5 @@
         </div>
       </div>
     </div>
-  </section>
+  </div>
 </div>

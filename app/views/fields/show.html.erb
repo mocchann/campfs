@@ -1,6 +1,6 @@
 <% set_meta_tags description: "#{@field.name}の詳細情報ページ" %>
 <% provide(:title, @field.name) %>
-<%= flash[:success] %>
+<%= flash[:notice] %>
 <%= flash[:danger] %>
 <%= flash[:alert] %>
 <div class="d-flex align-items-center flex-column my-5">
@@ -40,9 +40,7 @@
         <% if @field.image.blank? %>
           <i class="text-center my-3">no image</i>
         <% else %>
-          <div>
-            <%= image_tag @field.image.variant(gravity: :center, resize:'500x500^', crop:"500x500+0+0").processed, width: "100%", height: "100%" %>
-          </div>
+          <%= image_tag @field.image.variant(gravity: :center, resize:'500x500^', crop:"500x500+0+0").processed, width: "100%", height: "100%", alt: "#{@field.name}の写真" %>
         <% end %>
         <div class="card-body">
           <div class="d-flex justify-content-center">
@@ -60,7 +58,7 @@
           <h4>施設情報</h4>
         </div>
         <div class="card-body show-card-body">
-          <div class="row">
+          <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-map-marker-alt"></i> 住所
             </div>
@@ -68,7 +66,7 @@
               <%= @field.address %>
             </div>
           </div>
-          <div class="row">
+          <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-calendar-alt"></i> 予約方法
             </div>
@@ -76,7 +74,7 @@
               <%= @field.reservation %>
             </div>
           </div>
-          <div class="row">
+          <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-mobile-alt"></i> 電話番号
             </div>
@@ -88,7 +86,7 @@
               -
             <% end %>
           </div>
-          <div class="row">
+          <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-history"></i> 営業時間
             </div>
@@ -96,7 +94,7 @@
               <%= @field.business_hours %>
             </div>
           </div>
-          <div class="row">
+          <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-calendar-check"></i> 定休日
             </div>
@@ -104,7 +102,7 @@
               <%= @field.holiday %>
             </div>
           </div>
-          <div class="row">
+          <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="far fa-calendar-check"></i> 営業期間
             </div>
@@ -112,7 +110,7 @@
               <%= @field.season %>
             </div>
           </div>
-          <div class="row">
+          <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="far fa-clock"></i> アーリーチェックイン
             </div>
@@ -120,7 +118,7 @@
               <%= @field.early_in_description %>
             </div>
           </div>
-          <div class="row">
+          <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="far fa-clock"></i> レイトチェックアウト
             </div>
@@ -128,7 +126,7 @@
               <%= @field.late_out_description %>
             </div>
           </div>
-          <div class="row">
+          <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-clock"></i> チェックイン
             </div>
@@ -136,7 +134,7 @@
               <%= @field.check_in %>
             </div>
           </div>
-          <div class="row">
+          <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-clock"></i> チェックアウト
             </div>
@@ -144,7 +142,7 @@
               <%= @field.check_out %>
             </div>
           </div>
-          <div class="row">
+          <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-campground"></i> デイキャンプ
             </div>
@@ -152,7 +150,7 @@
               <%= @field.day_camp_description %>
             </div>
           </div>
-          <div class="row">
+          <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-map-marked-alt"></i> 立地
             </div>
@@ -174,7 +172,7 @@
               <% end %>
             </div>
           </div>
-          <div class="row">
+          <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-train"></i> 最寄り駅
             </div>
@@ -182,7 +180,7 @@
               <%= @field.near_station %>：距離(約<%= @field.near_station_km %>km)
             </div>
           </div>
-          <div class="row">
+          <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-route"></i> 最寄りのIC
             </div>
@@ -190,7 +188,7 @@
               <%= @field.near_ic %>
             </div>
           </div>
-          <div class="row">
+          <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-hot-tub"></i> 最寄りの温泉
             </div>
@@ -198,7 +196,7 @@
               <%= @field.near_spa %>
             </div>
           </div>
-          <div class="row">
+          <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-shopping-cart"></i> 最寄りのスーパー
             </div>
@@ -206,7 +204,7 @@
               <%= @field.near_supermarket %>
             </div>
           </div>
-          <div class="row">
+          <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-mountain"></i> 標高(m)
             </div>
@@ -214,7 +212,7 @@
               <%= @field.elevation %> m
             </div>
           </div>
-          <div class="row">
+          <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-yen-sign"></i> 区画サイト
             </div>
@@ -222,7 +220,7 @@
               <%= @field.section_site_price %>
             </div>
           </div>
-          <div class="row">
+          <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-th-large"></i> サイトの大きさ
             </div>
@@ -230,7 +228,7 @@
               <%= @field.section_site_size %>
             </div>
           </div>
-          <div class="row">
+          <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-yen-sign"></i> フリーサイト
             </div>
@@ -238,7 +236,7 @@
               <%= @field.free_site_price %>
             </div>
           </div>
-          <div class="row">
+          <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="far fa-square"></i> サイトの大きさ
             </div>
@@ -246,7 +244,7 @@
               <%= @field.free_site_size %>
             </div>
           </div>
-          <div class="row">
+          <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-window-close"></i> キャンセル料
             </div>
@@ -258,7 +256,7 @@
               <% end %>
             </div>
           </div>
-          <div class="row">
+          <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-chess-board"></i> 地面
             </div>
@@ -277,7 +275,7 @@
               <% end %>
             </div>
           </div>
-          <div class="row">
+          <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-fire-alt"></i> 焚き火
             </div>
@@ -289,7 +287,7 @@
               <% end %>
             </div>
           </div>
-          <div class="row">
+          <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-burn"></i> 直火
             </div>
@@ -301,7 +299,7 @@
               <% end %>
             </div>
           </div>
-          <div class="row">
+          <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-car"></i> 車の横付け
             </div>
@@ -313,7 +311,7 @@
               <% end %>
             </div>
           </div>
-          <div class="row">
+          <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-unlock-alt"></i> ゲート
             </div>
@@ -325,7 +323,7 @@
               <% end %>
             </div>
           </div>
-          <div class="row">
+          <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-user-lock"></i> 管理人
             </div>
@@ -337,7 +335,7 @@
               <% end %>
             </div>
           </div>
-          <div class="row">
+          <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="far fa-trash-alt"></i> ゴミ
             </div>
@@ -349,7 +347,7 @@
               <% end %>
             </div>
           </div>
-          <div class="row">
+          <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-shower"></i>
               <span class="holiday"></span> シャワー
@@ -364,7 +362,7 @@
               <% end %>
             </div>
           </div>
-          <div class="row">
+          <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-restroom"></i> トイレ
             </div>
@@ -380,7 +378,7 @@
               <% end %>
             </div>
           </div>
-          <div class="row">
+          <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-paw"></i> ペット
             </div>
@@ -392,7 +390,7 @@
               <% end %>
             </div>
           </div>
-          <div class="row">
+          <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-book-reader"></i> ゆるキャン△
             </div>
@@ -404,7 +402,7 @@
               <% end %>
             </div>
           </div>
-          <div class="row">
+          <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-book-open"></i> ふたりソロキャンプ
             </div>
@@ -417,7 +415,7 @@
             </div>
           </div>
           <div class="text-center">
-            <%= link_to "詳細は「#{@field.name}」HPへどうぞ", "#{@field.field_url}", target: :_blank,class: "result-btn btn rounded-pill w-70 m-auto my-5" %>
+            <%= link_to "ご予約は「#{@field.name}」HPへどうぞ", "#{@field.field_url}", target: :_blank,class: "green-btn btn rounded-pill w-70 m-auto my-5" %>
           </div>
         </div>
       </div>
@@ -434,7 +432,7 @@
         <div class="card-body">
           <div id="map" style='width: 100%; height: 28vh;'></div>
         </div>
-        <%= link_to "GoogleMapで開く", "https://www.google.com/maps/search/?api=1&query=#{@field.latitude},#{@field.longitude}&query_place_id=#{@field.place_id}" , target: "_blank",class: "result-btn btn rounded-pill w-50 m-auto mb-5" %>
+        <%= link_to "GoogleMapで開く", "https://www.google.com/maps/search/?api=1&query=#{@field.latitude},#{@field.longitude}&query_place_id=#{@field.place_id}" , target: "_blank",class: "green-btn btn rounded-pill w-50 m-auto mb-5" %>
       </div>
     </div>
   </div>
@@ -446,22 +444,24 @@
         <div class="card-header text-center">
           <h4>口コミ</h4>
         </div>
-        <%= link_to "口コミを投稿する", new_review_path(field_id: @field.id), class: "result-btn btn rounded-pill w-50 m-auto mt-5" %>
+        <%= link_to "口コミを投稿する", new_review_path(field_id: @field.id), class: "green-btn btn rounded-pill w-50 m-auto mt-5" %>
         <% if @reviews.present? %>
-          <div class="card-header mt-5">
-            レビュー　全<%= @reviews.count %>件
+          <div class="card-header my-5">
+            <% if @reviews.present? %>
+              <%= reviews_current_number(@reviews.current_page, @reviews.size) %>件を表示 / 全<%= @reviews.total_count %>件
+            <% end %>
           </div>
           <div id="reviews">
             <% @reviews.each do |review| %>
-              <div class="review row text-left">
+              <div class="row text-left">
                 <div class="col-2 p-5">
                   <% if review.user.icon_img.present? %>
-                    <%= image_tag review.user.icon_img, class:"rounded-circle", size:"100x100" %>
+                    <%= image_tag review.user.icon_img, class:"rounded-circle", size:"80x80" %>
                   <% else %>
                     <i class="fas fa-user-plus fa-4x ms-3"></i>
                   <% end %>
                 </div>
-                <div class="bubble col-8 text-left p-3 m-5 bg-light">
+                <div class="bubble col-8 text-left p-3 mx-5 mb-5 bg-light">
                   <div class="review_title">
                     <h5 class="fw-bold text-center">タイトル：<%= review.title %></h5>
                   </div>
@@ -490,23 +490,18 @@
                 </script>
               </div>
             <% end %>
+            <%= paginate @reviews %>
           </div>
         <% else %>
           <p class="text-center mt-5">口コミはありません</p>
         <% end %>
-        <div class="review row text-left">
-          <div class="balloon col-8 text-left">
-            <div class="review_title"></div>
-          <div class="star-review" data-score=""></div>
-        </div>
       </div>
     </div>
     <div class="text-center">
-      <%= link_to "トップページに戻る", root_path, class: "back-btn btn rounded-pill w-50 m-auto mt-5" %>
+      <%= link_to "トップページに戻る", root_path, class: "white-btn btn rounded-pill w-50 m-auto mt-1" %>
     </div>
   </div>
 </div>
-
 <script type="text/javascript">
   function initMap() {
     var test = {lat: <%= @field.latitude %>, lng: <%= @field.longitude %>};
@@ -530,11 +525,9 @@
     });
   }
 </script>
-
 <script async defer
   src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
 </script>
-
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v11.0" nonce="BrpiAESd"></script>
 <script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>

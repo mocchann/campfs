@@ -1,6 +1,6 @@
 <% provide(:title, "検索結果") %>
 <div class="container">
-  <%= render "shared/show_count", fields: @fields %>
+  <%= render "shared/fields_count", fields: @fields %>
   <div class="row m-0">
     <div class="d-flex align-items-center flex-column my-5">
       <h2>
@@ -38,7 +38,7 @@
     <% end %>
   </div>
   <div class="text-center">
-    <%= link_to "トップページに戻る", root_path, class: "back-btn btn rounded-pill w-50 m-auto my-5" %>
+    <%= link_to "トップページに戻る", root_path, class: "white-btn btn rounded-pill w-50 m-auto my-5" %>
   </div>
 </div>
 <%= paginate @fields %>

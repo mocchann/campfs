@@ -24,7 +24,7 @@ RSpec.describe 'fields', type: :system, js: true do
         click_on "ダダッピロイッパラキャンプ場"
         expect(page).to have_content field.name
         expect(page).to have_content "施設情報"
-        expect(page).to have_content "詳細は「" + field.name + "」HPへどうぞ"
+        expect(page).to have_content "ご予約は「" + field.name + "」HPへどうぞ"
         expect(page).to have_content "マップ"
         expect(page).to have_content "GoogleMapで開く"
         expect(page).to have_content "口コミ"

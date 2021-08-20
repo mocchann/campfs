@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user_id = current_user.id
     if @review.save
-      flash[:success] = "口コミを投稿しました。"
+      flash[:notice] = "口コミを投稿しました。"
       redirect_to field_path(params[:field_id])
     else
       flash.now[:danger] = "口コミの投稿に失敗しました。空欄を埋めて下さい。"

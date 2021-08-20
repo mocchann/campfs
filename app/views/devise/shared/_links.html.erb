@@ -1,11 +1,11 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to t(".sign_in"), new_session_path(resource_name), class: "session-btn btn rounded-pill w-50 m-auto my-4" %><br />
+  <%= link_to t(".sign_in"), new_session_path(resource_name), class: "green-btn btn rounded-pill w-50 m-auto my-4" %><br />
 <% end %>
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to t(".sign_up"), new_registration_path(resource_name), class: "registration-btn btn rounded-pill w-50 m-auto my-4" %><br />
+  <%= link_to t(".sign_up"), new_registration_path(resource_name), class: "white-btn btn rounded-pill w-50 m-auto my-4" %><br />
 <% end %>
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to t(".forgot_your_password"), new_password_path(resource_name) %><br />
+  <%= link_to t(".forgot_your_password"), new_password_path(resource_name), class: "green-btn btn rounded-pill w-50 m-auto my-4" %><br />
 <% end %>
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
   <%= link_to t('.didn_t_receive_confirmation_instructions'), new_confirmation_path(resource_name) %><br />

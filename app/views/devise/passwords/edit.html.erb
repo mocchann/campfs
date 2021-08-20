@@ -23,7 +23,7 @@
         <%= render "devise/shared/error_messages", resource: resource %>
         <label>新しいパスワード</label>
         <div class="form-group form-row m-4">
-          <%= f.password_field :password, class:"form-control col-10 px-2", id:"password", placeholder:"6文字以上の半角英数字" %>
+          <%= f.password_field :password, class:"form-control col-10 px-2", id:"password", placeholder:"8文字以上の半角英数字" %>
         </div>
         <label>パスワード(確認用)</label>
         <div class="form-group form-row m-4">
@@ -31,7 +31,7 @@
         </div>
         <%= f.hidden_field :reset_password_token %>
         <div class='actions mt-4 mb-3'>
-          <%= f.submit "パスワードを変更する" ,class:"result-btn btn rounded-pill w-60 m-auto my-4" %>
+          <%= f.submit "パスワードを変更する" ,class:"green-btn btn rounded-pill w-60 m-auto my-4" %>
         </div>
       <% end %>
     </div>
