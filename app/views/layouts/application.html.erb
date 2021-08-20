@@ -21,11 +21,7 @@
     <nav></nav>
     <main>
       <%= yield %>
-      <span id="back">
-        <a href="">
-          <%= image_tag asset_path('scroll_btn.jpg'), data: {"turbolinks"=>false}, class: "arrow rounded-circle" %>
-        </a>
-      </span>
+      <%= render "shared/scroll_btn" %>
     </main>
     <aside></aside>
     <footer>
@@ -36,7 +32,7 @@
         $('#back a').on('click',function(event){
           $('body, html').animate({
             scrollTop:0
-          }, 200);
+          }, 100);
           event.preventDefault();
         });
       });
