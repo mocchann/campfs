@@ -1,6 +1,6 @@
 <% provide(:title, "気になるキャンプ場") %>
 <div class="container">
-  <%= render "shared/show_count", fields: @fields %>
+  <%= render "shared/fields_count", fields: @fields %>
   <div class="d-flex align-items-center flex-column mt-5">
     <h2>
       <span class="page-title">B</span>
@@ -34,6 +34,6 @@
   </div>
   <%= paginate @fields %>
   <div class="text-center">
-    <%= link_to "トップページに戻る", root_path, class: "back-btn btn rounded-pill w-50 m-auto my-5" %>
+    <%= link_to "トップページに戻る", root_path, class: "white-btn btn rounded-pill w-50 m-auto my-5" %>
   </div>
 </div>
