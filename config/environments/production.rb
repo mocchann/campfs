@@ -134,7 +134,7 @@ Rails.application.configure do
 
   config.action_mailer.raise_delivery_errors = true
   ActionMailer::Base.delivery_method = :smtp
-  host = 'to-camp.heroku.com'
+  host = 'www.to-camp.com'
   config.action_mailer.default_url_options = { host: host }
   ActionMailer::Base.smtp_settings = {
     :port           => ENV['MAILGUN_SMTP_PORT'],
