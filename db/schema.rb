@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_15_213116) do
+ActiveRecord::Schema.define(version: 2021_07_11_215526) do
 
   create_table "active_admin_comments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "namespace"
@@ -74,14 +74,6 @@ ActiveRecord::Schema.define(version: 2021_08_15_213116) do
     t.index ["field_id"], name: "index_bookmarks_on_field_id"
     t.index ["user_id", "field_id"], name: "index_bookmarks_on_user_id_and_field_id", unique: true
     t.index ["user_id"], name: "index_bookmarks_on_user_id"
-  end
-
-  create_table "contacts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "name"
-    t.text "message"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "email"
   end
 
   create_table "fields", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
