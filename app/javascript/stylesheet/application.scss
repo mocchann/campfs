@@ -250,8 +250,12 @@ main {
 }
 
 //middle-main
-.select-bg {
+#middle_main {
   background-color: #dcdbc5;
+}
+
+.select-genre {
+  color: #64a19d;
 }
 
 #q_address_cont {
@@ -260,12 +264,6 @@ main {
   padding: 10px;
   border-radius: 5px;
   border-color: #64a19d;
-  transition: .2s;
-}
-
-#q_address_cont:hover {
-  color: #64a19d;
-  background-color: white;
   transition: .2s;
 }
 
