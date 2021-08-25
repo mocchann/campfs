@@ -25,7 +25,7 @@
             </span>
             <h4 class="elevation_search my-3">標高で探す</h4>
             <p class="elevation_text">標高を選んでキャンプ場を探そう</p>
-            <%= f.number_field :elevation_gteq, placeholder: "MIN", class: "form-control" %>
+            <%= f.number_field :elevation_gteq, required: true, placeholder: "MIN", class: "form-control" %>
             <div>〜</div>
             <%= f.number_field :elevation_lteq, placeholder: "MAX", class: "form-control" %>
             <div>

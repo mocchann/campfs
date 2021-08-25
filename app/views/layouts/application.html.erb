@@ -28,6 +28,29 @@
       <%= render "shared/footer", user: @user %>
     </footer>
     <script>
+      $(function(){
+        $('.area_btn').click(function(){
+          $('.area_overlay').show();
+          $('.pref_area').show();
+          var area = $(this).data('area');
+          $('[data-list]').hide();
+          $('[data-list="' + area + '"]').show();
+        });
+        $('.area_overlay').click(function(){
+          prefReset();
+        });
+        $('.pref_list [data-id]').click(function(){
+          if($(this).data('id')){
+            var id = $(this).data('id');
+            prefReset();
+          }
+        });
+        function prefReset(){
+          $('[data-list]').hide();
+          $('.pref_area').hide();
+          $('.area_overlay').hide();
+        }
+      });
       $(document).ready(function () {
         $("#back").hide();
         $(function() {
@@ -46,6 +69,12 @@
           });
         });
       });
+      $(function() {
+        $("form").on('submit', function(){
+          $.LoadingOverlay("show");
+        });
+      });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>
   </body>
 </html>

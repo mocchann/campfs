@@ -201,13 +201,15 @@ RSpec.describe 'fields', type: :system, js: true do
         expect(page).to have_content "キャンプ場は見つかりませんでした"
       end
 
-      it "MAXに入力した標高以下のキャンプ場が検索できること" do
+      it "MIN〜MAXに入力した標高以下のキャンプ場が検索できること" do
+        fill_in "q[elevation_gteq]", with: 100
         fill_in "q[elevation_lteq]", with: 800
         find('.camp-style').click
         expect(page).to have_content "777"
       end
 
-      it "MAXに入力した標高より高いキャンプ場は検索できないこと" do
+      it "MIN〜MAXに入力した標高より高いキャンプ場は検索できないこと" do
+        fill_in "q[elevation_gteq]", with: 0
         fill_in "q[elevation_lteq]", with: 1
         find('.camp-style').click
         expect(page).to have_content "キャンプ場は見つかりませんでした"
