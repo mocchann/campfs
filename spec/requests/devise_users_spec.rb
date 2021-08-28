@@ -42,7 +42,7 @@ RSpec.describe "UserAuthentications", type: :request do
 
       it 'エラーが表示されること' do
         post user_registration_path, params: { user: invalid_user_params }
-        expect(response.body).to include '1 件のエラーが発生したため ユーザー は保存されませんでした。'
+        expect(response.body).to include '1 件の入力ミスがあります。下記項目の修正をお願いします。'
       end
     end
   end
