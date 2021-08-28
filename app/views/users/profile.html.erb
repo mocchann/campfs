@@ -1,6 +1,10 @@
 <% provide(:title, "アイコン・ネーム編集") %>
-  <%= flash[:notice] %>
-  <%= flash[:alert] %>
+  <% if flash[:notice] %>
+    <%= render 'layouts/flash_messages' %>
+  <% end %>
+  <% if flash[:alert] %>
+    <%= render 'layouts/flash_messages' %>
+  <% end %>
 <div class="d-flex align-items-center flex-column mt-5">
   <h2>
     <span class="page-title">I</span>
