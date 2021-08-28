@@ -1,8 +1,14 @@
 <% set_meta_tags description: "#{@field.name}の詳細情報ページ" %>
 <% provide(:title, @field.name) %>
-<%= flash[:notice] %>
-<%= flash[:danger] %>
-<%= flash[:alert] %>
+<% if flash[:notice] %>
+  <%= render 'layouts/flash_messages' %>
+<% end %>
+<% if flash[:danger] %>
+  <%= render 'layouts/flash_messages' %>
+<% end %>
+<% if flash[:alert] %>
+  <%= render 'layouts/flash_messages' %>
+<% end %>
 <div class="d-flex align-items-center flex-column my-5">
   <h2>
     <span class="page-title">F</span>
