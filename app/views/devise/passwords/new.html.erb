@@ -1,4 +1,5 @@
 <%= provide(:title, t('.forgot_your_password')) %>
+<%= render "devise/shared/error_messages", resource: resource %>
 <div class="d-flex align-items-center flex-column mt-5">
   <h2>
     <span class="page-title">P</span>
@@ -16,7 +17,6 @@
   <div class="col-md-8 text-center col-sm-12 offset-md-2 rounded shadow my-5">
     <div class="col-md-10 offset-md-1 col-sm-12 col-xs-12 pt-5">
       <%= form_with model: @user, url: user_password_path do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
         <div class="form-group form-row m-3">
           <%= f.email_field :email, class:"form-control col-10 px-2", id:"email", placeholder:"メールアドレスを入力して下さい", autofocus: true %>
         </div>

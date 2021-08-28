@@ -1,4 +1,5 @@
 <% provide(:title, "新規登録") %>
+<%= render "devise/shared/error_messages", resource: resource %>
 <div class="d-flex align-items-center flex-column mt-5">
   <h2>
     <span class="page-title">S</span>
@@ -15,7 +16,6 @@
   <div class="col-md-8 text-center col-sm-12 offset-md-2 rounded shadow my-5">
     <div class="col-md-10 offset-md-1 col-sm-12 col-xs-12 pt-5">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
         <i class="fas fa-user-plus fa-4x ms-3 mt-3"></i>
         <div class="border-bottom my-3">
           <%= f.label "アイコン画像" %>
