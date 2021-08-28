@@ -1,5 +1,7 @@
 <% provide(:title, "口コミ投稿") %>
-<%= flash[:danger] %>
+<% if flash[:danger] %>
+  <%= render 'layouts/flash_messages' %>
+<% end %>
 <div class="d-flex align-items-center flex-column mt-5">
   <h2>
     <span class="page-title">R</span>
