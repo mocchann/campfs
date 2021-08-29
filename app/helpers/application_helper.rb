@@ -16,7 +16,7 @@ module ApplicationHelper
       icon: [
         { href: image_url('favicon.ico' )},
         { href: image_url('scroll_btn.jpg'), rel: 'apple-touch-icon', sizes: '180x180', type: 'image/jpg' },
-      ],
+      ],#TODO:apple-touch-iconも後で作成して変更
       keywords: 'キャンプ,トゥーキャンプ,TO_CAMP,to_camp,to-camp',
       noindex: ! Rails.env.production?, 
       charset: "UTF-8",
