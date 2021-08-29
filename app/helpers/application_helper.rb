@@ -15,7 +15,7 @@ module ApplicationHelper
       description: "TO_CAMPは、キャンプ場の検索、口コミの投稿・閲覧、気になるキャンプ場の保存ができる、キャンプ好きによるキャンプ好きのためのWebサービスです。",
       icon: [
         { href: image_url('favicon.ico' )},
-        { href: image_url('top-img.png'), rel: 'apple-touch-icon', sizes: '180x180', type: 'image/png' },
+        { href: image_url('scroll_btn.jpg'), rel: 'apple-touch-icon', sizes: '180x180', type: 'image/jpg' },
       ],
       keywords: 'キャンプ,トゥーキャンプ,TO_CAMP,to_camp,to-camp',
       noindex: ! Rails.env.production?, 
