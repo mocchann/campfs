@@ -16,7 +16,7 @@ class BookmarksController < ApplicationController
 
   def destroy
     @field = Field.find(params[:field_id])
-    Bookmark.find_by(params[:id]).destroy
+    current_user.bookmarks.find_by(params[:id]).destroy
     respond_to do |format|
       format.html { redirect_to @field }
       format.js
