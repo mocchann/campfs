@@ -12,3 +12,10 @@
     </div>
   </div>
 </nav>
+<% if current_user.blank? %>
+  <div class="d-flex align-items-center justify-content-end my-4 me-1">
+    <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: "btn btn-outline-light me-3" %>
+    <%= link_to "ログイン", "/users/sign_in", class: "btn btn-outline-light me-3" %>
+    <%= link_to "新規登録", "/users/sign_up", class: "create-btn btn btn-light me-3" %>
+  </div>
+<% end %>
