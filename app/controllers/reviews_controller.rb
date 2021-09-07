@@ -10,6 +10,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user_id = current_user.id
     if @review.save
+      #TODO ここでrateを計算する
       flash[:notice] = "口コミを投稿しました。"
       redirect_to field_path(params[:field_id])
     else
