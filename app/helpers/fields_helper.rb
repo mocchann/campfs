@@ -7,7 +7,7 @@ module FieldsHelper
     end
     return rate.round(2)
   end
-
+#TODO returnの削除
   def fields_current_number(current_page, size)
     if size > 8
       first = 1
