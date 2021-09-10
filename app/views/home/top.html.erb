@@ -5,7 +5,7 @@
 <% if flash[:alert] %>
   <%= render 'layouts/flash_messages' %>
 <% end %>
-<%#= render "ranking",fields: @fields %>
+<%= render "ranking", fields: @fields %>
 <%= render "top_main" %>
 <%= render "middle_main", q: @q %>
 <%= render "under_main", q: @q %>
