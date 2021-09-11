@@ -1,6 +1,6 @@
 module ApplicationHelper
   BASE_TITLE = "TO_CAMP".freeze
-  
+
   def full_title(page_title = '')
     if page_title.empty?
       BASE_TITLE
@@ -28,7 +28,7 @@ module ApplicationHelper
         type: "website",
         url: request.original_url,
         description: "TO_CAMPは、キャンプ場の検索、口コミの投稿・閲覧、気になるキャンプ場の保存ができる、キャンプ好きによるキャンプ好きのためのWebサービスです。",
-        image: image_url('top-img.png'),#TODO:あとでイメージを設定して、SNSカードの画像を変更
+        image: image_url('top-img.jpg'),#TODO:あとでイメージを設定して、SNSカードの画像を変更
         locale: "ja_JP",
       },
       twitter: {
