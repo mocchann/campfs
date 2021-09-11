@@ -16,12 +16,24 @@
   </div>
   <div class="japan_map my-5">
     <%= image_tag "japan-map-search.png", alt: "日本地図" %>
-    <span class="area_btn area1" data-area="1">北海道・東北</span>
-    <span class="area_btn area2" data-area="2">関東</span>
-    <span class="area_btn area3" data-area="3">中部</span>
-    <span class="area_btn area4" data-area="4">近畿</span>
-    <span class="area_btn area5" data-area="5">中国・四国</span>
-    <span class="area_btn area6" data-area="6">九州・沖縄</span>
+    <span class="area_btn area1" data-area="1">
+      北海道・東北<br><%= "#{@field_area1_count}件" %>
+    </span>
+    <span class="area_btn area2" data-area="2">
+      関東<br><%= "#{@field_area2_count}件" %>
+    </span>
+    <span class="area_btn area3" data-area="3">
+      中部<br><%= "#{@field_area3_count}件" %>
+    </span>
+    <span class="area_btn area4" data-area="4">
+      近畿<br><%= "#{@field_area4_count}件" %>
+    </span>
+    <span class="area_btn area5" data-area="5">
+      中国・四国<br><%= "#{@field_area5_count}件" %>
+    </span>
+    <span class="area_btn area6" data-area="6">
+      九州・沖縄<br><%= "#{@field_area6_count}件" %>
+    </span>
     <div class="area_overlay"></div>
     <div class="pref_area">
       <div class="pref_list" data-list="1">
@@ -134,7 +146,7 @@
           <div data-id="32">島根県</div>
         <% end %>
         <%= link_to search_fields_path(q: { address_cont: "岡山県" }), class: "pref-btn" do %>
-          <div data-id="33">岡山県</div>
+          <div data-id="33">岡山県<%#= "（#{@pref_33}件）" %></div>
         <% end %>
         <%= link_to search_fields_path(q: { address_cont: "広島県" }), class: "pref-btn" do %>
           <div data-id="34">広島県</div>
