@@ -5,7 +5,7 @@ module FieldsHelper
       reviews.each { |review| rate += review.rate.to_f }
       rate /= reviews.count
     end
-    return rate.round(2)
+    rate.round(2)
   end
 
   def fields_current_number(current_page, size)
@@ -14,9 +14,9 @@ module FieldsHelper
       last  = size
       last *= current_page
       first = last -8
-      return "#{first} ~ #{last}"
+      "#{first} ~ #{last}"
     else
-      return "1 ~ #{size}"
+      "1 ~ #{size}"
     end
   end
 end

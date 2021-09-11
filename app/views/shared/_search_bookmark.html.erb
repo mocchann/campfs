@@ -2,7 +2,7 @@
   <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
     <div class="card shadow bg-white rounded my-5">
       <% if field.image.blank? %>
-        <i class="text-center my-3">no image</i>
+        <%= image_tag "no-image.jpg", width: "100%", height: "100%", alt: "草原の写真" %>
       <% else %>
         <%= image_tag field.image.variant(gravity: :center, resize:'500x500^', crop:"500x500+0+0").processed, width: "100%", height: "100%", alt: "キャンプ場の写真" %>
       <% end %>

@@ -1,0 +1,58 @@
+<div id="ranking">
+  <div class="d-flex align-items-center flex-column mt-5">
+    <h2>
+      <span class="page-title">C</span>
+      <span class="page-title">A</span>
+      <span class="page-title">M</span>
+      <span class="page-title">P</span>
+      <span class="page-title">-</span>
+      <span class="page-title">R</span>
+      <span class="page-title">A</span>
+      <span class="page-title">N</span>
+      <span class="page-title">K</span>
+      <span class="page-title">I</span>
+      <span class="page-title">N</span>
+      <span class="page-title">G</span>
+    </h2>
+    <p class="camp-search text-center">口コミ人気ランキング</p>
+  </div>
+  <div class="container">
+    <div class="row">
+      <% fields.each_with_index do |field,i| %>
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
+          <div class="card shadow bg-white rounded my-5">
+            <div class="text-center my-3 fw-bold">
+              <%= "第#{i+1}位"%>
+            </div>
+            <% if field.image.blank? %>
+              <%= image_tag "no-image.jpg", width: "100%", height: "100%", alt: "草原の写真" %>
+            <% else %>
+              <%= image_tag field.image.variant(gravity: :center, resize:'500x500^', crop:"500x500+0+0").processed, width: "100%", height: "100%", alt: "キャンプ場の写真" %>
+            <% end %>
+            <div class="card-body">
+              <h5 class="card-title">
+                <%= link_to field.name, field_path(field) %>
+              </h5>
+              <div class="rating d-flex align-items-center m-2">
+                <%= image_tag "star-on.png",class: "me-2" %><%= rating(field.reviews) %>
+              </div>
+              <div class="mb-1">
+                <i class="fas fa-map-marker-alt"></i>
+                <cite title="<%= field.address %>">
+                <%= field.address %>
+              </div>
+              <div class="mb-1">
+                <i class="fas fa-mobile-alt"></i>
+                <% if field.phone_number.present? %>
+                  <a href="tel:<%= field.phone_number %>"><%= field.phone_number %></a>
+                <% else %>
+                  -
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
