@@ -87,6 +87,10 @@ header {
   width: 100%;
 }
 
+.d-header-bg {
+  background-color: #EDEAD8;
+}
+
 article {
   grid-area: top;
   width: 100%;
@@ -321,9 +325,8 @@ footer {
   }
 }
 
-.dropdown-menu {
+.dropdown-footer {
   background-color: #64a19d;
-  color: white;
 }
 
 .terms-privacy-color {
@@ -415,6 +418,12 @@ footer {
   color: white;
   background-color: #64a19d;
   border-color: white;
+}
+
+.secondary-btn:hover {
+  color: #6c757d;
+  background-color: #edead8;
+  border-color: #6c757d;
 }
 
 .fb_iframe_widget > span {

@@ -13,7 +13,7 @@
   </head>
   <body>
     <header>
-      <%= render "shared/header", q: @q %>
+      <%= render "shared/header", q: @q, user: @user %>
     </header>
     <% if current_page?(root_path) %>
       <%= render "shared/article" %>
