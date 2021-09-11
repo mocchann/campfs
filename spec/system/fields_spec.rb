@@ -178,7 +178,7 @@ RSpec.describe 'fields', type: :system, js: true do
       end
 
       it "都道府県を選択、こだわり条件にチェックをしてキャンプ場を絞り込み検索できること" do
-        find(:css, '#q_pets_eq_any').set(true)
+        find(:css, '#switch-pets').set(true)
         expect(page).to have_checked_field with: 'true', visible: false
         select "都道府県を選んでください", from: "q[address_cont]"
         select "滋賀県", from: "q[address_cont]"
