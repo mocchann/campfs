@@ -1,77 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="71" skipped="0" failures="0" errors="0" time="92.504244" timestamp="2021-09-11T04:42:58+00:00" hostname="12367704e343">
+<testsuite name="rspec" tests="71" skipped="0" failures="0" errors="0" time="95.276949" timestamp="2021-09-12T01:55:06+00:00" hostname="77eff5f08d0e">
 <properties>
-<property name="seed" value="13075"/>
+<property name="seed" value="14539"/>
 </properties>
-<testcase classname="spec.models.review_spec" name="Review すべてのフォームを入力しているとき登録できること" file="./spec/models/review_spec.rb" time="0.181157"></testcase>
-<testcase classname="spec.models.review_spec" name="Review タイトルを入力していないとき登録できないこと" file="./spec/models/review_spec.rb" time="0.036615"></testcase>
-<testcase classname="spec.models.review_spec" name="Review 星評価を入力していないとき登録できないこと" file="./spec/models/review_spec.rb" time="0.028632"></testcase>
-<testcase classname="spec.models.review_spec" name="Review 口コミ内容を入力していないとき登録できないこと" file="./spec/models/review_spec.rb" time="0.032408"></testcase>
-<testcase classname="spec.models.user_spec" name="User すべてのフォームを入力しているとき登録できること" file="./spec/models/user_spec.rb" time="0.007950"></testcase>
-<testcase classname="spec.models.user_spec" name="User ニックネームを入力していないとき登録できないこと" file="./spec/models/user_spec.rb" time="0.008064"></testcase>
+<testcase classname="spec.models.review_spec" name="Review すべてのフォームを入力しているとき登録できること" file="./spec/models/review_spec.rb" time="0.172255"></testcase>
+<testcase classname="spec.models.review_spec" name="Review タイトルを入力していないとき登録できないこと" file="./spec/models/review_spec.rb" time="0.029520"></testcase>
+<testcase classname="spec.models.review_spec" name="Review 星評価を入力していないとき登録できないこと" file="./spec/models/review_spec.rb" time="0.025376"></testcase>
+<testcase classname="spec.models.review_spec" name="Review 口コミ内容を入力していないとき登録できないこと" file="./spec/models/review_spec.rb" time="0.026907"></testcase>
+<testcase classname="spec.models.user_spec" name="User すべてのフォームを入力しているとき登録できること" file="./spec/models/user_spec.rb" time="0.007931"></testcase>
+<testcase classname="spec.models.user_spec" name="User ニックネームを入力していないとき登録できないこと" file="./spec/models/user_spec.rb" time="0.008263"></testcase>
 <testcase classname="spec.models.user_spec" name="User メールアドレスを入力していないとき登録できないこと" file="./spec/models/user_spec.rb" time="0.006466"></testcase>
-<testcase classname="spec.models.user_spec" name="User パスワードを入力していないとき登録できないこと" file="./spec/models/user_spec.rb" time="0.006419"></testcase>
-<testcase classname="spec.models.user_spec" name="User 重複したメールアドレスが存在するとき登録できないこと" file="./spec/models/user_spec.rb" time="0.019189"></testcase>
-<testcase classname="spec.models.user_spec" name="User passwordが8文字以上であれば登録できること" file="./spec/models/user_spec.rb" time="0.006808"></testcase>
-<testcase classname="spec.requests.bookmarks_spec" name="Bookmarks 気になるキャンプ場ページ 気になるキャンプ場ページが正しく表示されること リクエストが200 OKとなること" file="./spec/requests/bookmarks_spec.rb" time="1.661249"></testcase>
-<testcase classname="spec.requests.bookmarks_spec" name="Bookmarks 気になるキャンプ場ページ 気になるキャンプ場ページが正しく表示されること タイトルが正しく表示されること" file="./spec/requests/bookmarks_spec.rb" time="0.100230"></testcase>
-<testcase classname="spec.requests.contacts_spec" name="Contacts 問い合わせフォーム 問い合わせフォームが正しく表示されること リクエストが200 OKとなること" file="./spec/requests/contacts_spec.rb" time="0.083099"></testcase>
-<testcase classname="spec.requests.contacts_spec" name="Contacts 問い合わせフォーム 問い合わせフォームが正しく表示されること タイトルが正しく表示されること" file="./spec/requests/contacts_spec.rb" time="0.069809"></testcase>
-<testcase classname="spec.requests.devise_users_spec" name="UserAuthentications POST #create パラメータが適正な場合 リクエストが成功すること" file="./spec/requests/devise_users_spec.rb" time="0.092862"></testcase>
-<testcase classname="spec.requests.devise_users_spec" name="UserAuthentications POST #create パラメータが適正な場合 createが成功すること" file="./spec/requests/devise_users_spec.rb" time="0.045765"></testcase>
-<testcase classname="spec.requests.devise_users_spec" name="UserAuthentications POST #create パラメータが適正な場合 リダイレクトされること" file="./spec/requests/devise_users_spec.rb" time="0.066918"></testcase>
-<testcase classname="spec.requests.devise_users_spec" name="UserAuthentications POST #create パラメータが不正な場合 リクエストが成功すること" file="./spec/requests/devise_users_spec.rb" time="0.118594"></testcase>
-<testcase classname="spec.requests.devise_users_spec" name="UserAuthentications POST #create パラメータが不正な場合 createが失敗すること" file="./spec/requests/devise_users_spec.rb" time="0.095591"></testcase>
-<testcase classname="spec.requests.devise_users_spec" name="UserAuthentications POST #create パラメータが不正な場合 エラーが表示されること" file="./spec/requests/devise_users_spec.rb" time="0.077530"></testcase>
-<testcase classname="spec.requests.fields_spec" name="Fields 検索結果ページ 検索結果ページが正しく表示されること リクエストが200 OKとなること" file="./spec/requests/fields_spec.rb" time="0.079800"></testcase>
-<testcase classname="spec.requests.fields_spec" name="Fields 検索結果ページ 検索結果ページが正しく表示されること タイトルが正しく表示されること" file="./spec/requests/fields_spec.rb" time="0.068673"></testcase>
-<testcase classname="spec.requests.fields_spec" name="Fields キャンプ場詳細ページ キャンプ場詳細ページが正しく表示されること リクエストが200 OKとなること" file="./spec/requests/fields_spec.rb" time="0.098098"></testcase>
-<testcase classname="spec.requests.fields_spec" name="Fields キャンプ場詳細ページ キャンプ場詳細ページが正しく表示されること タイトルが正しく表示されること" file="./spec/requests/fields_spec.rb" time="0.095179"></testcase>
-<testcase classname="spec.requests.home_spec" name="Homes topページ topページが正しく表示されること リクエストが200 OKとなること" file="./spec/requests/home_spec.rb" time="0.204897"></testcase>
-<testcase classname="spec.requests.home_spec" name="Homes topページ topページが正しく表示されること タイトルが正しく表示されること" file="./spec/requests/home_spec.rb" time="0.153946"></testcase>
-<testcase classname="spec.requests.home_spec" name="Homes topページ topページが正しく表示されること(ゲストユーザーログイン) リクエストが302となること" file="./spec/requests/home_spec.rb" time="0.039970"></testcase>
-<testcase classname="spec.requests.reviews_spec" name="Reviews 口コミ投稿ページ 口コミ投稿ページが正しく表示されること リクエストが200 OKとなること" file="./spec/requests/reviews_spec.rb" time="0.342452"></testcase>
-<testcase classname="spec.requests.reviews_spec" name="Reviews 口コミ投稿ページ 口コミ投稿ページが正しく表示されること タイトルが正しく表示されること" file="./spec/requests/reviews_spec.rb" time="0.317458"></testcase>
-<testcase classname="spec.requests.static_pages_spec" name="StaticPages 利用規約・プライバシーポリシー 利用規約が正しく表示されること リクエストが200 OKとなること" file="./spec/requests/static_pages_spec.rb" time="0.087925"></testcase>
-<testcase classname="spec.requests.static_pages_spec" name="StaticPages 利用規約・プライバシーポリシー 利用規約が正しく表示されること タイトルが正しく表示されること" file="./spec/requests/static_pages_spec.rb" time="0.071359"></testcase>
-<testcase classname="spec.requests.static_pages_spec" name="StaticPages 利用規約・プライバシーポリシー プライバシーポリシーが正しく表示されること リクエストが200 OKとなること" file="./spec/requests/static_pages_spec.rb" time="0.073920"></testcase>
-<testcase classname="spec.requests.static_pages_spec" name="StaticPages 利用規約・プライバシーポリシー プライバシーポリシーが正しく表示されること タイトルが正しく表示されること" file="./spec/requests/static_pages_spec.rb" time="0.067782"></testcase>
-<testcase classname="spec.requests.users_spec" name="Users プロフィールページ プロフィールページが正しく表示されること リクエストが200 OKとなること" file="./spec/requests/users_spec.rb" time="0.096311"></testcase>
-<testcase classname="spec.requests.users_spec" name="Users プロフィールページ プロフィールページが正しく表示されること タイトルが正しく表示されること" file="./spec/requests/users_spec.rb" time="0.086788"></testcase>
-<testcase classname="spec.requests.users_spec" name="Users お気に入りページ 気になるキャンプ場ページが正しく表示されること リクエストが200 OKとなること" file="./spec/requests/users_spec.rb" time="0.098097"></testcase>
-<testcase classname="spec.requests.users_spec" name="Users お気に入りページ 気になるキャンプ場ページが正しく表示されること タイトルが正しく表示されること" file="./spec/requests/users_spec.rb" time="0.098216"></testcase>
-<testcase classname="spec.requests.users_spec" name="Users メール・パスワード編集 メール・パスワード編集ページが正しく表示されること リクエストが200 OKとなること" file="./spec/requests/users_spec.rb" time="0.091154"></testcase>
-<testcase classname="spec.requests.users_spec" name="Users メール・パスワード編集 メール・パスワード編集ページが正しく表示されること タイトルが正しく表示されること" file="./spec/requests/users_spec.rb" time="0.088541"></testcase>
-<testcase classname="spec.requests.users_spec" name="Users 新規登録ページ 新規登録ページが正しく表示されること リクエストが200 OKとなること" file="./spec/requests/users_spec.rb" time="0.071937"></testcase>
-<testcase classname="spec.requests.users_spec" name="Users 新規登録ページ 新規登録ページが正しく表示されること タイトルが正しく表示されること" file="./spec/requests/users_spec.rb" time="0.071872"></testcase>
-<testcase classname="spec.requests.users_spec" name="Users ログインページ ログインページが正しく表示されること リクエストが200 OKとなること" file="./spec/requests/users_spec.rb" time="0.082823"></testcase>
-<testcase classname="spec.requests.users_spec" name="Users ログインページ ログインページが正しく表示されること タイトルが正しく表示されること" file="./spec/requests/users_spec.rb" time="0.071214"></testcase>
-<testcase classname="spec.requests.users_spec" name="Users パスワード再設定ページ パスワード再設定ページが正しく表示されること リクエストが200 OKとなること" file="./spec/requests/users_spec.rb" time="0.087295"></testcase>
-<testcase classname="spec.requests.users_spec" name="Users パスワード再設定ページ パスワード再設定ページが正しく表示されること タイトルが正しく表示されること" file="./spec/requests/users_spec.rb" time="0.072695"></testcase>
-<testcase classname="spec.system.bookmarks_spec" name="bookmarks ブックマーク機能 気になるキャンプ場の登録・削除ができる ブックマークタグをクリックすると気になるキャンプ場に追加されること" file="./spec/system/bookmarks_spec.rb" time="5.053830"></testcase>
-<testcase classname="spec.system.bookmarks_spec" name="bookmarks ブックマーク機能 気になるキャンプ場の登録・削除ができる 再度ブックマークタグをクリックすると気になるキャンプ場から削除されること" file="./spec/system/bookmarks_spec.rb" time="2.189079"></testcase>
-<testcase classname="spec.system.fields_spec" name="fields 検索機能 検索フォームにキャンプ場名を入力し、検索できること 検索結果が正しく表示されること" file="./spec/system/fields_spec.rb" time="1.024294"></testcase>
-<testcase classname="spec.system.fields_spec" name="fields 検索機能 検索フォームにキャンプ場名を入力し、検索できること キャンプ場詳細ページが正しく表示されること" file="./spec/system/fields_spec.rb" time="3.137536"></testcase>
-<testcase classname="spec.system.fields_spec" name="fields 検索機能 日本地図の各地区をクリックすると都道府県名から検索できること 北海道・東北ボタンをクリックすると都道府県名が正しく表示されること" file="./spec/system/fields_spec.rb" time="2.965387"></testcase>
-<testcase classname="spec.system.fields_spec" name="fields 検索機能 日本地図の各地区をクリックすると都道府県名から検索できること 関東ボタンをクリックすると都道府県名が正しく表示されること" file="./spec/system/fields_spec.rb" time="2.808293"></testcase>
-<testcase classname="spec.system.fields_spec" name="fields 検索機能 日本地図の各地区をクリックすると都道府県名から検索できること 中部ボタンをクリックすると都道府県名が正しく表示されること" file="./spec/system/fields_spec.rb" time="3.190058"></testcase>
-<testcase classname="spec.system.fields_spec" name="fields 検索機能 日本地図の各地区をクリックすると都道府県名から検索できること 近畿ボタンをクリックすると都道府県名が正しく表示されること" file="./spec/system/fields_spec.rb" time="2.827140"></testcase>
-<testcase classname="spec.system.fields_spec" name="fields 検索機能 日本地図の各地区をクリックすると都道府県名から検索できること 中国・四国ボタンをクリックすると都道府県名が正しく表示されること" file="./spec/system/fields_spec.rb" time="3.113611"></testcase>
-<testcase classname="spec.system.fields_spec" name="fields 検索機能 日本地図の各地区をクリックすると都道府県名から検索できること 九州・沖縄ボタンをクリックすると都道府県名が正しく表示されること" file="./spec/system/fields_spec.rb" time="2.982032"></testcase>
-<testcase classname="spec.system.fields_spec" name="fields 検索機能 日本地図の各都道府県をクリックするとキャンプ場が検索できること 滋賀県ボタンをクリックすると滋賀県にあるキャンプ場が検索できること" file="./spec/system/fields_spec.rb" time="1.876657"></testcase>
-<testcase classname="spec.system.fields_spec" name="fields 検索機能 こだわり条件をチェックしてキャンプ場を検索できる ドロップダウンリストから都道府県を選択・検索できること" file="./spec/system/fields_spec.rb" time="9.999278"></testcase>
-<testcase classname="spec.system.fields_spec" name="fields 検索機能 こだわり条件をチェックしてキャンプ場を検索できる 都道府県を選択、こだわり条件にチェックをしてキャンプ場を絞り込み検索できること" file="./spec/system/fields_spec.rb" time="3.780883"></testcase>
-<testcase classname="spec.system.fields_spec" name="fields 検索機能 標高の入力によりキャンプ場が検索できる MINに入力した標高以上のキャンプ場が検索できること" file="./spec/system/fields_spec.rb" time="1.990924"></testcase>
-<testcase classname="spec.system.fields_spec" name="fields 検索機能 標高の入力によりキャンプ場が検索できる MINに入力した標高より低いキャンプ場は検索できないこと" file="./spec/system/fields_spec.rb" time="1.921127"></testcase>
-<testcase classname="spec.system.fields_spec" name="fields 検索機能 標高の入力によりキャンプ場が検索できる MIN〜MAXに入力した標高以下のキャンプ場が検索できること" file="./spec/system/fields_spec.rb" time="2.080103"></testcase>
-<testcase classname="spec.system.fields_spec" name="fields 検索機能 標高の入力によりキャンプ場が検索できる MIN〜MAXに入力した標高より高いキャンプ場は検索できないこと" file="./spec/system/fields_spec.rb" time="2.115710"></testcase>
-<testcase classname="spec.system.fields_spec" name="fields 検索機能 標高の入力によりキャンプ場が検索できる 入力した標高の範囲内にあるキャンプ場が検索できること" file="./spec/system/fields_spec.rb" time="2.084996"></testcase>
-<testcase classname="spec.system.fields_spec" name="fields 検索機能 標高の入力によりキャンプ場が検索できる 入力した標高の範囲外にあるキャンプ場は検索できないこと" file="./spec/system/fields_spec.rb" time="2.026250"></testcase>
-<testcase classname="spec.system.fields_spec" name="fields 検索機能 各リンクをクリックするとキャンプ場が検索できること 「直火ができるキャンプ場」をクリックすると直火可のキャンプ場が検索できること" file="./spec/system/fields_spec.rb" time="2.234074"></testcase>
-<testcase classname="spec.system.fields_spec" name="fields 検索機能 各リンクをクリックするとキャンプ場が検索できること 「ウォシュレット検索」をクリックするとウォシュレット式トイレのキャンプ場が検索できること" file="./spec/system/fields_spec.rb" time="3.892947"></testcase>
-<testcase classname="spec.system.fields_spec" name="fields 検索機能 各リンクをクリックするとキャンプ場が検索できること 「徒歩で行けるキャンプ場まとめ」をクリックすると最寄り駅から1km以内のキャンプ場が検索できること" file="./spec/system/fields_spec.rb" time="2.970525"></testcase>
-<testcase classname="spec.system.fields_spec" name="fields 検索機能 各リンクをクリックするとキャンプ場が検索できること 「ゆるキャン△聖地(キャンプ場)巡礼」をクリックするとゆるキャン△に登場するキャンプ場が検索できること" file="./spec/system/fields_spec.rb" time="3.790364"></testcase>
-<testcase classname="spec.system.fields_spec" name="fields 検索機能 各リンクをクリックするとキャンプ場が検索できること 「ふたりソロキャンプ検索」をクリックするとふたりソロキャンプに登場するキャンプ場が検索できること" file="./spec/system/fields_spec.rb" time="4.317579"></testcase>
-<testcase classname="spec.system.reviews_spec" name="reviews 口コミと星評価が登録できること\b 口コミの投稿 口コミを入力・投稿したあとキャンプ場詳細ページに正しく表示されること" file="./spec/system/reviews_spec.rb" time="5.677320"></testcase>
-<testcase classname="spec.system.reviews_spec" name="reviews 口コミと星評価が登録できること\b 口コミの投稿 投稿した口コミを削除できること" file="./spec/system/reviews_spec.rb" time="6.957948"></testcase>
+<testcase classname="spec.models.user_spec" name="User パスワードを入力していないとき登録できないこと" file="./spec/models/user_spec.rb" time="0.007100"></testcase>
+<testcase classname="spec.models.user_spec" name="User 重複したメールアドレスが存在するとき登録できないこと" file="./spec/models/user_spec.rb" time="0.016317"></testcase>
+<testcase classname="spec.models.user_spec" name="User passwordが8文字以上であれば登録できること" file="./spec/models/user_spec.rb" time="0.009033"></testcase>
+<testcase classname="spec.requests.bookmarks_spec" name="Bookmarks 気になるキャンプ場ページ 気になるキャンプ場ページが正しく表示されること リクエストが200 OKとなること" file="./spec/requests/bookmarks_spec.rb" time="2.006701"></testcase>
+<testcase classname="spec.requests.bookmarks_spec" name="Bookmarks 気になるキャンプ場ページ 気になるキャンプ場ページが正しく表示されること タイトルが正しく表示されること" file="./spec/requests/bookmarks_spec.rb" time="0.122038"></testcase>
+<testcase classname="spec.requests.contacts_spec" name="Contacts 問い合わせフォーム 問い合わせフォームが正しく表示されること リクエストが200 OKとなること" file="./spec/requests/contacts_spec.rb" time="0.075729"></testcase>
+<testcase classname="spec.requests.contacts_spec" name="Contacts 問い合わせフォーム 問い合わせフォームが正しく表示されること タイトルが正しく表示されること" file="./spec/requests/contacts_spec.rb" time="0.065174"></testcase>
+<testcase classname="spec.requests.devise_users_spec" name="UserAuthentications POST #create パラメータが適正な場合 リクエストが成功すること" file="./spec/requests/devise_users_spec.rb" time="0.050460"></testcase>
+<testcase classname="spec.requests.devise_users_spec" name="UserAuthentications POST #create パラメータが適正な場合 createが成功すること" file="./spec/requests/devise_users_spec.rb" time="0.034967"></testcase>
+<testcase classname="spec.requests.devise_users_spec" name="UserAuthentications POST #create パラメータが適正な場合 リダイレクトされること" file="./spec/requests/devise_users_spec.rb" time="0.039762"></testcase>
+<testcase classname="spec.requests.devise_users_spec" name="UserAuthentications POST #create パラメータが不正な場合 リクエストが成功すること" file="./spec/requests/devise_users_spec.rb" time="0.099475"></testcase>
+<testcase classname="spec.requests.devise_users_spec" name="UserAuthentications POST #create パラメータが不正な場合 createが失敗すること" file="./spec/requests/devise_users_spec.rb" time="0.080739"></testcase>
+<testcase classname="spec.requests.devise_users_spec" name="UserAuthentications POST #create パラメータが不正な場合 エラーが表示されること" file="./spec/requests/devise_users_spec.rb" time="0.073473"></testcase>
+<testcase classname="spec.requests.fields_spec" name="Fields 検索結果ページ 検索結果ページが正しく表示されること リクエストが200 OKとなること" file="./spec/requests/fields_spec.rb" time="0.082752"></testcase>
+<testcase classname="spec.requests.fields_spec" name="Fields 検索結果ページ 検索結果ページが正しく表示されること タイトルが正しく表示されること" file="./spec/requests/fields_spec.rb" time="0.070094"></testcase>
+<testcase classname="spec.requests.fields_spec" name="Fields キャンプ場詳細ページ キャンプ場詳細ページが正しく表示されること リクエストが200 OKとなること" file="./spec/requests/fields_spec.rb" time="0.103590"></testcase>
+<testcase classname="spec.requests.fields_spec" name="Fields キャンプ場詳細ページ キャンプ場詳細ページが正しく表示されること タイトルが正しく表示されること" file="./spec/requests/fields_spec.rb" time="0.094077"></testcase>
+<testcase classname="spec.requests.home_spec" name="Homes topページ topページが正しく表示されること リクエストが200 OKとなること" file="./spec/requests/home_spec.rb" time="0.150557"></testcase>
+<testcase classname="spec.requests.home_spec" name="Homes topページ topページが正しく表示されること タイトルが正しく表示されること" file="./spec/requests/home_spec.rb" time="0.113856"></testcase>
+<testcase classname="spec.requests.home_spec" name="Homes topページ topページが正しく表示されること(ゲストユーザーログイン) リクエストが302となること" file="./spec/requests/home_spec.rb" time="0.065182"></testcase>
+<testcase classname="spec.requests.reviews_spec" name="Reviews 口コミ投稿ページ 口コミ投稿ページが正しく表示されること リクエストが200 OKとなること" file="./spec/requests/reviews_spec.rb" time="0.306053"></testcase>
+<testcase classname="spec.requests.reviews_spec" name="Reviews 口コミ投稿ページ 口コミ投稿ページが正しく表示されること タイトルが正しく表示されること" file="./spec/requests/reviews_spec.rb" time="0.262134"></testcase>
+<testcase classname="spec.requests.static_pages_spec" name="StaticPages 利用規約・プライバシーポリシー 利用規約が正しく表示されること リクエストが200 OKとなること" file="./spec/requests/static_pages_spec.rb" time="0.071709"></testcase>
+<testcase classname="spec.requests.static_pages_spec" name="StaticPages 利用規約・プライバシーポリシー 利用規約が正しく表示されること タイトルが正しく表示されること" file="./spec/requests/static_pages_spec.rb" time="0.071166"></testcase>
+<testcase classname="spec.requests.static_pages_spec" name="StaticPages 利用規約・プライバシーポリシー プライバシーポリシーが正しく表示されること リクエストが200 OKとなること" file="./spec/requests/static_pages_spec.rb" time="0.069786"></testcase>
+<testcase classname="spec.requests.static_pages_spec" name="StaticPages 利用規約・プライバシーポリシー プライバシーポリシーが正しく表示されること タイトルが正しく表示されること" file="./spec/requests/static_pages_spec.rb" time="0.068651"></testcase>
+<testcase classname="spec.requests.users_spec" name="Users プロフィールページ プロフィールページが正しく表示されること リクエストが200 OKとなること" file="./spec/requests/users_spec.rb" time="0.087430"></testcase>
+<testcase classname="spec.requests.users_spec" name="Users プロフィールページ プロフィールページが正しく表示されること タイトルが正しく表示されること" file="./spec/requests/users_spec.rb" time="0.084430"></testcase>
+<testcase classname="spec.requests.users_spec" name="Users お気に入りページ 気になるキャンプ場ページが正しく表示されること リクエストが200 OKとなること" file="./spec/requests/users_spec.rb" time="0.092164"></testcase>
+<testcase classname="spec.requests.users_spec" name="Users お気に入りページ 気になるキャンプ場ページが正しく表示されること タイトルが正しく表示されること" file="./spec/requests/users_spec.rb" time="0.085810"></testcase>
+<testcase classname="spec.requests.users_spec" name="Users メール・パスワード編集 メール・パスワード編集ページが正しく表示されること リクエストが200 OKとなること" file="./spec/requests/users_spec.rb" time="0.082828"></testcase>
+<testcase classname="spec.requests.users_spec" name="Users メール・パスワード編集 メール・パスワード編集ページが正しく表示されること タイトルが正しく表示されること" file="./spec/requests/users_spec.rb" time="0.084732"></testcase>
+<testcase classname="spec.requests.users_spec" name="Users 新規登録ページ 新規登録ページが正しく表示されること リクエストが200 OKとなること" file="./spec/requests/users_spec.rb" time="0.071282"></testcase>
+<testcase classname="spec.requests.users_spec" name="Users 新規登録ページ 新規登録ページが正しく表示されること タイトルが正しく表示されること" file="./spec/requests/users_spec.rb" time="0.102072"></testcase>
+<testcase classname="spec.requests.users_spec" name="Users ログインページ ログインページが正しく表示されること リクエストが200 OKとなること" file="./spec/requests/users_spec.rb" time="0.078867"></testcase>
+<testcase classname="spec.requests.users_spec" name="Users ログインページ ログインページが正しく表示されること タイトルが正しく表示されること" file="./spec/requests/users_spec.rb" time="0.068601"></testcase>
+<testcase classname="spec.requests.users_spec" name="Users パスワード再設定ページ パスワード再設定ページが正しく表示されること リクエストが200 OKとなること" file="./spec/requests/users_spec.rb" time="0.078497"></testcase>
+<testcase classname="spec.requests.users_spec" name="Users パスワード再設定ページ パスワード再設定ページが正しく表示されること タイトルが正しく表示されること" file="./spec/requests/users_spec.rb" time="0.070061"></testcase>
+<testcase classname="spec.system.bookmarks_spec" name="bookmarks ブックマーク機能 気になるキャンプ場の登録・削除ができる ブックマークタグをクリックすると気になるキャンプ場に追加されること" file="./spec/system/bookmarks_spec.rb" time="3.757695"></testcase>
+<testcase classname="spec.system.bookmarks_spec" name="bookmarks ブックマーク機能 気になるキャンプ場の登録・削除ができる 再度ブックマークタグをクリックすると気になるキャンプ場から削除されること" file="./spec/system/bookmarks_spec.rb" time="2.538454"></testcase>
+<testcase classname="spec.system.fields_spec" name="fields 検索機能 検索フォームにキャンプ場名を入力し、検索できること 検索結果が正しく表示されること" file="./spec/system/fields_spec.rb" time="0.964429"></testcase>
+<testcase classname="spec.system.fields_spec" name="fields 検索機能 検索フォームにキャンプ場名を入力し、検索できること キャンプ場詳細ページが正しく表示されること" file="./spec/system/fields_spec.rb" time="2.737779"></testcase>
+<testcase classname="spec.system.fields_spec" name="fields 検索機能 日本地図の各地区をクリックすると都道府県名から検索できること 北海道・東北ボタンをクリックすると都道府県名が正しく表示されること" file="./spec/system/fields_spec.rb" time="2.694112"></testcase>
+<testcase classname="spec.system.fields_spec" name="fields 検索機能 日本地図の各地区をクリックすると都道府県名から検索できること 関東ボタンをクリックすると都道府県名が正しく表示されること" file="./spec/system/fields_spec.rb" time="2.563838"></testcase>
+<testcase classname="spec.system.fields_spec" name="fields 検索機能 日本地図の各地区をクリックすると都道府県名から検索できること 中部ボタンをクリックすると都道府県名が正しく表示されること" file="./spec/system/fields_spec.rb" time="2.914431"></testcase>
+<testcase classname="spec.system.fields_spec" name="fields 検索機能 日本地図の各地区をクリックすると都道府県名から検索できること 近畿ボタンをクリックすると都道府県名が正しく表示されること" file="./spec/system/fields_spec.rb" time="2.605290"></testcase>
+<testcase classname="spec.system.fields_spec" name="fields 検索機能 日本地図の各地区をクリックすると都道府県名から検索できること 中国・四国ボタンをクリックすると都道府県名が正しく表示されること" file="./spec/system/fields_spec.rb" time="2.920423"></testcase>
+<testcase classname="spec.system.fields_spec" name="fields 検索機能 日本地図の各地区をクリックすると都道府県名から検索できること 九州・沖縄ボタンをクリックすると都道府県名が正しく表示されること" file="./spec/system/fields_spec.rb" time="2.785608"></testcase>
+<testcase classname="spec.system.fields_spec" name="fields 検索機能 日本地図の各都道府県をクリックするとキャンプ場が検索できること 岡山県ボタンをクリックすると岡山県にあるキャンプ場が検索できること" file="./spec/system/fields_spec.rb" time="1.810955"></testcase>
+<testcase classname="spec.system.fields_spec" name="fields 検索機能 こだわり条件をチェックしてキャンプ場を検索できる ドロップダウンリストから都道府県を選択・検索できること" file="./spec/system/fields_spec.rb" time="2.501718"></testcase>
+<testcase classname="spec.system.fields_spec" name="fields 検索機能 こだわり条件をチェックしてキャンプ場を検索できる 都道府県を選択、こだわり条件にチェックをしてキャンプ場を絞り込み検索できること" file="./spec/system/fields_spec.rb" time="3.659179"></testcase>
+<testcase classname="spec.system.fields_spec" name="fields 検索機能 標高の入力によりキャンプ場が検索できる MINに入力した標高以上のキャンプ場が検索できること" file="./spec/system/fields_spec.rb" time="2.002660"></testcase>
+<testcase classname="spec.system.fields_spec" name="fields 検索機能 標高の入力によりキャンプ場が検索できる MINに入力した標高より低いキャンプ場は検索できないこと" file="./spec/system/fields_spec.rb" time="1.899526"></testcase>
+<testcase classname="spec.system.fields_spec" name="fields 検索機能 標高の入力によりキャンプ場が検索できる MIN〜MAXに入力した標高以下のキャンプ場が検索できること" file="./spec/system/fields_spec.rb" time="2.063220"></testcase>
+<testcase classname="spec.system.fields_spec" name="fields 検索機能 標高の入力によりキャンプ場が検索できる MIN〜MAXに入力した標高より高いキャンプ場は検索できないこと" file="./spec/system/fields_spec.rb" time="2.006598"></testcase>
+<testcase classname="spec.system.fields_spec" name="fields 検索機能 標高の入力によりキャンプ場が検索できる 入力した標高の範囲内にあるキャンプ場が検索できること" file="./spec/system/fields_spec.rb" time="2.051000"></testcase>
+<testcase classname="spec.system.fields_spec" name="fields 検索機能 標高の入力によりキャンプ場が検索できる 入力した標高の範囲外にあるキャンプ場は検索できないこと" file="./spec/system/fields_spec.rb" time="1.988778"></testcase>
+<testcase classname="spec.system.fields_spec" name="fields 検索機能 各リンクをクリックするとキャンプ場が検索できること 「直火ができるキャンプ場」をクリックすると直火可のキャンプ場が検索できること" file="./spec/system/fields_spec.rb" time="2.178870"></testcase>
+<testcase classname="spec.system.fields_spec" name="fields 検索機能 各リンクをクリックするとキャンプ場が検索できること 「ウォシュレット検索」をクリックするとウォシュレット式トイレのキャンプ場が検索できること" file="./spec/system/fields_spec.rb" time="3.895465"></testcase>
+<testcase classname="spec.system.fields_spec" name="fields 検索機能 各リンクをクリックするとキャンプ場が検索できること 「徒歩で行けるキャンプ場まとめ」をクリックすると最寄り駅から1km以内のキャンプ場が検索できること" file="./spec/system/fields_spec.rb" time="2.953271"></testcase>
+<testcase classname="spec.system.fields_spec" name="fields 検索機能 各リンクをクリックするとキャンプ場が検索できること 「ゆるキャン△聖地(キャンプ場)巡礼」をクリックするとゆるキャン△に登場するキャンプ場が検索できること" file="./spec/system/fields_spec.rb" time="3.968720"></testcase>
+<testcase classname="spec.system.fields_spec" name="fields 検索機能 各リンクをクリックするとキャンプ場が検索できること 「ふたりソロキャンプ検索」をクリックするとふたりソロキャンプに登場するキャンプ場が検索できること" file="./spec/system/fields_spec.rb" time="3.765749"></testcase>
+<testcase classname="spec.system.reviews_spec" name="reviews 口コミと星評価が登録できること\b 口コミの投稿 口コミを入力・投稿したあとキャンプ場詳細ページに正しく表示されること" file="./spec/system/reviews_spec.rb" time="20.271227"></testcase>
+<testcase classname="spec.system.reviews_spec" name="reviews 口コミと星評価が登録できること\b 口コミの投稿 投稿した口コミを削除できること" file="./spec/system/reviews_spec.rb" time="6.273988"></testcase>
 </testsuite>
