@@ -20,7 +20,7 @@ RSpec.describe 'bookmarks', type: :system, js: true do
         find('.fa-bookmark').click
         visit user_path(user)
         expect(page).to have_content "ダダッピロイッパラキャンプ場"
-        expect(page).to have_content "滋賀県高島市"
+        expect(page).to have_content "岡山県真庭市"
         expect(page).to have_content "000-0000-0000"
       end
 
