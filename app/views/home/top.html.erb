@@ -6,7 +6,7 @@
   <%= render 'layouts/flash_messages' %>
 <% end %>
 <%= render "ranking", fields: @fields %>
-<%= render "top_main" %>
+<%= render "top_main", prefs_count: @prefs_count %>
 <%= render "middle_main", q: @q %>
 <%= render "under_main", q: @q %>
 <div class="row gx-0 mb-lg-5 align-items-center mt-5">
