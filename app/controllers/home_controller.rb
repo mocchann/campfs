@@ -7,15 +7,6 @@ class HomeController < ApplicationController
   PREFS_AREA_5 = %w(鳥取県 島根県 岡山県 広島県 山口県 徳島県 香川県 愛媛県 高知県)
   PREFS_AREA_6 = %w(福岡県 佐賀県 長崎県 熊本県 大分県 宮崎県 鹿児島県 沖縄県)
 
-  prefs_count_area1 = Field.ransack(address_cont_any: PREFS_AREA_1).result.count
-  prefs_count_area2 = Field.ransack(address_cont_any: PREFS_AREA_2).result.count
-  prefs_count_area3 = Field.ransack(address_cont_any: PREFS_AREA_3).result.count
-  prefs_count_area4 = Field.ransack(address_cont_any: PREFS_AREA_4).result.count
-  prefs_count_area5 = Field.ransack(address_cont_any: PREFS_AREA_5).result.count
-  prefs_count_area6 = Field.ransack(address_cont_any: PREFS_AREA_6).result.count
-
-  PREFS_COUNT = [prefs_count_area1, prefs_count_area2, prefs_count_area3, prefs_count_area4, prefs_count_area5, prefs_count_area6]
-
   PREFS_1 = []
   PREFS_2 = []
   PREFS_3 = []
@@ -23,8 +14,26 @@ class HomeController < ApplicationController
   PREFS_5 = []
   PREFS_6 = []
 
+  BUSINESS_CONDITIONS = %w(通年営業 アーリーチェックイン可 レイトチェックアウト可 デイキャンプ可)
+  BUSINESS_ID_AND_FOR = %w(switch-all-season switch-early-in switch-late-out switch-day-camp)
+  LOCATION_CONDITIONS = %w(海 湖 川 山 林間)
+  LOCATION_ID_AND_FOR = %w(switch-sea switch-lake switch-river switch-mountain switch-woods)
+  CAMPSITE_CONDITIONS = %w(区画サイト有 フリーサイト有 芝 土 ウッドデッキ 砂 焚き火可 直火可 車の横付け可)
+  CAMPSITE_ID_AND_FOR = %w(switch-section-site switch-free-site switch-ground-turf switch-ground-soil switch-ground-wood-deck switch-ground-sand switch-bonfire switch-direct-fire switch-car)
+  FACILITY_CONDITIONS = %w(キャンプ場ゲート有 24時間管理人常駐 ゴミ捨て場有 コインシャワー有 無料シャワー有 ウォシュレット式トイレ 水洗式トイレ ペット可)
+  FACILITY_ID_AND_FOR = %w(switch-gate switch-manager-resident switch-trash switch-coin-shower switch-free-shower switch-washlet switch-flush-toilet switch-pets)
+
   def top
     @fields = Field.joins(:reviews).group("field_id").order("avg(rate) desc").limit(3)
+
+    prefs_count_area1 = Field.ransack(address_cont_any: PREFS_AREA_1).result.count
+    prefs_count_area2 = Field.ransack(address_cont_any: PREFS_AREA_2).result.count
+    prefs_count_area3 = Field.ransack(address_cont_any: PREFS_AREA_3).result.count
+    prefs_count_area4 = Field.ransack(address_cont_any: PREFS_AREA_4).result.count
+    prefs_count_area5 = Field.ransack(address_cont_any: PREFS_AREA_5).result.count
+    prefs_count_area6 = Field.ransack(address_cont_any: PREFS_AREA_6).result.count
+
+    @prefs_count = [prefs_count_area1, prefs_count_area2, prefs_count_area3, prefs_count_area4, prefs_count_area5, prefs_count_area6]
 
     PREFS_AREA_1.each do |prefs_area_1|
       PREFS_1 << Field.ransack(address_cont_any: "#{prefs_area_1}").result.count
