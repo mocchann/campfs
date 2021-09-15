@@ -21,7 +21,7 @@
       <% fields.each_with_index do |field,i| %>
         <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
           <div class="card shadow rounded my-5 position-relative">
-            <span class="position-absolute top-0 start-50 translate-middle fw-bold fa-stack">
+            <span class="position-absolute top-0 translate-middle fw-bold fa-stack">
               <% if i == 0 %>
                 <i class="fas fa-crown fa-stack-2x gold-crown"></i>
               <% elsif i == 1 %>
@@ -29,7 +29,7 @@
               <% elsif i == 2 %>
                 <i class="fas fa-crown fa-stack-2x bronze-crown"></i>
               <% end %>
-              <i class="text-white fa-stack-1x ranking-number"> <%= "#{i+1}" %></i>
+              <i class="position-absolute top-0 text-white fa-stack-1x ranking-number"> <%= "#{i+1}" %></i>
             </span>
             <% if field.image.blank? %>
               <%= image_tag "no-image.jpg", width: "100%", height: "100%", alt: "草原の写真" %>
