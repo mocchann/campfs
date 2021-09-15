@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  GUEST_EMAIL = 'guest@example.com'
-  GUEST_NAME = "ゲストユーザー"
+  GUEST_EMAIL = 'guest@example.com'.freeze
+  GUEST_NAME = "ゲストユーザー".freeze
 
   has_many :reviews, dependent: :destroy
   has_many :fields, through: :reviews
