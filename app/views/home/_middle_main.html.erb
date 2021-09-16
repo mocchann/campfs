@@ -21,7 +21,10 @@
         <div class="mb-4 p-5 offset-xs-3 col-xs-6 offset-md-3 col-md-6 offset-lg-3 col-lg-6 offset-xl-4 col-xl-4">
           <%= search_form_for q, url: search_fields_path do |f| %>
             <%= f.collection_select :address_cont, Pref.all, :name, :name, include_blank: '都道府県を選んでください' %>
-            <div class="mt-3"><p class="d-inline p-2 select-genre"><i class="far fa-circle"></i> 営業条件</p>
+            <div class="mt-3">
+              <p class="d-inline p-2 select-genre">
+                <i class="far fa-circle fa-fw"></i>営業条件
+              </p>
               <% HomeController::JSON_CAMP_COMMIT["BUSINESS_CONDITIONS"].zip(HomeController::JSON_CAMP_COMMIT["BUSINESS_ID_AND_FOR"], HomeController::JSON_CAMP_COMMIT["BUSINESS_SEARCH_SQL"]) do |business_conditions,business_id_and_for,business_search_sql| %>
                 <div class="form-check form-switch my-2">
                   <%= f.check_box :"#{business_search_sql}", {class: "form-check-input", id: business_id_and_for}, checked_value = "true", unchecked_value = "" %>
@@ -29,7 +32,10 @@
                 </div>
               <% end %>
             </div>
-            <div class="mt-3"><p class="d-inline p-2 select-genre"><i class="far fa-circle"></i> 立地条件</p>
+            <div class="mt-3">
+              <p class="d-inline p-2 select-genre">
+                <i class="far fa-circle fa-fw"></i>立地条件
+              </p>
               <% HomeController::JSON_CAMP_COMMIT["LOCATION_CONDITIONS"].zip(HomeController::JSON_CAMP_COMMIT["LOCATION_ID_AND_FOR"], HomeController::JSON_CAMP_COMMIT["LOCATION_SEARCH_SQL"]) do |location_conditions,location_id_and_for,location_search_sql| %>
                 <div class="form-check form-switch my-2">
                   <%= f.check_box :"#{location_search_sql}", {class: "form-check-input", id: location_id_and_for}, checked_value = "true", unchecked_value = "" %>
@@ -37,7 +43,10 @@
                 </div>
               <% end %>
             </div>
-            <div class="mt-3"><p class="d-inline p-2 select-genre"><i class="far fa-circle"></i> サイト条件</p>
+            <div class="mt-3">
+              <p class="d-inline p-2 select-genre">
+                <i class="far fa-circle fa-fw"></i>サイト条件
+              </p>
               <% HomeController::JSON_CAMP_COMMIT["CAMPSITE_CONDITIONS"].zip(HomeController::JSON_CAMP_COMMIT["CAMPSITE_ID_AND_FOR"], HomeController::JSON_CAMP_COMMIT["CAMPSITE_SEARCH_SQL"]) do |campsite_conditions,campsite_id_and_for,campsite_search_sql| %>
                 <div class="form-check form-switch my-2">
                   <%= f.check_box :"#{campsite_search_sql}", {class: "form-check-input", id: campsite_id_and_for}, checked_value = "true", unchecked_value = "" %>
@@ -45,7 +54,10 @@
                 </div>
               <% end %>
             </div>
-            <div class="mt-3"><p class="d-inline p-2 select-genre"><i class="far fa-circle"></i> 施設条件</p>
+            <div class="mt-3">
+              <p class="d-inline p-2 select-genre">
+                <i class="far fa-circle fa-fw"></i>施設条件
+              </p>
               <% HomeController::JSON_CAMP_COMMIT["FACILITY_CONDITIONS"].zip(HomeController::JSON_CAMP_COMMIT["FACILITY_ID_AND_FOR"], HomeController::JSON_CAMP_COMMIT["FACILITY_SEARCH_SQL"]) do |facility_conditions,facility_id_and_for,facility_search_sql| %>
                 <div class="form-check form-switch my-2">
                   <%= f.check_box :"#{facility_search_sql}", {class: "form-check-input", id: facility_id_and_for}, checked_value = "true", unchecked_value = "" %>
