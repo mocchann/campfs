@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def profile_update
-    if current_user.email != 'guest@example.com'
+    if current_user.email != User::GUEST_EMAIL
       @user = User.find_by(id: params[:id])
       if @user.update(user_params)
         redirect_to users_profile_path, notice: "プロフィールを更新しました"
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
         render :profile
       end
     else
-      redirect_to root_path, alert: 'ゲストユーザーさんは、データの編集・削除などができない設定になっています。'
+      redirect_to root_path, alert: "#{User::GUEST_NAME}さんは、データの編集・削除などができない設定になっています。"
     end
   end
 

@@ -16,7 +16,7 @@ RSpec.describe 'fields', type: :system, js: true do
 
       it "検索結果が正しく表示されること" do
         expect(page).to have_content "ダダッピロイッパラキャンプ場"
-        expect(page).to have_content "滋賀県高島市"
+        expect(page).to have_content "岡山県真庭市"
         expect(page).to have_content "000-0000-0000"
       end
 
@@ -108,10 +108,10 @@ RSpec.describe 'fields', type: :system, js: true do
     end
 
     context "日本地図の各都道府県をクリックするとキャンプ場が検索できること" do
-      it "滋賀県ボタンをクリックすると滋賀県にあるキャンプ場が検索できること" do
-        find('.area4').click
-        click_on "滋賀県"
-        expect(page).to have_content "滋賀県"
+      it "岡山県ボタンをクリックすると岡山県にあるキャンプ場が検索できること" do
+        find('.area5').click
+        click_on "岡山県"
+        expect(page).to have_content "岡山県"
       end
     end
 
@@ -119,71 +119,71 @@ RSpec.describe 'fields', type: :system, js: true do
       it "ドロップダウンリストから都道府県を選択・検索できること" do
         select "都道府県を選んでください", from: "q[address_cont]"
 
-        expect(page).to have_content "北海道"
-        expect(page).to have_content "青森県"
-        expect(page).to have_content "岩手県"
-        expect(page).to have_content "宮城県"
-        expect(page).to have_content "秋田県"
-        expect(page).to have_content "山形県"
-        expect(page).to have_content "福島県"
+        # expect(page).to have_content "北海道"
+        # expect(page).to have_content "青森県"
+        # expect(page).to have_content "岩手県"
+        # expect(page).to have_content "宮城県"
+        # expect(page).to have_content "秋田県"
+        # expect(page).to have_content "山形県"
+        # expect(page).to have_content "福島県"
 
-        expect(page).to have_content "茨城県"
-        expect(page).to have_content "栃木県"
-        expect(page).to have_content "群馬県"
-        expect(page).to have_content "埼玉県"
-        expect(page).to have_content "千葉県"
-        expect(page).to have_content "東京都"
-        expect(page).to have_content "神奈川県"
+        # expect(page).to have_content "茨城県"
+        # expect(page).to have_content "栃木県"
+        # expect(page).to have_content "群馬県"
+        # expect(page).to have_content "埼玉県"
+        # expect(page).to have_content "千葉県"
+        # expect(page).to have_content "東京都"
+        # expect(page).to have_content "神奈川県"
 
-        expect(page).to have_content "新潟県"
-        expect(page).to have_content "富山県"
-        expect(page).to have_content "石川県"
-        expect(page).to have_content "福井県"
-        expect(page).to have_content "山梨県"
-        expect(page).to have_content "長野県"
-        expect(page).to have_content "岐阜県"
-        expect(page).to have_content "静岡県"
-        expect(page).to have_content "愛知県"
+        # expect(page).to have_content "新潟県"
+        # expect(page).to have_content "富山県"
+        # expect(page).to have_content "石川県"
+        # expect(page).to have_content "福井県"
+        # expect(page).to have_content "山梨県"
+        # expect(page).to have_content "長野県"
+        # expect(page).to have_content "岐阜県"
+        # expect(page).to have_content "静岡県"
+        # expect(page).to have_content "愛知県"
 
-        expect(page).to have_content "三重県"
-        expect(page).to have_content "滋賀県"
-        expect(page).to have_content "京都府"
-        expect(page).to have_content "大阪府"
-        expect(page).to have_content "兵庫県"
-        expect(page).to have_content "奈良県"
-        expect(page).to have_content "和歌山県"
+        # expect(page).to have_content "三重県"
+        # expect(page).to have_content "滋賀県"
+        # expect(page).to have_content "京都府"
+        # expect(page).to have_content "大阪府"
+        # expect(page).to have_content "兵庫県"
+        # expect(page).to have_content "奈良県"
+        # expect(page).to have_content "和歌山県"
 
         expect(page).to have_content "鳥取県"
-        expect(page).to have_content "島根県"
+        # expect(page).to have_content "島根県"
         expect(page).to have_content "岡山県"
         expect(page).to have_content "広島県"
-        expect(page).to have_content "山口県"
-        expect(page).to have_content "徳島県"
-        expect(page).to have_content "香川県"
-        expect(page).to have_content "愛媛県"
-        expect(page).to have_content "高知県"
+        # expect(page).to have_content "山口県"
+        # expect(page).to have_content "徳島県"
+        # expect(page).to have_content "香川県"
+        # expect(page).to have_content "愛媛県"
+        # expect(page).to have_content "高知県"
 
-        expect(page).to have_content "福岡県"
-        expect(page).to have_content "佐賀県"
-        expect(page).to have_content "長崎県"
-        expect(page).to have_content "熊本県"
-        expect(page).to have_content "大分県"
-        expect(page).to have_content "宮崎県"
-        expect(page).to have_content "鹿児島県"
-        expect(page).to have_content "沖縄県"
+        # expect(page).to have_content "福岡県"
+        # expect(page).to have_content "佐賀県"
+        # expect(page).to have_content "長崎県"
+        # expect(page).to have_content "熊本県"
+        # expect(page).to have_content "大分県"
+        # expect(page).to have_content "宮崎県"
+        # expect(page).to have_content "鹿児島県"
+        # expect(page).to have_content "沖縄県"
 
-        select "滋賀県", from: "q[address_cont]"
+        select "岡山県", from: "q[address_cont]"
         find('.camp-commit').click
-        expect(page).to have_content "滋賀県"
+        expect(page).to have_content "岡山県"
       end
 
       it "都道府県を選択、こだわり条件にチェックをしてキャンプ場を絞り込み検索できること" do
         find(:css, '#switch-pets').set(true)
         expect(page).to have_checked_field with: 'true', visible: false
         select "都道府県を選んでください", from: "q[address_cont]"
-        select "滋賀県", from: "q[address_cont]"
+        select "岡山県", from: "q[address_cont]"
         find('.camp-commit').click
-        expect(page).to have_content "滋賀県"
+        expect(page).to have_content "岡山県真庭市"
         expect(page).to have_content "ペット： 可"
       end
     end

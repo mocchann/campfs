@@ -1,0 +1,14 @@
+{
+  "BUSINESS_CONDITIONS": [ "通年営業", "アーリーチェックイン可", "レイトチェックアウト可", "デイキャンプ可" ],
+  "BUSINESS_ID_AND_FOR": [ "switch-all-season", "switch-early-in", "switch-late-out", "switch-day-camp" ],
+  "BUSINESS_SEARCH_SQL": [ "all_season_eq_any", "early_in_eq_any", "late_out_eq_any", "day_camp_eq_any" ],
+  "LOCATION_CONDITIONS": [ "海", "湖", "川", "山", "林間" ],
+  "LOCATION_ID_AND_FOR": [ "switch-sea", "switch-lake", "switch-river", "switch-mountain", "switch-woods" ],
+  "LOCATION_SEARCH_SQL": [ "sea_eq_any", "lake_eq_any", "river_eq_any", "mountain_eq_any", "woods_eq_any" ],
+  "CAMPSITE_CONDITIONS": [ "区画サイト有", "フリーサイト有", "芝", "土", "ウッドデッキ", "砂", "焚き火可", "直火可", "車の横付け可" ],
+  "CAMPSITE_ID_AND_FOR": [ "switch-section-site", "switch-free-site", "switch-ground-turf", "switch-ground-soil", "switch-ground-wood-deck", "switch-ground-sand", "switch-bonfire", "switch-direct-fire", "switch-car" ],
+  "CAMPSITE_SEARCH_SQL": [ "section_site_eq_any", "free_site_eq_any", "ground_turf_eq_any", "ground_soil_eq_any", "ground_wood_deck_eq_any", "ground_sand_eq_any", "bonfire_eq_any", "direct_fire_eq_any", "car_eq_any" ],
+  "FACILITY_CONDITIONS": ["キャンプ場ゲート有", "24時間管理人常駐", "ゴミ捨て場有", "コインシャワー有", "無料シャワー有", "ウォシュレット式トイレ", "水洗式トイレ", "ペット可" ],
+  "FACILITY_ID_AND_FOR": [ "switch-gate", "switch-manager-resident", "switch-trash", "switch-coin-shower", "switch-free-shower", "switch-washlet", "switch-flush-toilet", "switch-pets" ],
+  "FACILITY_SEARCH_SQL": [ "gate_eq_any", "manager_resident_eq_any", "trash_eq_any", "coin_shower_eq_any", "free_shower_eq_any", "washlet_eq_any", "flush_toilet_eq_any", "pets_eq_any" ]
+}

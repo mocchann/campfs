@@ -1,12 +1,35 @@
 class HomeController < ApplicationController
+  require "json"
+
+  File.open("#{Rails.public_path}/json/pref.json") do |j|
+    JSON_PREF = JSON.load(j)
+  end
+
+  File.open("#{Rails.public_path}/json/region.json") do |j|
+    JSON_REGION = JSON.load(j)
+  end
+
+  File.open("#{Rails.public_path}/json/camp-commit.json") do |j|
+    JSON_CAMP_COMMIT = JSON.load(j)
+  end
+
+  PREFS_1 = JSON_PREF["PREFS_AREA_1"].map { |prefs_area_1| Field.ransack(address_cont_any: "#{prefs_area_1}").result.count }
+  PREFS_2 = JSON_PREF["PREFS_AREA_2"].map { |prefs_area_2| Field.ransack(address_cont_any: "#{prefs_area_2}").result.count }
+  PREFS_3 = JSON_PREF["PREFS_AREA_3"].map { |prefs_area_3| Field.ransack(address_cont_any: "#{prefs_area_3}").result.count }
+  PREFS_4 = JSON_PREF["PREFS_AREA_4"].map { |prefs_area_4| Field.ransack(address_cont_any: "#{prefs_area_4}").result.count }
+  PREFS_5 = JSON_PREF["PREFS_AREA_5"].map { |prefs_area_5| Field.ransack(address_cont_any: "#{prefs_area_5}").result.count }
+  PREFS_6 = JSON_PREF["PREFS_AREA_6"].map { |prefs_area_6| Field.ransack(address_cont_any: "#{prefs_area_6}").result.count }
+
   def top
     @fields = Field.joins(:reviews).group("field_id").order("avg(rate) desc").limit(3)
-    @field_area1_count = Field.ransack(address_cont_any: ["北海道", "青森県", "岩手県", "宮城県", "秋田県", "山形県", "福島県"]).result.count
-    @field_area2_count = Field.ransack(address_cont_any: ["茨城県", "栃木県", "群馬県", "埼玉県", "千葉県", "東京都", "神奈川県"]).result.count
-    @field_area3_count = Field.ransack(address_cont_any: ["新潟県‎", "富山県", "石川県", "福井県", "山梨県", "長野県", "岐阜県", "静岡県", "愛知県"]).result.count
-    @field_area4_count = Field.ransack(address_cont_any: ["三重県", "滋賀県", "京都府", "大阪府", "兵庫県", "奈良県", "和歌山県"]).result.count
-    @field_area5_count = Field.ransack(address_cont_any: ["鳥取県", "島根県", "岡山県", "広島県", "山口県", "徳島県", "香川県", "愛媛県", "高知県"]).result.count
-    @field_area6_count = Field.ransack(address_cont_any: ["福岡県", "佐賀県", "長崎県", "熊本県", "大分県", "宮崎県", "鹿児島県", "沖縄県"]).result.count
-    # @pref_33 = Field.ransack(address_cont_any: "岡山県").result.count
+
+    prefs_count_area1 = Field.ransack(address_cont_any: JSON_PREF["PREFS_AREA_1"]).result.count
+    prefs_count_area2 = Field.ransack(address_cont_any: JSON_PREF["PREFS_AREA_2"]).result.count
+    prefs_count_area3 = Field.ransack(address_cont_any: JSON_PREF["PREFS_AREA_3"]).result.count
+    prefs_count_area4 = Field.ransack(address_cont_any: JSON_PREF["PREFS_AREA_4"]).result.count
+    prefs_count_area5 = Field.ransack(address_cont_any: JSON_PREF["PREFS_AREA_5"]).result.count
+    prefs_count_area6 = Field.ransack(address_cont_any: JSON_PREF["PREFS_AREA_6"]).result.count
+
+    @prefs_count = [prefs_count_area1, prefs_count_area2, prefs_count_area3, prefs_count_area4, prefs_count_area5, prefs_count_area6]
   end
 end

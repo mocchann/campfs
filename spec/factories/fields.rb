@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :field do |d|
     d.name { "ダダッピロイッパラキャンプ場" }
-    d.address { "滋賀県高島市" }
+    d.address { "岡山県真庭市" }
     d.reservation { "ネット予約可" }
     d.phone_number { "000-0000-0000" }
     d.all_season { "true" }

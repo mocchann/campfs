@@ -21,122 +21,54 @@
         <div class="mb-4 p-5 offset-xs-3 col-xs-6 offset-md-3 col-md-6 offset-lg-3 col-lg-6 offset-xl-4 col-xl-4">
           <%= search_form_for q, url: search_fields_path do |f| %>
             <%= f.collection_select :address_cont, Pref.all, :name, :name, include_blank: '都道府県を選んでください' %>
-              <div class="mt-3"><p class="d-inline p-2 select-genre"><i class="far fa-circle"></i> 営業条件</p>
+            <div class="mt-3">
+              <p class="d-inline p-2 select-genre">
+                <i class="far fa-circle fa-fw"></i>営業条件
+              </p>
+              <% HomeController::JSON_CAMP_COMMIT["BUSINESS_CONDITIONS"].zip(HomeController::JSON_CAMP_COMMIT["BUSINESS_ID_AND_FOR"], HomeController::JSON_CAMP_COMMIT["BUSINESS_SEARCH_SQL"]) do |business_conditions,business_id_and_for,business_search_sql| %>
                 <div class="form-check form-switch my-2">
-                  <%= f.check_box :all_season_eq_any, {class: "form-check-input", id: "switch-all-season"}, checked_value = "true", unchecked_value = "" %>
-                  <%= f.label "通年営業", class: "form-check-label", for: "switch-all-season" %>
+                  <%= f.check_box :"#{business_search_sql}", {class: "form-check-input", id: business_id_and_for}, checked_value = "true", unchecked_value = "" %>
+                  <%= f.label business_conditions, class: "form-check-label", for: business_id_and_for %>
                 </div>
+              <% end %>
+            </div>
+            <div class="mt-3">
+              <p class="d-inline p-2 select-genre">
+                <i class="far fa-circle fa-fw"></i>立地条件
+              </p>
+              <% HomeController::JSON_CAMP_COMMIT["LOCATION_CONDITIONS"].zip(HomeController::JSON_CAMP_COMMIT["LOCATION_ID_AND_FOR"], HomeController::JSON_CAMP_COMMIT["LOCATION_SEARCH_SQL"]) do |location_conditions,location_id_and_for,location_search_sql| %>
                 <div class="form-check form-switch my-2">
-                  <%= f.check_box :early_in_eq_any, {class: "form-check-input", id: "switch-early-in"}, checked_value = "true", unchecked_value = "" %>
-                  <%= f.label "アーリーチェックイン可", class: "form-check-label", for: "switch-early-in" %>
+                  <%= f.check_box :"#{location_search_sql}", {class: "form-check-input", id: location_id_and_for}, checked_value = "true", unchecked_value = "" %>
+                  <%= f.label location_conditions, class: "form-check-label", for: location_id_and_for %>
                 </div>
+              <% end %>
+            </div>
+            <div class="mt-3">
+              <p class="d-inline p-2 select-genre">
+                <i class="far fa-circle fa-fw"></i>サイト条件
+              </p>
+              <% HomeController::JSON_CAMP_COMMIT["CAMPSITE_CONDITIONS"].zip(HomeController::JSON_CAMP_COMMIT["CAMPSITE_ID_AND_FOR"], HomeController::JSON_CAMP_COMMIT["CAMPSITE_SEARCH_SQL"]) do |campsite_conditions,campsite_id_and_for,campsite_search_sql| %>
                 <div class="form-check form-switch my-2">
-                  <%= f.check_box :late_out_eq_any, {class: "form-check-input", id: "switch-late-out"}, checked_value = "true", unchecked_value = "" %>
-                  <%= f.label "レイトチェックアウト可", class: "form-check-label", for: "switch-late-out" %>
+                  <%= f.check_box :"#{campsite_search_sql}", {class: "form-check-input", id: campsite_id_and_for}, checked_value = "true", unchecked_value = "" %>
+                  <%= f.label campsite_conditions, class: "form-check-label", for: campsite_id_and_for %>
                 </div>
+              <% end %>
+            </div>
+            <div class="mt-3">
+              <p class="d-inline p-2 select-genre">
+                <i class="far fa-circle fa-fw"></i>施設条件
+              </p>
+              <% HomeController::JSON_CAMP_COMMIT["FACILITY_CONDITIONS"].zip(HomeController::JSON_CAMP_COMMIT["FACILITY_ID_AND_FOR"], HomeController::JSON_CAMP_COMMIT["FACILITY_SEARCH_SQL"]) do |facility_conditions,facility_id_and_for,facility_search_sql| %>
                 <div class="form-check form-switch my-2">
-                  <%= f.check_box :day_camp_eq_any, {class: "form-check-input", id: "switch-day-camp"}, checked_value = "true", unchecked_value = "" %>
-                  <%= f.label "デイキャンプ可", class: "form-check-label", for: "switch-day-camp" %>
+                  <%= f.check_box :"#{facility_search_sql}", {class: "form-check-input", id: facility_id_and_for}, checked_value = "true", unchecked_value = "" %>
+                  <%= f.label facility_conditions, class: "form-check-label", for: facility_id_and_for %>
                 </div>
+              <% end %>
+              <div class="form-check form-switch my-2">
+                <%= f.check_box :cancel_eq_any, {class: "form-check-input", id: "switch-cancel"}, checked_value = "false", unchecked_value = "" %>
+                <%= f.label "キャンセル料無", class: "form-check-label", for: "switch-cancel" %>
               </div>
-              <div class="mt-3"><p class="d-inline p-2 select-genre"><i class="far fa-circle"></i> 立地条件</p>
-                <div class="form-check form-switch my-2">
-                  <%= f.check_box :sea_eq_any, {class: "form-check-input", id: "switch-sea"}, checked_value = "true", unchecked_value = "" %>
-                  <%= f.label "海", class: "form-check-label", for: "switch-sea" %>
-                </div>
-                <div class="form-check form-switch my-2">
-                  <%= f.check_box :lake_eq_any, {class: "form-check-input", id: "switch-lake"}, checked_value = "true", unchecked_value = "" %>
-                  <%= f.label "湖", class: "form-check-label", for: "switch-lake" %>
-                </div>
-                <div class="form-check form-switch my-2">
-                  <%= f.check_box :river_eq_any, {class: "form-check-input", id: "switch-river"}, checked_value = "true", unchecked_value = "" %>
-                  <%= f.label "川", class: "form-check-label", for: "switch-river" %>
-                </div>
-                <div class="form-check form-switch my-2">
-                  <%= f.check_box :mountain_eq_any, {class: "form-check-input", id: "switch-mountain"}, checked_value = "true", unchecked_value = "" %>
-                  <%= f.label "山", class: "form-check-label", for: "switch-mountain" %>
-                </div>
-                <div class="form-check form-switch my-2">
-                  <%= f.check_box :woods_eq_any, {class: "form-check-input", id: "switch-woods"}, checked_value = "true", unchecked_value = "" %>
-                  <%= f.label "林間", class: "form-check-label", for: "switch-woods" %>
-                </div>
-              </div>
-              <div class="mt-3"><p class="d-inline p-2 select-genre"><i class="far fa-circle"></i> サイト条件</p>
-                <div class="form-check form-switch my-2">
-                  <%= f.check_box :section_site_eq_any, {class: "form-check-input", id: "switch-section-site"}, checked_value = "true", unchecked_value = "" %>
-                  <%= f.label "区画サイト有", class: "form-check-label", for: "switch-section-site" %>
-                </div>
-                <div class="form-check form-switch my-2">
-                  <%= f.check_box :free_site_eq_any, {class: "form-check-input", id: "switch-free-site"}, checked_value = "true", unchecked_value = "" %>
-                  <%= f.label "フリーサイト有", class: "form-check-label", for: "switch-free-site" %>
-                </div>
-                <div class="form-check form-switch my-2">
-                  <%= f.check_box :ground_turf_eq_any, {class: "form-check-input", id: "switch-ground-turf"}, checked_value = "true", unchecked_value = "" %>
-                  <%= f.label "芝", class: "form-check-label", for: "switch-ground-turf" %>
-                </div>
-                <div class="form-check form-switch my-2">
-                  <%= f.check_box :ground_soil_eq_any, {class: "form-check-input", id: "switch-ground-soil"}, checked_value = "true", unchecked_value = "" %>
-                  <%= f.label "土", class: "form-check-label", for: "switch-ground-soil" %>
-                </div>
-                <div class="form-check form-switch my-2">
-                  <%= f.check_box :ground_wood_deck_eq_any, {class: "form-check-input", id: "switch-ground-wood-deck"}, checked_value = "true", unchecked_value = "" %>
-                  <%= f.label "ウッドデッキ", class: "form-check-label", for: "switch-ground-wood-deck" %>
-                </div>
-                <div class="form-check form-switch my-2">
-                  <%= f.check_box :ground_sand_eq_any, {class: "form-check-input", id: "switch-ground-sand"}, checked_value = "true", unchecked_value = "" %>
-                  <%= f.label "砂", class: "form-check-label", for: "switch-ground-sand" %>
-                </div>
-                <div class="form-check form-switch my-2">
-                  <%= f.check_box :bonfire_eq_any, {class: "form-check-input", id: "switch-bonfire"}, checked_value = "true", unchecked_value = "" %>
-                  <%= f.label "焚き火可", class: "form-check-label", for: "switch-bonfire" %>
-                </div>
-                <div class="form-check form-switch my-2">
-                  <%= f.check_box :direct_fire_eq_any, {class: "form-check-input", id: "switch-direct-fire"}, checked_value = "true", unchecked_value = "" %>
-                  <%= f.label "直火可", class: "form-check-label", for: "switch-direct-fire" %>
-                </div>
-                <div class="form-check form-switch my-2">
-                  <%= f.check_box :car_eq_any, {class: "form-check-input", id: "switch-car"}, checked_value = "true", unchecked_value = "" %>
-                  <%= f.label "車の横付け可", class: "form-check-label", for: "switch-car" %>
-                </div>
-              </div>
-              <div class="mt-3"><p class="d-inline p-2 select-genre"><i class="far fa-circle"></i> 施設条件</p>
-                <div class="form-check form-switch my-2">
-                  <%= f.check_box :gate_eq_any, {class: "form-check-input", id: "switch-gate"}, checked_value = "true", unchecked_value = "" %>
-                  <%= f.label "キャンプ場ゲート有", class: "form-check-label", for: "switch-gate" %>
-                </div>
-                <div class="form-check form-switch my-2">
-                  <%= f.check_box :manager_resident_eq_any, {class: "form-check-input", id: "switch-manager-resident"}, checked_value = "true", unchecked_value = "" %>
-                  <%= f.label "24時間管理人常駐", class: "form-check-label", for: "switch-manager-resident" %>
-                </div>
-                <div class="form-check form-switch my-2">
-                  <%= f.check_box :trash_eq_any, {class: "form-check-input", id: "switch-trash"}, checked_value = "true", unchecked_value = "" %>
-                  <%= f.label "ゴミ捨て場有", class: "form-check-label", for: "switch-trash" %>
-                </div>
-                <div class="form-check form-switch my-2">
-                  <%= f.check_box :coin_shower_eq_any, {class: "form-check-input", id: "switch-coin-shower"}, checked_value = "true", unchecked_value = "" %>
-                  <%= f.label "コインシャワー有", class: "form-check-label", for: "switch-coin-shower" %>
-                </div>
-                <div class="form-check form-switch my-2">
-                  <%= f.check_box :free_shower_eq_any, {class: "form-check-input", id: "switch-free-shower"}, checked_value = "true", unchecked_value = "" %>
-                  <%= f.label "無料シャワー有", class: "form-check-label", for: "switch-free-shower" %>
-                </div>
-                <div class="form-check form-switch my-2">
-                  <%= f.check_box :washlet_eq_any, {class: "form-check-input", id: "switch-washlet"}, checked_value = "true", unchecked_value = "" %>
-                  <%= f.label "ウォシュレット式トイレ", class: "form-check-label", for: "switch-washlet" %>
-                </div>
-                <div class="form-check form-switch my-2">
-                  <%= f.check_box :flush_toilet_eq_any, {class: "form-check-input", id: "switch-flush-toilet"}, checked_value = "true", unchecked_value = "" %>
-                  <%= f.label "水洗式トイレ", class: "form-check-label", for: "switch-flush-toilet" %>
-                </div>
-                <div class="form-check form-switch my-2">
-                  <%= f.check_box :pets_eq_any, {class: "form-check-input", id: "switch-pets"}, checked_value = "true", unchecked_value = "" %>
-                  <%= f.label "ペット可", class: "form-check-label", for: "switch-pets" %>
-                </div>
-                <div class="form-check form-switch my-2">
-                  <%= f.check_box :cancel_eq_any, {class: "form-check-input", id: "switch-cancel"}, checked_value = "false", unchecked_value = "" %>
-                  <%= f.label "キャンセル料無", class: "form-check-label", for: "switch-cancel" %>
-                </div>
-              </div>
+            </div>
             <%= f.submit "検索", class: "camp-commit btn btn-outline-light search-btn mt-3" %>
           <% end %>
         </div>

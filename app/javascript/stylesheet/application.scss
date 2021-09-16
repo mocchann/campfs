@@ -98,6 +98,28 @@ article {
   position: relative;
 }
 
+.fa-crown {
+  font-size: 4.0rem;
+  left: 77%;
+}
+
+.gold-crown {
+  color: #FFD700;
+}
+
+.silver-crown {
+  color: #C0C0C0;
+}
+
+.bronze-crown {
+  color: #C47222;
+}
+
+.ranking-number {
+  font-size: 2.0rem;
+  left: 110%;
+}
+
 .carousel-inner {
   z-index: 0;
 }
@@ -161,32 +183,32 @@ main {
 }
 
 .japan_map .area_btn.area1 {
-  top: 30%;
+  top: 26%;
   right: 0;
   width: 30%;
 }
 .japan_map .area_btn.area2 {
-  top: 58%;
+  top: 66%;
   right: 11%;
   width: 13%;
 }
 .japan_map .area_btn.area3 {
-  top: 56%;
+  top: 52%;
   right: 27.5%;
   width: 13%;
 }
 .japan_map .area_btn.area4 {
-  top: 65%;
+  top: 73%;
   right: 44%;
   width: 13%;
 }
 .japan_map .area_btn.area5 {
-  top: 52%;
+  top: 56%;
   left: 20%;
   width: 25%;
 }
 .japan_map .area_btn.area6 {
-  top: 70%;
+  top: 75%;
   left: 0;
   width: 25%;
 }

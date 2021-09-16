@@ -16,182 +16,53 @@
   </div>
   <div class="japan_map my-5">
     <%= image_tag "japan-map-search.png", alt: "日本地図" %>
-    <span class="area_btn area1" data-area="1">
-      北海道・東北<br><%= "#{@field_area1_count}件" %>
-    </span>
-    <span class="area_btn area2" data-area="2">
-      関東<br><%= "#{@field_area2_count}件" %>
-    </span>
-    <span class="area_btn area3" data-area="3">
-      中部<br><%= "#{@field_area3_count}件" %>
-    </span>
-    <span class="area_btn area4" data-area="4">
-      近畿<br><%= "#{@field_area4_count}件" %>
-    </span>
-    <span class="area_btn area5" data-area="5">
-      中国・四国<br><%= "#{@field_area5_count}件" %>
-    </span>
-    <span class="area_btn area6" data-area="6">
-      九州・沖縄<br><%= "#{@field_area6_count}件" %>
-    </span>
+    <% HomeController::JSON_REGION["EACH_REGIONS"].each_with_index do |region,i| %>
+      <span class="area_btn area<%= i+1 %>" data-area="<%= i+1 %>">
+        <%= region %><br><%= @prefs_count[i] %>件
+      </span>
+    <% end %>
     <div class="area_overlay"></div>
     <div class="pref_area">
       <div class="pref_list" data-list="1">
-        <%= link_to search_fields_path(q: { address_cont: "北海道" }), class: "pref-btn" do %>
-          <div data-id="1">北海道</div>
+        <% HomeController::JSON_PREF["PREFS_AREA_1"].zip(HomeController::PREFS_1) do |prefs_area_1,prefs_1| %>
+          <%= link_to search_fields_path(q: { address_cont: "#{prefs_area_1}" }), class: "pref-btn" do %>
+            <div data-id="1"><%= "#{prefs_area_1}" %><%= "（#{prefs_1}件）" %></div>
+          <% end %>
         <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "青森県" }), class: "pref-btn" do %>
-          <div data-id="2">青森県</div>
-        <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "岩手県" }), class: "pref-btn" do %>
-          <div data-id="3">岩手県</div>
-        <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "宮城県" }), class: "pref-btn" do %>
-          <div data-id="4">宮城県</div>
-        <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "秋田県" }), class: "pref-btn" do %>
-          <div data-id="5">秋田県</div>
-        <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "山形県" }), class: "pref-btn" do %>
-          <div data-id="6">山形県</div>
-        <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "福島県" }), class: "pref-btn" do %>
-          <div data-id="7">福島県</div>
-        <% end %>
-        <div></div>
       </div>
       <div class="pref_list" data-list="2">
-        <%= link_to search_fields_path(q: { address_cont: "茨城県" }), class: "pref-btn" do %>
-          <div data-id="8">茨城県</div>
+        <% HomeController::JSON_PREF["PREFS_AREA_2"].zip(HomeController::PREFS_2) do |prefs_area_2,prefs_2| %>
+          <%= link_to search_fields_path(q: { address_cont: "#{prefs_area_2}" }), class: "pref-btn" do %>
+            <div data-id="2"><%= "#{prefs_area_2}" %><%= "（#{prefs_2}件）" %></div>
+          <% end %>
         <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "栃木県" }), class: "pref-btn" do %>
-          <div data-id="9">栃木県</div>
-        <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "群馬県" }), class: "pref-btn" do %>
-          <div data-id="10">群馬県</div>
-        <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "埼玉県" }), class: "pref-btn" do %>
-          <div data-id="11">埼玉県</div>
-        <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "千葉県" }), class: "pref-btn" do %>
-          <div data-id="12">千葉県</div>
-        <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "東京都" }), class: "pref-btn" do %>
-          <div data-id="13">東京都</div>
-        <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "神奈川県" }), class: "pref-btn" do %>
-          <div data-id="14">神奈川県</div>
-        <% end %>
-        <div></div>
       </div>
       <div class="pref_list" data-list="3">
-        <%= link_to search_fields_path(q: { address_cont: "新潟県‎" }), class: "pref-btn" do %>
-          <div data-id="15">新潟県‎</div>
+        <% HomeController::JSON_PREF["PREFS_AREA_3"].zip(HomeController::PREFS_3) do |prefs_area_3,prefs_3| %>
+          <%= link_to search_fields_path(q: { address_cont: "#{prefs_area_3}" }), class: "pref-btn" do %>
+            <div data-id="3"><%= "#{prefs_area_3}" %><%= "（#{prefs_3}件）" %></div>
+          <% end %>
         <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "富山県" }), class: "pref-btn" do %>
-          <div data-id="16">富山県‎</div>
-        <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "石川県" }), class: "pref-btn" do %>
-          <div data-id="17">石川県</div>
-        <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "福井県" }), class: "pref-btn" do %>
-          <div data-id="18">福井県‎</div>
-        <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "山梨県" }), class: "pref-btn" do %>
-          <div data-id="19">山梨県‎</div>
-        <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "長野県" }), class: "pref-btn" do %>
-          <div data-id="20">長野県‎</div>
-        <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "岐阜県" }), class: "pref-btn" do %>
-          <div data-id="21">岐阜県</div>
-        <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "静岡県" }), class: "pref-btn" do %>
-          <div data-id="22">静岡県</div>
-        <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "愛知県" }), class: "pref-btn" do %>
-          <div data-id="23">愛知県‎</div>
-        <% end %>
-        <div></div>
       </div>
       <div class="pref_list" data-list="4">
-        <%= link_to search_fields_path(q: { address_cont: "三重県" }), class: "pref-btn" do %>
-          <div data-id="24">三重県</div>
+        <% HomeController::JSON_PREF["PREFS_AREA_4"].zip(HomeController::PREFS_4) do |prefs_area_4,prefs_4| %>
+          <%= link_to search_fields_path(q: { address_cont: "#{prefs_area_4}" }), class: "pref-btn" do %>
+            <div data-id="4"><%= "#{prefs_area_4}" %><%= "（#{prefs_4}件）" %></div>
+          <% end %>
         <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "滋賀県" }), class: "pref-btn" do %>
-          <div data-id="25">滋賀県</div>
-        <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "京都府" }), class: "pref-btn" do %>
-          <div data-id="26">京都府</div>
-        <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "大阪府" }), class: "pref-btn" do %>
-          <div data-id="27">大阪府</div>
-        <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "兵庫県" }), class: "pref-btn" do %>
-          <div data-id="28">兵庫県</div>
-        <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "奈良県" }), class: "pref-btn" do %>
-          <div data-id="29">奈良県</div>
-        <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "和歌山県" }), class: "pref-btn" do %>
-          <div data-id="30">和歌山県</div>
-        <% end %>
-        <div></div>
       </div>
       <div class="pref_list" data-list="5">
-        <%= link_to search_fields_path(q: { address_cont: "鳥取県" }), class: "pref-btn" do %>
-          <div data-id="31">鳥取県</div>
+        <% HomeController::JSON_PREF["PREFS_AREA_5"].zip(HomeController::PREFS_5) do |prefs_area_5,prefs_5| %>
+          <%= link_to search_fields_path(q: { address_cont: "#{prefs_area_5}" }), class: "pref-btn" do %>
+            <div data-id="5"><%= "#{prefs_area_5}" %><%= "（#{prefs_5}件）" %></div>
+          <% end %>
         <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "島根県" }), class: "pref-btn" do %>
-          <div data-id="32">島根県</div>
-        <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "岡山県" }), class: "pref-btn" do %>
-          <div data-id="33">岡山県<%#= "（#{@pref_33}件）" %></div>
-        <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "広島県" }), class: "pref-btn" do %>
-          <div data-id="34">広島県</div>
-        <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "山口県" }), class: "pref-btn" do %>
-          <div data-id="35">山口県</div>
-        <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "徳島県" }), class: "pref-btn" do %>
-          <div data-id="36">徳島県</div>
-        <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "香川県" }), class: "pref-btn" do %>
-          <div data-id="37">香川県</div>
-        <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "愛媛県" }), class: "pref-btn" do %>
-          <div data-id="38">愛媛県</div>
-        <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "高知県" }), class: "pref-btn" do %>
-          <div data-id="39">高知県</div>
-        <% end %>
-        <div></div>
       </div>
       <div class="pref_list" data-list="6">
-        <%= link_to search_fields_path(q: { address_cont: "福岡県" }), class: "pref-btn" do %>
-          <div data-id="40">福岡県</div>
-        <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "佐賀県" }), class: "pref-btn" do %>
-          <div data-id="41">佐賀県</div>
-        <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "長崎県" }), class: "pref-btn" do %>
-          <div data-id="42">長崎県</div>
-        <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "熊本県" }), class: "pref-btn" do %>
-          <div data-id="43">熊本県</div>
-        <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "大分県" }), class: "pref-btn" do %>
-          <div data-id="44">大分県</div>
-        <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "宮崎県" }), class: "pref-btn" do %>
-          <div data-id="45">宮崎県</div>
-        <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "鹿児島県" }), class: "pref-btn" do %>
-          <div data-id="46">鹿児島県</div>
-        <% end %>
-        <%= link_to search_fields_path(q: { address_cont: "沖縄県" }), class: "pref-btn" do %>
-          <div data-id="47">沖縄県</div>
+        <% HomeController::JSON_PREF["PREFS_AREA_6"].zip(HomeController::PREFS_6) do |prefs_area_6,prefs_6| %>
+          <%= link_to search_fields_path(q: { address_cont: "#{prefs_area_6}" }), class: "pref-btn" do %>
+            <div data-id="6"><%= "#{prefs_area_6}" %><%= "（#{prefs_6}件）" %></div>
+          <% end %>
         <% end %>
       </div>
     </div>
