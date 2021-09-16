@@ -22,33 +22,33 @@
           <%= search_form_for q, url: search_fields_path do |f| %>
             <%= f.collection_select :address_cont, Pref.all, :name, :name, include_blank: '都道府県を選んでください' %>
             <div class="mt-3"><p class="d-inline p-2 select-genre"><i class="far fa-circle"></i> 営業条件</p>
-              <% HomeController::BUSINESS_CONDITIONS.zip(HomeController::BUSINESS_ID_AND_FOR) do |business_conditions,business_id_and_for| %>
+              <% HomeController::JSON_CAMP_COMMIT["BUSINESS_CONDITIONS"].zip(HomeController::JSON_CAMP_COMMIT["BUSINESS_ID_AND_FOR"], HomeController::JSON_CAMP_COMMIT["BUSINESS_SEARCH_SQL"]) do |business_conditions,business_id_and_for,business_search_sql| %>
                 <div class="form-check form-switch my-2">
-                  <%= f.check_box :all_season_eq_any, {class: "form-check-input", id: business_id_and_for}, checked_value = "true", unchecked_value = "" %>
+                  <%= f.check_box :"#{business_search_sql}", {class: "form-check-input", id: business_id_and_for}, checked_value = "true", unchecked_value = "" %>
                   <%= f.label business_conditions, class: "form-check-label", for: business_id_and_for %>
                 </div>
               <% end %>
             </div>
             <div class="mt-3"><p class="d-inline p-2 select-genre"><i class="far fa-circle"></i> 立地条件</p>
-              <% HomeController::LOCATION_CONDITIONS.zip(HomeController::LOCATION_ID_AND_FOR) do |location_conditions,location_id_and_for| %>
+              <% HomeController::JSON_CAMP_COMMIT["LOCATION_CONDITIONS"].zip(HomeController::JSON_CAMP_COMMIT["LOCATION_ID_AND_FOR"], HomeController::JSON_CAMP_COMMIT["LOCATION_SEARCH_SQL"]) do |location_conditions,location_id_and_for,location_search_sql| %>
                 <div class="form-check form-switch my-2">
-                  <%= f.check_box :all_season_eq_any, {class: "form-check-input", id: location_id_and_for}, checked_value = "true", unchecked_value = "" %>
+                  <%= f.check_box :"#{location_search_sql}", {class: "form-check-input", id: location_id_and_for}, checked_value = "true", unchecked_value = "" %>
                   <%= f.label location_conditions, class: "form-check-label", for: location_id_and_for %>
                 </div>
               <% end %>
             </div>
             <div class="mt-3"><p class="d-inline p-2 select-genre"><i class="far fa-circle"></i> サイト条件</p>
-              <% HomeController::CAMPSITE_CONDITIONS.zip(HomeController::CAMPSITE_ID_AND_FOR) do |campsite_conditions,campsite_id_and_for| %>
+              <% HomeController::JSON_CAMP_COMMIT["CAMPSITE_CONDITIONS"].zip(HomeController::JSON_CAMP_COMMIT["CAMPSITE_ID_AND_FOR"], HomeController::JSON_CAMP_COMMIT["CAMPSITE_SEARCH_SQL"]) do |campsite_conditions,campsite_id_and_for,campsite_search_sql| %>
                 <div class="form-check form-switch my-2">
-                  <%= f.check_box :all_season_eq_any, {class: "form-check-input", id: campsite_id_and_for}, checked_value = "true", unchecked_value = "" %>
+                  <%= f.check_box :"#{campsite_search_sql}", {class: "form-check-input", id: campsite_id_and_for}, checked_value = "true", unchecked_value = "" %>
                   <%= f.label campsite_conditions, class: "form-check-label", for: campsite_id_and_for %>
                 </div>
               <% end %>
             </div>
             <div class="mt-3"><p class="d-inline p-2 select-genre"><i class="far fa-circle"></i> 施設条件</p>
-              <% HomeController::FACILITY_CONDITIONS.zip(HomeController::FACILITY_ID_AND_FOR) do |facility_conditions,facility_id_and_for| %>
+              <% HomeController::JSON_CAMP_COMMIT["FACILITY_CONDITIONS"].zip(HomeController::JSON_CAMP_COMMIT["FACILITY_ID_AND_FOR"], HomeController::JSON_CAMP_COMMIT["FACILITY_SEARCH_SQL"]) do |facility_conditions,facility_id_and_for,facility_search_sql| %>
                 <div class="form-check form-switch my-2">
-                  <%= f.check_box :all_season_eq_any, {class: "form-check-input", id: facility_id_and_for}, checked_value = "true", unchecked_value = "" %>
+                  <%= f.check_box :"#{facility_search_sql}", {class: "form-check-input", id: facility_id_and_for}, checked_value = "true", unchecked_value = "" %>
                   <%= f.label facility_conditions, class: "form-check-label", for: facility_id_and_for %>
                 </div>
               <% end %>
