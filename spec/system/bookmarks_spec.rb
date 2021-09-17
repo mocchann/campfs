@@ -23,7 +23,6 @@ RSpec.describe 'bookmarks', type: :system, js: true do
         expect(page).to have_content "岡山県真庭市"
         expect(page).to have_content "000-0000-0000"
       end
-
       it "再度ブックマークタグをクリックすると気になるキャンプ場から削除されること" do
         find('.fa-bookmark').click
         find('.fa-bookmark').click

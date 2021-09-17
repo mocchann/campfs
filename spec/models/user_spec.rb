@@ -1,38 +1,38 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  subject do
+    build(:user)
+  end
+
   it "すべてのフォームを入力しているとき登録できること" do
-    user = build(:user)
-    expect(user).to be_valid
+    subject
+    expect(subject).to be_valid
   end
-
   it "ニックネームを入力していないとき登録できないこと" do
-    user = build(:user, name: nil)
-    user.valid?
-    expect(user.errors[:name]).to include("を入力してください")
+    subject.name = nil
+    expect(subject).not_to be_valid
+    expect(subject.errors).not_to be_empty
   end
-
   it "メールアドレスを入力していないとき登録できないこと" do
-    user = build(:user, email: nil)
-    user.valid?
-    expect(user.errors[:email]).to include("を入力してください", "は不正な値です")
+    subject.email = nil
+    expect(subject).not_to be_valid
+    expect(subject.errors).not_to be_empty
   end
-
   it "パスワードを入力していないとき登録できないこと" do
-    user = build(:user, password: nil)
-    user.valid?
-    expect(user.errors[:password]).to include("を入力してください")
+    subject.password = nil
+    expect(subject).not_to be_valid
+    expect(subject.errors).not_to be_empty
   end
-
   it "重複したメールアドレスが存在するとき登録できないこと" do
     user = create(:user)
-    another_user = build(:user, email: user.email)
-    another_user.valid?
-    expect(another_user.errors[:email]).to include("はすでに存在します")
+    subject.email = user.email
+    expect(subject).not_to be_valid
+    expect(subject.errors[:email]).to include("はすでに存在します")
   end
-
   it "passwordが8文字以上であれば登録できること" do
-    user = build(:user, password: "testuser", encrypted_password: "testuser")
-    expect(user).to be_valid
+    subject.password = "testuser"
+    subject.encrypted_password = "testuser"
+    expect(subject).to be_valid
   end
 end

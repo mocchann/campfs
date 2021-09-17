@@ -1,29 +1,26 @@
 require 'rails_helper'
 
 RSpec.describe Review, type: :model do
-  let(:user) { create(:user) }
-  let(:field) { create(:field) }
-  let(:review) { create(:review) }
+  subject do
+    build(:review)
+  end
 
   it "すべてのフォームを入力しているとき登録できること" do
-    expect(create(:review)).to be_valid
+    expect(subject).to be_valid
   end
-
   it "タイトルを入力していないとき登録できないこと" do
-    review.title = nil
-    review.valid?
-    expect(review.errors[:title]).to include("を入力してください")
+    subject.title = nil
+    expect(subject).not_to be_valid
+    expect(subject.errors).not_to be_empty
   end
-
   it "星評価を入力していないとき登録できないこと" do
-    review.rate = nil
-    review.valid?
-    expect(review.errors[:rate]).to include("を入力してください", "は数値で入力してください")
+    subject.rate = nil
+    expect(subject).not_to be_valid
+    expect(subject.errors).not_to be_empty
   end
-
   it "口コミ内容を入力していないとき登録できないこと" do
-    review.content = nil
-    review.valid?
-    expect(review.errors[:content]).to include("を入力してください")
+    subject.content = nil
+    expect(subject).not_to be_valid
+    expect(subject.errors).not_to be_empty
   end
 end

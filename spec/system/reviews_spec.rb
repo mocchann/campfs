@@ -15,25 +15,24 @@ RSpec.describe "reviews", type: :system, js: true do
   end
 
   describe "口コミと星評価が登録できること" do
-    context "口コミの投稿" do
+    subject do
+      click_on "口コミを投稿する"
+      fill_in "review_title", with: "ゆったり過ごせる最高のキャンプ場"
+      find("img[alt='5']").click
+      fill_in "review_content", with: "とても広い敷地で日本一ゆったりとキャンプができるキャンプ場！"
+      click_on "保存"
+    end
+
+    context "口コミの投稿・削除" do
       it "口コミを入力・投稿したあとキャンプ場詳細ページに正しく表示されること" do
-        click_on "口コミを投稿する"
-        fill_in "review_title", with: "ゆったり過ごせる最高のキャンプ場"
-        find("img[alt='5']").click
-        fill_in "review_content", with: "とても広い敷地で日本一ゆったりとキャンプができるキャンプ場！"
-        click_on "保存"
+        subject
         expect(page).to have_content "4.5"
         expect(page).to have_content "ゆったり過ごせる最高のキャンプ場"
         expect(page).to have_content "4.5 / 5.0"
         expect(page).to have_content "とても広い敷地で日本一ゆったりとキャンプができるキャンプ場！"
       end
-
       it "投稿した口コミを削除できること" do
-        click_on "口コミを投稿する"
-        fill_in "review_title", with: "ゆったり過ごせる最高のキャンプ場"
-        find("img[alt='5']").click
-        fill_in "review_content", with: "とても広い敷地で日本一ゆったりとキャンプができるキャンプ場！"
-        click_on "保存"
+        subject
         click_on "削除する"
         page.driver.browser.switch_to.alert.text.should == '削除しますか?'
         page.driver.browser.switch_to.alert.accept
