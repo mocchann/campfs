@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Users", type: :request do
   let(:user) { create(:user) }
 
-  describe "プロフィールページ" do
+  describe "GET users#profile" do
     subject do
       get users_profile_path
     end
@@ -31,7 +31,7 @@ RSpec.describe "Users", type: :request do
     end
   end
 
-  describe "お気に入りページ" do
+  describe "GET users#show" do
     subject do
       get user_path(user)
     end
@@ -59,7 +59,7 @@ RSpec.describe "Users", type: :request do
     end
   end
 
-  describe "メール・パスワード編集" do
+  describe "GET users/registrations#edit" do
     subject do
       get edit_user_registration_path
     end
@@ -87,7 +87,7 @@ RSpec.describe "Users", type: :request do
     end
   end
 
-  describe "新規登録ページ" do
+  describe "GET users/registrations#new" do
     context "新規登録ページが正しく表示されること" do
       before do
         get new_user_registration_path
@@ -102,7 +102,7 @@ RSpec.describe "Users", type: :request do
     end
   end
 
-  describe "ログインページ" do
+  describe "GET devise/sessions#new" do
     context "ログインページが正しく表示されること" do
       before do
         get new_user_session_path
@@ -117,7 +117,7 @@ RSpec.describe "Users", type: :request do
     end
   end
 
-  describe "パスワード再設定ページ" do
+  describe "GET users/passwords#new" do
     context "パスワード再設定ページが正しく表示されること" do
       before do
         get new_user_password_path

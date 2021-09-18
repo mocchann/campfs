@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "StaticPages", type: :request do
-  describe "利用規約・プライバシーポリシー" do
+  describe "GET static_pages#terms・static_pages#privacy_policy" do
     context "利用規約が正しく表示されること" do
       before do
         get static_pages_terms_path

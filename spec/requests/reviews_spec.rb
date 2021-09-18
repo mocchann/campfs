@@ -10,7 +10,7 @@ RSpec.describe "Reviews", type: :request do
   let(:user) { create(:user) }
   let(:field) { create(:field) }
 
-  describe "口コミ投稿ページ" do
+  describe "GET reviews#new" do
     context "ユーザーがログインしているとき" do
       before do
         sign_in user

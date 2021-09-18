@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Homes", type: :request do
-  describe "topページ" do
+  describe "GET home#top" do
     context "topページが正しく表示されること" do
       before do
         get root_path

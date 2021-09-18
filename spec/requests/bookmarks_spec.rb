@@ -5,7 +5,7 @@ RSpec.describe "Bookmarks", type: :request do
     get user_path(user)
   end
 
-  describe "気になるキャンプ場ページ" do
+  describe "GET users#show" do
     context "ユーザーがログインしているとき" do
       let(:user) { create(:user) }
 

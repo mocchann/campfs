@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Contacts", type: :request do
-  describe "問い合わせフォーム" do
+  describe "GET contacts#new" do
     context "問い合わせフォームが正しく表示されること" do
       before do
         get new_contact_path
