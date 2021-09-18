@@ -58,7 +58,7 @@ https://qiita.com/s7056i3056/items/841197ee506ceac52192<br>
 -サイトマップ(sitemap_generator, roboto, whenever)<br>
 -サイト解析(google-analytics-rails)<br>
 
-## テスト
+## テストフレームワーク
 ・RSpec<br>
 -factories<br>
 -models spec<br>
