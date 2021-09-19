@@ -61,9 +61,12 @@
     <div class="col-xl-8 col-12 mt-5">
       <div class="card shadow rounded">
         <div class="card-header">
-          <h4>施設情報</h4>
+          <h4>詳細情報</h4>
         </div>
         <div class="card-body show-card-body">
+          <p class="select-genre mt-4 mb-2">
+            <i class="far fa-circle fa-fw"></i>営業情報
+          </p>
           <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-map-marker-alt fa-fw"></i>住所
@@ -178,6 +181,9 @@
               <% end %>
             </div>
           </div>
+          <p class="select-genre mt-4 mb-2">
+            <i class="far fa-circle fa-fw"></i>周辺情報
+          </p>
           <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-train fa-fw"></i>最寄り駅
@@ -210,6 +216,9 @@
               <%= @field.near_supermarket %>
             </div>
           </div>
+          <p class="select-genre mt-4 mb-2">
+            <i class="far fa-circle fa-fw"></i>サイト情報
+          </p>
           <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-mountain fa-fw"></i>標高(m)
@@ -317,6 +326,9 @@
               <% end %>
             </div>
           </div>
+          <p class="select-genre mt-4 mb-2">
+            <i class="far fa-circle fa-fw"></i>設備情報
+          </p>
           <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-2">
               <i class="fas fa-unlock-alt fa-fw"></i>ゲート
@@ -396,28 +408,33 @@
               <% end %>
             </div>
           </div>
-          <div class="row mb-1">
-            <div class="col-sm-4 col-6 text-left pl-2">
-              <i class="fas fa-book-reader fa-fw"></i>ゆるキャン△
+          <p class="select-genre mt-4 mb-2">
+            <i class="far fa-circle fa-fw"></i>アニメ情報
+          </p>
+          <div class="">
+            <div class="row mb-1">
+              <div class="col-sm-4 col-6 text-left pl-2">
+                <i class="fas fa-book-reader fa-fw"></i>ゆるキャン△
+              </div>
+              <div class="col-sm-8 col-6 text-left px-0">
+                <% if @field.laid_back_camp %>
+                  ゆるキャン聖地△
+                <% else %>
+                  -
+                <% end %>
+              </div>
             </div>
-            <div class="col-sm-8 col-6 text-left px-0">
-              <% if @field.laid_back_camp %>
-                ゆるキャン聖地△
-              <% else %>
-                -
-              <% end %>
-            </div>
-          </div>
-          <div class="row mb-1">
-            <div class="col-sm-4 col-6 text-left pl-2">
-              <i class="fas fa-book-open fa-fw"></i>ふたりソロキャンプ
-            </div>
-            <div class="col-sm-8 col-6 text-left px-0">
-              <% if @field.two_people_solo_camp %>
-                ふたりソロキャンプ地！
-              <% else %>
-                -
-              <% end %>
+            <div class="row mb-1">
+              <div class="col-sm-4 col-6 text-left pl-2">
+                <i class="fas fa-book-open fa-fw"></i>ふたりソロキャンプ
+              </div>
+              <div class="col-sm-8 col-6 text-left px-0">
+                <% if @field.two_people_solo_camp %>
+                  ふたりソロキャンプ地！
+                <% else %>
+                  -
+                <% end %>
+              </div>
             </div>
           </div>
           <div class="text-center">
