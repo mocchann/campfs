@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Homes", type: :request do
-  describe "topページ" do
+  describe "GET home#top" do
     context "topページが正しく表示されること" do
       before do
         get root_path
@@ -10,7 +10,6 @@ RSpec.describe "Homes", type: :request do
       it "リクエストが200 OKとなること" do
         expect(response.status).to eq 200
       end
-
       it "タイトルが正しく表示されること" do
         expect(response.body).to include('TO_CAMP')
       end

@@ -1,21 +1,34 @@
 require 'rails_helper'
 
 RSpec.describe "Bookmarks", type: :request do
-  let(:user) { create(:user) }
+  subject do
+    get user_path(user)
+  end
 
-  describe "気になるキャンプ場ページ" do
-    context "気になるキャンプ場ページが正しく表示されること" do
+  describe "GET users#show" do
+    context "ユーザーがログインしているとき" do
+      let(:user) { create(:user) }
+
       before do
         sign_in user
-        get user_path(user)
       end
 
       it "リクエストが200 OKとなること" do
+        subject
         expect(response.status).to eq 200
       end
-
       it "タイトルが正しく表示されること" do
+        subject
         expect(response.body).to include('気になるキャンプ場 △ TO_CAMP')
+      end
+    end
+
+    context "ユーザーがログインしていないとき" do
+      let(:user) { create(:user) }
+
+      it "リクエストが302となること" do
+        subject
+        expect(response.status).to eq 302
       end
     end
   end

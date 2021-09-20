@@ -19,11 +19,10 @@ RSpec.describe 'fields', type: :system, js: true do
         expect(page).to have_content "岡山県真庭市"
         expect(page).to have_content "000-0000-0000"
       end
-
       it "キャンプ場詳細ページが正しく表示されること" do
         click_on "ダダッピロイッパラキャンプ場"
         expect(page).to have_content field.name
-        expect(page).to have_content "施設情報"
+        expect(page).to have_content "詳細情報"
         expect(page).to have_content "ご予約は「" + field.name + "」HPへどうぞ"
         expect(page).to have_content "マップ"
         expect(page).to have_content "GoogleMapで開く"
@@ -45,7 +44,6 @@ RSpec.describe 'fields', type: :system, js: true do
         expect(page).to have_content "山形県"
         expect(page).to have_content "福島県"
       end
-
       it "関東ボタンをクリックすると都道府県名が正しく表示されること" do
         find('.area2').click
         expect(page).to have_content "茨城県"
@@ -56,7 +54,6 @@ RSpec.describe 'fields', type: :system, js: true do
         expect(page).to have_content "東京都"
         expect(page).to have_content "神奈川県"
       end
-
       it "中部ボタンをクリックすると都道府県名が正しく表示されること" do
         find('.area3').click
         expect(page).to have_content "新潟県"
@@ -69,7 +66,6 @@ RSpec.describe 'fields', type: :system, js: true do
         expect(page).to have_content "静岡県"
         expect(page).to have_content "愛知県"
       end
-
       it "近畿ボタンをクリックすると都道府県名が正しく表示されること" do
         find('.area4').click
         expect(page).to have_content "三重県"
@@ -80,7 +76,6 @@ RSpec.describe 'fields', type: :system, js: true do
         expect(page).to have_content "奈良県"
         expect(page).to have_content "和歌山県"
       end
-
       it "中国・四国ボタンをクリックすると都道府県名が正しく表示されること" do
         find('.area5').click
         expect(page).to have_content "鳥取県"
@@ -93,7 +88,6 @@ RSpec.describe 'fields', type: :system, js: true do
         expect(page).to have_content "愛媛県"
         expect(page).to have_content "高知県"
       end
-
       it "九州・沖縄ボタンをクリックすると都道府県名が正しく表示されること" do
         find('.area6').click
         expect(page).to have_content "福岡県"
@@ -176,7 +170,6 @@ RSpec.describe 'fields', type: :system, js: true do
         find('.camp-commit').click
         expect(page).to have_content "岡山県"
       end
-
       it "都道府県を選択、こだわり条件にチェックをしてキャンプ場を絞り込み検索できること" do
         find(:css, '#switch-pets').set(true)
         expect(page).to have_checked_field with: 'true', visible: false
@@ -194,34 +187,29 @@ RSpec.describe 'fields', type: :system, js: true do
         find('.camp-style').click
         expect(page).to have_content "777"
       end
-
       it "MINに入力した標高より低いキャンプ場は検索できないこと" do
         fill_in "q[elevation_gteq]", with: 800
         find('.camp-style').click
         expect(page).to have_content "キャンプ場は見つかりませんでした"
       end
-
       it "MIN〜MAXに入力した標高以下のキャンプ場が検索できること" do
         fill_in "q[elevation_gteq]", with: 100
         fill_in "q[elevation_lteq]", with: 800
         find('.camp-style').click
         expect(page).to have_content "777"
       end
-
       it "MIN〜MAXに入力した標高より高いキャンプ場は検索できないこと" do
         fill_in "q[elevation_gteq]", with: 0
         fill_in "q[elevation_lteq]", with: 1
         find('.camp-style').click
         expect(page).to have_content "キャンプ場は見つかりませんでした"
       end
-
       it "入力した標高の範囲内にあるキャンプ場が検索できること" do
         fill_in "q[elevation_gteq]", with: 500
         fill_in "q[elevation_lteq]", with: 800
         find('.camp-style').click
         expect(page).to have_content "777"
       end
-
       it "入力した標高の範囲外にあるキャンプ場は検索できないこと" do
         fill_in "q[elevation_gteq]", with: 800
         fill_in "q[elevation_lteq]", with: 1200
@@ -235,25 +223,21 @@ RSpec.describe 'fields', type: :system, js: true do
         click_on "直火ができるキャンプ場"
         expect(page).to have_content "直火：可"
       end
-
       it "「ウォシュレット検索」をクリックするとウォシュレット式トイレのキャンプ場が検索できること" do
         click_on "ウォシュレット検索"
         click_on "ダダッピロイッパラキャンプ場"
         expect(page).to have_content "ウォシュレット式"
       end
-
       it "「徒歩で行けるキャンプ場まとめ」をクリックすると最寄り駅から1km以内のキャンプ場が検索できること" do
         click_on "徒歩で行けるキャンプ場まとめ"
         click_on "ダダッピロイッパラキャンプ場"
         expect(field.near_station_km).to be <= 1
       end
-
       it "「ゆるキャン△聖地(キャンプ場)巡礼」をクリックするとゆるキャン△に登場するキャンプ場が検索できること" do
         click_on "ゆるキャン△聖地(キャンプ場)巡礼"
         click_on "ダダッピロイッパラキャンプ場"
         expect(page).to have_content "ゆるキャン聖地△"
       end
-
       it "「ふたりソロキャンプ検索」をクリックするとふたりソロキャンプに登場するキャンプ場が検索できること" do
         click_on "直火ができるキャンプ場"
         click_on "ダダッピロイッパラキャンプ場"
