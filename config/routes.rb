@@ -26,5 +26,4 @@ Rails.application.routes.draw do
     patch 'profile_update'
   end
   resources :users, only: [:show]
-  get '/ads.txt'
 end
