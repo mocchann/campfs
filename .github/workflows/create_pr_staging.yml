@@ -10,13 +10,14 @@ on:
 permissions:
   id-token: write
   contents: write
+  pull-requests: write
 
 jobs:
   create-release-pr:
     runs-on: ubuntu-latest
 
-    env:
-      GH_TOKEN: ${{ secrets.TOKEN_FOR_GH }}
+    # env:
+      # GH_TOKEN: ${{ secrets.TOKEN_FOR_GH }}
 
     steps:
       - uses: actions/checkout@v3
