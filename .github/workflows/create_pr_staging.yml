@@ -7,6 +7,10 @@ on:
     types:
       - 'closed'
 
+permissions:
+  id-token: write
+  contents: write
+
 jobs:
   create-release-pr:
     runs-on: ubuntu-latest
