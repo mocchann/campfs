@@ -15,6 +15,9 @@ jobs:
   create-release-pr:
     runs-on: ubuntu-latest
 
+    env:
+      GH_TOKEN: ${{ secrets.TOKEN_FOR_GH }}
+
     steps:
       - uses: actions/checkout@v3
 
@@ -30,5 +33,3 @@ jobs:
         if: ${{ steps.check_pr.outputs.count == 0 }}
         run: |
           gh pr create -B main -t ${{ steps.check_pr.outputs.pr_title }} -b "mainマージ用PR"
-        env:
-          GH_TOKEN: ${{ secrets.TOKEN_FOR_GH }}
