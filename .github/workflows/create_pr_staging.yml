@@ -15,9 +15,6 @@ jobs:
   create-release-pr:
     runs-on: ubuntu-latest
 
-    env:
-      GH_TOKEN: ${{ secrets.TOKEN_FOR_GH }}
-
     steps:
       - uses: actions/checkout@v3
 
@@ -28,6 +25,8 @@ jobs:
           base_branch='main'
           echo "::set-output name=count::$(gh pr list -S ${pr_title}' in:title' -B $base_branch | wc -l)"
           echo "::set-output name=pr_title::$pr_title"
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_FOR_GH }}
 
       - name: Create release pr
         if: ${{ steps.check_pr.outputs.count == 0 }}
