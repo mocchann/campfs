@@ -1,12 +1,14 @@
+name: Create a pull request for release.
+
 on:
   pull_request:
     branches:
       - 'release/*'
     types:
-      - closed
+      - 'closed'
 
 jobs:
-  auto_create_or_update_pr:
+  create-release-pr:
     runs-on: ubuntu-latest
 
     env:
@@ -15,29 +17,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Check if merged to release branch
-        id: check_merge
+      - name: Check if pr exists
+        id: check_pr
         run: |
-          if [[ "${{ github.event_name }}" == "pull_request" && "${{ github.event.action }}" == "closed" && "${{ github.event.pull_request.base.ref }}" =~ ^release/.*$ ]]; then
-            echo "::set-output name=should_merge::true"
-            echo "::set-output name=base_branch::main"
-          else
-            echo "::set-output name=should_merge::false"
-          fi
+          pr_title=${{ github.base_ref }}
+          base_branch='main'
+          echo "::set-output name=count::$(gh pr list -S ${pr_title}' in:title' -B $base_branch | wc -l)"
+          echo "::set-output name=pr_title::$pr_title"
+          echo "::set-output name=base_branch::$base_branch"
 
-      - name: Check existing PR to Main
-        id: check_existing_pr
-        if: steps.check_merge.outputs.should_merge == 'true'
+      - name: Create release pr
+        if: ${{ steps.check_pr.outputs.count == 0 }}
         run: |
-          pr_exists=$(gh pr list -B main -H ${{ github.event.pull_request.base.ref }} -s all -L 1 | wc -l)
-          echo "::set-output name=existing_pr::${pr_exists}"
-
-      - name: Update PR to Main
-        if: steps.check_merge.outputs.should_merge == 'true' && steps.check_existing_pr.outputs.existing_pr == '1'
-        run: |
-          gh pr edit -B main -t "Merge release to main" -b "Automatically generated PR to merge release branch to main."
-
-      - name: Create PR to Main
-        if: steps.check_merge.outputs.should_merge == 'true' && steps.check_existing_pr.outputs.existing_pr == '0'
-        run: |
-          gh pr create -B main -t "Merge release to main" -b "Automatically generated PR to merge release branch to main."
+          gh pr create -B ${{ steps.check_pr.outputs.base_branch }} -t ${{ steps.check_pr.outputs.pr_title }} -b ""
