@@ -20,6 +20,7 @@ jobs:
       - name: Check if pr exists
         id: check_pr
         run: |
+          echo ${{ github.ref }}
           pr_title=${{ (github.ref == 'refs/heads/stage' && 'release') }}
           base_branch=${{ (github.ref == 'refs/heads/stage' && 'main') }}
           echo "::set-output name=count::$(gh pr list -S ${pr_title}' in:title' -B $base_branch | wc -l)"
