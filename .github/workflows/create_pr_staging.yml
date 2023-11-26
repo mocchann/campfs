@@ -7,16 +7,12 @@ on:
     types:
       - 'closed'
 
-permissions:
-  id-token: write
-  contents: write
-
 jobs:
   create-release-pr:
     runs-on: ubuntu-latest
 
     env:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_TOKEN: ${{ secrets.TOKEN_FOR_GH }}
 
     steps:
       - uses: actions/checkout@v3
