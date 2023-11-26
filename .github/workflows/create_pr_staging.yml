@@ -1,7 +1,10 @@
+
+name: Create a pull request for release.
+
 on:
   push:
-    branches: 
-    - 'release/*'
+    branches:
+      - 'release/*'
 
 jobs:
   create-release-pr:
@@ -13,32 +16,18 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Check PullRequest Exists
+      # リリース用PRが既に存在するかどうかをチェック
+      - name: Check if pr exists
         id: check_pr
-        env:
-          HEAD_MESSAGE: ${{ github.event.head_commit.message }}
         run: |
-          COMMIT_MESSAGE=$(echo "${HEAD_MESSAGE}" | sed -n -e 1p)
-          echo "message=${COMMIT_MESSAGE}" >> "$GITHUB_OUTPUT"
-          echo "count=$(gh pr list -S '本番反映' in:title | wc -l)" >> "$GITHUB_OUTPUT"
+          pr_title=${{ (github.ref == 'refs/heads/feature' && 'release') }}
+          base_branch=${{ (github.ref == 'refs/heads/release' && 'main') }}
+          echo "::set-output name=count::$(gh pr list -S ${pr_title}' in:title' -B $base_branch | wc -l)"
+          echo "::set-output name=pr_title::$pr_title"
+          echo "::set-output name=base_branch::$base_branch"
 
-
-      - name: Create Release Pull Request
+      # リリース用PRを作成
+      - name: Create release pr
         if: ${{ steps.check_pr.outputs.count == 0 }}
         run: |
-          gh pr create \
-            -B main \
-            -t '【本番反映】${{ steps.check_pr.outputs.message }}' \
-            -a ${{ github.actor }}  \
-            --body-file ./.github/RELEASE_WORKFLOW_TEMPLATE.md
-
-      - name: Edit Release Pull Request
-        if: ${{ steps.check_pr.outputs.count != 0 }}
-        run: |
-          pr_data=$(gh pr list -S '本番反映'in:title \
-            --json "title" \
-            | jq -c .[])
-          TITLE="$(echo $pr_data | jq -r '.title')"
-          echo $TITLE
-          gh pr edit  ${{ github.ref_name }} \
-            -t "${TITLE} / ${{ steps.check_pr.outputs.message }}"
+          gh pr create -B ${{ steps.check_pr.outputs.base_branch }} -t ${{ steps.check_pr.outputs.pr_title }} -b ""
