@@ -1,7 +1,6 @@
-version: '3'
 services:
   db:
-    image: mysql:8.0
+    image: mysql:8.4
     environment:
       MYSQL_ROOT_PASSWORD: password
     ports:
@@ -9,7 +8,7 @@ services:
     command: --default-authentication-plugin=mysql_native_password
     volumes:
       - mysql-data:/var/lib/mysql
-  web:
+  app:
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
@@ -21,12 +20,13 @@ services:
       - db
       - chrome
     stdin_open: true
-    tty: true
+
   chrome:
     image: selenium/standalone-chrome:latest
     shm_size: 256m
     ports:
     - 4444:4444
+
 volumes:
   mysql-data:
     driver: local
