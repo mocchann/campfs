@@ -3,7 +3,6 @@ services:
     image: mysql:8.0.33
     environment:
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: campfs_db
     ports:
       - '3306:3306'
     volumes:
