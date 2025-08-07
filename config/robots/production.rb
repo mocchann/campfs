@@ -1,1 +1,1 @@
-Sitemap: http://www.to-camp.com/sitemap.xml.gz
+puts "Sitemap: http://www.to-camp.com/sitemap.xml.gz"

@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_many :bookmark_fields, through: :bookmarks, source: :field
   before_save { email.downcase! }
   validates :name, presence: true
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   validates :email, presence: true, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
   # VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[\d])\w{6,12}\z/
   # validates :password, format: { with: VALID_PASSWORD_REGEX, message: "は半角6~12文字・英大文字・小文字・数字それぞれ１文字以上含む必要があります" }
@@ -28,7 +28,7 @@ class User < ApplicationRecord
 
   def image?
     return '' unless icon_img.attached?
-    %w[image/jpg image/jpeg image/png image/gif].include?(icon_img.blob.content_type)
+    %w(image/jpg image/jpeg image/png image/gif).include?(icon_img.blob.content_type)
   end
 
   def self.guest

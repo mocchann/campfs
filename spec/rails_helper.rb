@@ -39,8 +39,8 @@ Capybara.register_driver :remote_chrome do |app|
         "no-sandbox",
         "headless",
         "disable-gpu",
-        "window-size=1680,1050"
-      ]
+        "window-size=1680,1050",
+      ],
     }
   )
   Capybara::Selenium::Driver.new(app, browser: :remote, url: url, desired_capabilities: caps)
