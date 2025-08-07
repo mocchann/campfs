@@ -7,22 +7,19 @@ Metrics/LineLength:
 AllCops:
   Exclude:
     - bin/*
-    - db/schema.rb
-    - db/**/*
-    - db/migrate/*
-    - config/**/*
-    - config.ru
     - tmp/**/*
     - 'vendor/**/*'
     - Gemfile
     - Rakefile
     - channels/application_cable/*
-    - spec/rails_helper.rb
-    - spec/spec_helper.rb
-    - app/helpers/*
-    - app/models/pref.rb
-    - app/models/user.rb
 
 MixinUsage:
   Include:
     - app/**/*.rb
+
+Layout/TrailingEmptyLines:
+  EnforcedStyle: final_newline
+
+Rails/CreateTableWithTimestamps:
+  Exclude:
+    - 'db/migrate/20210624030047_create_active_storage_tables.active_storage.rb'
