@@ -29,7 +29,7 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  
+
   config.assets.compile = true
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
@@ -55,7 +55,7 @@ Rails.application.configure do
   config.log_level = :info
 
   # Prepend all log lines with the following tags.
-  config.log_tags = [ :request_id ]
+  config.log_tags = [:request_id]
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
@@ -106,9 +106,9 @@ Rails.application.configure do
     s3_credentials: {
       access_key_id: ENV['AWS_ACCESS_KEY_ID'],
       secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
-      s3_region: 'ap-northeast-1'
+      s3_region: 'ap-northeast-1',
     },
-    bucket: 'campfs'
+    bucket: 'campfs',
   }
   # Inserts middleware to perform automatic connection switching.
   # The `database_selector` hash is used to pass options to the DatabaseSelector
@@ -137,11 +137,11 @@ Rails.application.configure do
   host = 'www.to-camp.com'
   config.action_mailer.default_url_options = { host: host }
   ActionMailer::Base.smtp_settings = {
-    :port           => ENV['MAILGUN_SMTP_PORT'],
-    :address        => ENV['MAILGUN_SMTP_SERVER'],
-    :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
-    :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-    :domain         => host,
+    :port => ENV['MAILGUN_SMTP_PORT'],
+    :address => ENV['MAILGUN_SMTP_SERVER'],
+    :user_name => ENV['MAILGUN_SMTP_LOGIN'],
+    :password => ENV['MAILGUN_SMTP_PASSWORD'],
+    :domain => host,
     :authentication => :plain,
   }
 end
