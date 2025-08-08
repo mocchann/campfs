@@ -37,7 +37,7 @@ FactoryBot.define do
     d.pets { "true" }
     d.latitude { "35.496459222" }
     d.longitude { "136.033575333" }
-    d.place_id { "bigcamp" }
+    d.place_id { "bigcamp_#{rand(1000)}" }
     d.field_url { "dadappiroi" }
     d.laid_back_camp { "true" }
     d.two_people_solo_camp { "true" }
