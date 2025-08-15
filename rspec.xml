@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rspec" tests="2" skipped="0" failures="0" errors="0" time="18.825315" timestamp="2021-09-17T12:39:00+00:00" hostname="0eeb7261288a">
-<properties>
-<property name="seed" value="16860"/>
-</properties>
-<testcase classname="spec.system.reviews_spec" name="reviews 口コミと星評価が登録できること\b 口コミの投稿・削除 口コミを入力・投稿したあとキャンプ場詳細ページに正しく表示されること" file="./spec/system/reviews_spec.rb" time="11.459818"></testcase>
-<testcase classname="spec.system.reviews_spec" name="reviews 口コミと星評価が登録できること\b 口コミの投稿・削除 投稿した口コミを削除できること" file="./spec/system/reviews_spec.rb" time="7.361322"></testcase>
-</testsuite>

@@ -37,3 +37,4 @@ yarn-debug.log*
 
 /.env
 /public/sitemap.xml.gz
+rspec.xml
