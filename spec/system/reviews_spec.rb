@@ -34,7 +34,7 @@ RSpec.describe "reviews", type: :system, js: true do
       it "投稿した口コミを削除できること" do
         subject
         click_on "削除する"
-        page.driver.browser.switch_to.alert.text.should == '削除しますか?'
+        expect(page.driver.browser.switch_to.alert.text).to eq("削除しますか?")
         page.driver.browser.switch_to.alert.accept
         expect(page).to have_content "口コミはありません"
       end
@@ -43,7 +43,7 @@ RSpec.describe "reviews", type: :system, js: true do
 
   describe "未ログイン時の投稿導線" do
     before do
-      find("div[data-bs-toggle='dropdown']").click
+      find("div[data-bs-toggle='dropdown']", match: :first).click
       click_on "ログアウト"
       visit root_path
       fill_in "q[name_cont]", with: field.name

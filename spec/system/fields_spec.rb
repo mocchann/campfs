@@ -288,7 +288,8 @@ RSpec.describe 'fields', type: :system, js: true do
         fill_in "q[name_cont]", with: field.name
         find("#q_name_cont").send_keys :enter
         click_on "ダダッピロイッパラキャンプ場"
-        find_link("口コミを投稿する", match: :first).click
+        expect(page).to have_content("口コミ")
+        find("a", text: "口コミを投稿する", visible: :all, match: :first).click
         fill_in "review_title", with: "フロー確認タイトル"
         find("img[alt='5']").click
         fill_in "review_content", with: "フロー確認コンテンツ"

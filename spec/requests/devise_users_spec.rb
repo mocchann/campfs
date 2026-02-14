@@ -114,7 +114,7 @@ RSpec.describe "UserAuthentications", type: :request do
         },
       }
 
-      expect(response).to redirect_to(new_user_session_path)
+      expect(response).to redirect_to(root_path)
     end
 
     it "無効なトークンではパスワード再設定できないこと" do

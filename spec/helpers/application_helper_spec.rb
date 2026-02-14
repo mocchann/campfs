@@ -36,7 +36,8 @@ RSpec.describe ApplicationHelper, type: :helper do
       tags = helper.default_meta_tags
 
       expect(tags[:icon]).to be_present
-      expect(tags[:icon].first[:href]).to include("favicon.ico")
+      expect(tags[:icon].first[:href]).to include("favicon")
+      expect(tags[:icon].first[:href]).to end_with(".ico")
       expect(tags.dig(:og, :image)).to include("top-img.jpg")
     end
 

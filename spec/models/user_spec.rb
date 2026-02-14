@@ -59,8 +59,8 @@ RSpec.describe User, type: :model do
   end
 
   describe "#image?" do
-    it "icon_img未添付のとき空文字を返すこと" do
-      expect(subject.image?).to eq("")
+    it "icon_img未添付のときfalseを返すこと" do
+      expect(subject.image?).to eq(false)
     end
 
     it "画像ファイルのcontent_typeならtrueを返すこと" do

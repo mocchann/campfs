@@ -33,7 +33,7 @@ RSpec.describe 'bookmarks', type: :system, js: true do
 
     context "未ログイン時" do
       before do
-        find("div[data-bs-toggle='dropdown']").click
+        find("div[data-bs-toggle='dropdown']", match: :first).click
         click_on "ログアウト"
       end
 

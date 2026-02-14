@@ -31,6 +31,8 @@ class User < ApplicationRecord
   end
 
   def image?
+    return false unless icon_img.attached?
+
     %w(image/jpg image/jpeg image/png image/gif).include?(icon_img.blob.content_type)
   end
 
