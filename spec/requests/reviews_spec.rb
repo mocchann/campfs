@@ -122,7 +122,7 @@ RSpec.describe "Reviews", type: :request do
   end
 
   describe "DELETE reviews#destroy" do
-    let(:review) { create(:review, user: user, field: field) }
+    let!(:review) { create(:review, user: user, field: field) }
 
     context "ユーザーがログインしているとき" do
       before { sign_in user }

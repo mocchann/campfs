@@ -16,8 +16,10 @@ RSpec.describe ApplicationHelper, type: :helper do
   end
 
   describe "#default_meta_tags" do
+    let(:request_double) { double(original_url: "https://example.com/fields", base_url: "https://example.com") }
+
     it "必要なメタ情報を返すこと" do
-      allow(helper).to receive(:request).and_return(double(original_url: "https://example.com/fields"))
+      allow(helper).to receive(:request).and_return(request_double)
 
       tags = helper.default_meta_tags
 
@@ -29,7 +31,7 @@ RSpec.describe ApplicationHelper, type: :helper do
     end
 
     it "iconとog:imageを含むこと" do
-      allow(helper).to receive(:request).and_return(double(original_url: "https://example.com/fields"))
+      allow(helper).to receive(:request).and_return(request_double)
 
       tags = helper.default_meta_tags
 
@@ -39,7 +41,7 @@ RSpec.describe ApplicationHelper, type: :helper do
     end
 
     it "twitterカード情報を含むこと" do
-      allow(helper).to receive(:request).and_return(double(original_url: "https://example.com/fields"))
+      allow(helper).to receive(:request).and_return(request_double)
 
       tags = helper.default_meta_tags
 
@@ -48,7 +50,7 @@ RSpec.describe ApplicationHelper, type: :helper do
     end
 
     it "production環境ではnoindexがfalseになること" do
-      allow(helper).to receive(:request).and_return(double(original_url: "https://example.com/fields"))
+      allow(helper).to receive(:request).and_return(request_double)
       allow(Rails).to receive(:env).and_return(ActiveSupport::StringInquirer.new("production"))
 
       tags = helper.default_meta_tags

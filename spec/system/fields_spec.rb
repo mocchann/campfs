@@ -241,7 +241,8 @@ RSpec.describe 'fields', type: :system, js: true do
         fill_in "q[name_cont]", with: "条件維持テスト"
         find("#q_name_cont").send_keys :enter
 
-        click_on "2"
+        page.execute_script("window.scrollTo(0, document.body.scrollHeight)")
+        find("a.page-link", text: "2", match: :first).click
 
         expect(page.current_url).to include("q%5Bname_cont%5D=%E6%9D%A1%E4%BB%B6%E7%B6%AD%E6%8C%81%E3%83%86%E3%82%B9%E3%83%88")
       end
@@ -287,7 +288,7 @@ RSpec.describe 'fields', type: :system, js: true do
         fill_in "q[name_cont]", with: field.name
         find("#q_name_cont").send_keys :enter
         click_on "ダダッピロイッパラキャンプ場"
-        click_on "口コミを投稿する"
+        find_link("口コミを投稿する", match: :first).click
         fill_in "review_title", with: "フロー確認タイトル"
         find("img[alt='5']").click
         fill_in "review_content", with: "フロー確認コンテンツ"

@@ -31,5 +31,10 @@ class HomeController < ApplicationController
     prefs_count_area6 = Field.ransack(address_cont_any: JSON_PREF["PREFS_AREA_6"]).result.count
 
     @prefs_count = [prefs_count_area1, prefs_count_area2, prefs_count_area3, prefs_count_area4, prefs_count_area5, prefs_count_area6]
+
+    respond_to do |format|
+      format.html
+      format.json { head :ok }
+    end
   end
 end

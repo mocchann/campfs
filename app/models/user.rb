@@ -21,13 +21,16 @@ class User < ApplicationRecord
   paginates_per 9
   has_one_attached :icon_img
   attribute :new_icon_img
+  before_validation :assign_new_icon_img
 
   def validate_icon_img
-    errors.add(:icon_img, "は画像データではありません。") unless image?
+    return unless icon_img.attached?
+    return if image?
+
+    errors.add(:icon_img, "は画像データではありません。")
   end
 
   def image?
-    return '' unless icon_img.attached?
     %w(image/jpg image/jpeg image/png image/gif).include?(icon_img.blob.content_type)
   end
 
@@ -38,9 +41,11 @@ class User < ApplicationRecord
     end
   end
 
-  before_save do
-    if new_icon_img
-      self.icon_img = new_icon_img
-    end
+  private
+
+  def assign_new_icon_img
+    return if new_icon_img.blank?
+
+    self.icon_img = new_icon_img
   end
 end

@@ -43,6 +43,7 @@ RSpec.describe "reviews", type: :system, js: true do
 
   describe "未ログイン時の投稿導線" do
     before do
+      find("div[data-bs-toggle='dropdown']").click
       click_on "ログアウト"
       visit root_path
       fill_in "q[name_cont]", with: field.name

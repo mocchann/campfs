@@ -127,7 +127,7 @@ RSpec.describe "UserAuthentications", type: :request do
       }
 
       expect(response.status).to eq(200)
-      expect(response.body).to include("パスワードの再設定")
+      expect(response.body).to include("新規パスワード入力")
     end
   end
 
