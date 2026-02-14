@@ -218,6 +218,35 @@ RSpec.describe 'fields', type: :system, js: true do
       end
     end
 
+    context "検索結果が0件のとき" do
+      it "0件表示と戻る導線が表示されること" do
+        fill_in "q[name_cont]", with: "存在しないキャンプ場名"
+        find("#q_name_cont").send_keys :enter
+
+        expect(page).to have_content("検索結果：0件")
+        expect(page).to have_content("キャンプ場は見つかりませんでした")
+        click_on "トップページに戻る"
+        expect(page).to have_current_path(root_path)
+      end
+    end
+
+    context "ページネーション遷移時に検索条件が維持されること" do
+      before do
+        10.times do |i|
+          create(:field, name: "条件維持テスト#{i}", place_id: "keep_cond_#{i}")
+        end
+      end
+
+      it "2ページ目遷移後も検索キーワード付きURLになること" do
+        fill_in "q[name_cont]", with: "条件維持テスト"
+        find("#q_name_cont").send_keys :enter
+
+        click_on "2"
+
+        expect(page.current_url).to include("q%5Bname_cont%5D=%E6%9D%A1%E4%BB%B6%E7%B6%AD%E6%8C%81%E3%83%86%E3%82%B9%E3%83%88")
+      end
+    end
+
     context "各リンクをクリックするとキャンプ場が検索できること" do
       it "「直火ができるキャンプ場」をクリックすると直火可のキャンプ場が検索できること" do
         click_on "直火ができるキャンプ場"
@@ -242,6 +271,32 @@ RSpec.describe 'fields', type: :system, js: true do
         click_on "直火ができるキャンプ場"
         click_on "ダダッピロイッパラキャンプ場"
         expect(page).to have_content "ふたりソロキャンプ地！"
+      end
+    end
+
+    context "検索から口コミ投稿・削除まで一連で操作できること" do
+      let(:user) { create(:user) }
+
+      it "検索→詳細→投稿→削除を完了できること" do
+        visit new_user_session_path
+        fill_in "user[email]", with: user.email
+        fill_in "user[password]", with: user.password
+        find('input[name="commit"]').click
+
+        visit root_path
+        fill_in "q[name_cont]", with: field.name
+        find("#q_name_cont").send_keys :enter
+        click_on "ダダッピロイッパラキャンプ場"
+        click_on "口コミを投稿する"
+        fill_in "review_title", with: "フロー確認タイトル"
+        find("img[alt='5']").click
+        fill_in "review_content", with: "フロー確認コンテンツ"
+        click_on "保存"
+
+        expect(page).to have_content("フロー確認タイトル")
+        click_on "削除する"
+        page.driver.browser.switch_to.alert.accept
+        expect(page).to have_content("口コミはありません")
       end
     end
   end

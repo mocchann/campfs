@@ -40,4 +40,34 @@ RSpec.describe "reviews", type: :system, js: true do
       end
     end
   end
+
+  describe "未ログイン時の投稿導線" do
+    before do
+      click_on "ログアウト"
+      visit root_path
+      fill_in "q[name_cont]", with: field.name
+      find("#q_name_cont").send_keys :enter
+      click_on "ダダッピロイッパラキャンプ場"
+    end
+
+    it "口コミ投稿ボタンからログインページへ遷移すること" do
+      click_on "口コミを投稿する"
+
+      expect(page).to have_current_path(new_user_session_path)
+      expect(page).to have_content("ログイン")
+    end
+  end
+
+  describe "口コミ投稿の失敗" do
+    it "タイトル未入力で保存するとエラーメッセージが表示されること" do
+      click_on "口コミを投稿する"
+      fill_in "review_title", with: ""
+      find("img[alt='5']").click
+      fill_in "review_content", with: "失敗ケースのテスト"
+      click_on "保存"
+
+      expect(page).to have_content("口コミの投稿に失敗しました。空欄を埋めて下さい。")
+      expect(page).to have_content("口コミ投稿")
+    end
+  end
 end

@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
   def profile_update
     if current_user.email != User::GUEST_EMAIL
-      @user = User.find_by(id: params[:id])
+      @user = current_user
       if @user.update(user_params)
         redirect_to users_profile_path, notice: "プロフィールを更新しました"
       else
