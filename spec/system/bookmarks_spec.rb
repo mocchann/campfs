@@ -30,5 +30,32 @@ RSpec.describe 'bookmarks', type: :system, js: true do
         expect(page).to have_content "気になるキャンプ場やお気に入りのキャンプ場をブックマークしてみよう！"
       end
     end
+
+    context "未ログイン時" do
+      before do
+        find("div[data-bs-toggle='dropdown']", match: :first).click
+        click_on "ログアウト"
+      end
+
+      it "ブックマーク一覧ページにアクセスするとログインページへ遷移すること" do
+        visit user_path(user)
+
+        expect(page).to have_current_path(new_user_session_path)
+        expect(page).to have_content("ログイン")
+      end
+    end
+
+    context "他ユーザーのブックマーク一覧" do
+      let(:other_user) { create(:user) }
+
+      before do
+        find('.fa-bookmark').click
+        visit user_path(other_user)
+      end
+
+      it "ブックマーク削除のUIが表示されないこと" do
+        expect(page).not_to have_css(".fa-bookmark")
+      end
+    end
   end
 end

@@ -4,7 +4,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: password
     ports:
-      - '3306:3306'
+      - "3307:3306"
     volumes:
       - mysql-data:/var/lib/mysql
 
@@ -17,18 +17,40 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      - db
-      - chrome
+      db:
+        condition: service_started
+      test_db:
+        condition: service_healthy
+      chrome:
+        condition: service_started
     stdin_open: true
+
+  test_db:
+    image: mysql:8.0.33
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-test-data:/var/lib/mysql
+      - ./docker/mysql-test-init:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-ppassword"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
 
   chrome:
     image: selenium/standalone-chrome:latest
     shm_size: 256m
     ports:
-    - 4444:4444
+      - 4444:4444
 
 volumes:
   mysql-data:
+    driver: local
+  mysql-test-data:
     driver: local
   bundle:
     driver: local
