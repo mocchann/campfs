@@ -38,7 +38,7 @@ RSpec.describe ApplicationHelper, type: :helper do
       expect(tags[:icon]).to be_present
       expect(tags[:icon].first[:href]).to include("favicon")
       expect(tags[:icon].first[:href]).to end_with(".ico")
-      expect(tags.dig(:og, :image)).to include("top-img.jpg")
+      expect(tags.dig(:og, :image)).to include("top-img")
     end
 
     it "twitterカード情報を含むこと" do

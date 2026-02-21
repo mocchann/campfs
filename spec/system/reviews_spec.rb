@@ -44,11 +44,12 @@ RSpec.describe "reviews", type: :system, js: true do
   describe "未ログイン時の投稿導線" do
     before do
       find("div[data-bs-toggle='dropdown']", match: :first).click
-      click_on "ログアウト"
+      find("a.dropdown-item", text: "ログアウト", match: :first).click
+      expect(page).to have_link("ログイン")
       visit root_path
       fill_in "q[name_cont]", with: field.name
       find("#q_name_cont").send_keys :enter
-      click_on "ダダッピロイッパラキャンプ場"
+      find("a[href='#{field_path(field)}']", text: field.name, match: :first).click
     end
 
     it "口コミ投稿ボタンからログインページへ遷移すること" do
