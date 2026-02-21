@@ -7,7 +7,8 @@ RSpec.describe "users", type: :system, js: true do
     visit new_user_session_path
     fill_in "user[email]", with: target_user.email
     fill_in "user[password]", with: target_user.password
-    click_button "ログイン"
+    find('input[name="commit"]').click
+    expect(page).to have_current_path(root_path)
   end
 
   describe "プロフィール編集" do

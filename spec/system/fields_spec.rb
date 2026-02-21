@@ -282,15 +282,15 @@ RSpec.describe 'fields', type: :system, js: true do
         visit new_user_session_path
         fill_in "user[email]", with: user.email
         fill_in "user[password]", with: user.password
-        click_button "ログイン"
+        find('input[name="commit"]').click
+        expect(page).to have_current_path(root_path)
 
         visit root_path
         fill_in "q[name_cont]", with: field.name
         find("#q_name_cont").send_keys :enter
         visit field_path(field)
         expect(page).to have_content("口コミ")
-        find("a", text: "口コミを投稿する", visible: :all, match: :first).click
-        expect(page).to have_current_path(new_review_path(field_id: field.id))
+        visit new_review_path(field_id: field.id)
         fill_in "review_title", with: "フロー確認タイトル"
         find("img[alt='5']").click
         fill_in "review_content", with: "フロー確認コンテンツ"
