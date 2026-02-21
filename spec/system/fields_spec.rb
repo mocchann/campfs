@@ -289,22 +289,27 @@ RSpec.describe 'fields', type: :system, js: true do
         fill_in "q[name_cont]", with: field.name
         find("#q_name_cont").send_keys :enter
         visit field_path(field)
-        create(:review,
-               user: user,
-               field: field,
-               title: "フロー確認タイトル",
-               content: "フロー確認コンテンツ",
-               rate: 5.0)
+        review = create(:review,
+                        user: user,
+                        field: field,
+                        title: "フロー確認タイトル",
+                        content: "フロー確認コンテンツ",
+                        rate: 5.0)
         visit field_path(field)
 
         expect(page).to have_content("フロー確認タイトル")
-        begin
-          accept_confirm("削除しますか?") do
-            click_on "削除する"
+        expect do
+          begin
+            accept_confirm("削除しますか?") do
+              find("a[href='#{review_path(review)}']", text: "削除する", match: :first).click
+            end
+          rescue Capybara::ModalNotFound
+            find("a[href='#{review_path(review)}']", text: "削除する", match: :first).click
           end
-        rescue Capybara::ModalNotFound
-          click_on "削除する"
-        end
+          expect(page).to have_current_path(field_path(field), wait: 10)
+        end.to change(Review, :count).by(-1)
+
+        expect(page).not_to have_content("フロー確認タイトル")
         expect(page).to have_content("口コミはありません")
       end
     end
