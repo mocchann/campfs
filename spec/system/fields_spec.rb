@@ -292,8 +292,9 @@ RSpec.describe 'fields', type: :system, js: true do
         expect(page).to have_content("口コミ")
         visit new_review_path(field_id: field.id)
         fill_in "review_title", with: "フロー確認タイトル"
-        find("#review_rate", visible: :all).set("5")
         page.execute_script <<~JS
+          var baseRate = document.getElementById("review_rate");
+          if (baseRate) { baseRate.value = "5"; }
           document.querySelectorAll("input[name='review[rate]']").forEach(function(el) {
             el.value = "5";
           });
