@@ -4,17 +4,21 @@ RSpec.describe "reviews", type: :system, js: true do
   let(:user) { create(:user) }
   let(:field) { create(:field) }
 
-  before do
+  def sign_in_and_open_field(target_user, target_field)
     visit new_user_session_path
-    fill_in "user[email]", with: user.email
-    fill_in "user[password]", with: user.password
+    fill_in "user[email]", with: target_user.email
+    fill_in "user[password]", with: target_user.password
     find('input[name="commit"]').click
-    fill_in "q[name_cont]", with: field.name
+    fill_in "q[name_cont]", with: target_field.name
     find("#q_name_cont").send_keys :enter
-    click_on "ダダッピロイッパラキャンプ場"
+    click_on target_field.name
   end
 
   describe "口コミと星評価が登録できること" do
+    before do
+      sign_in_and_open_field(user, field)
+    end
+
     subject do
       click_on "口コミを投稿する"
       fill_in "review_title", with: "ゆったり過ごせる最高のキャンプ場"
@@ -44,10 +48,7 @@ RSpec.describe "reviews", type: :system, js: true do
   describe "未ログイン時の投稿導線" do
     before do
       Capybara.reset_sessions!
-      visit root_path
-      fill_in "q[name_cont]", with: field.name
-      find("#q_name_cont").send_keys :enter
-      find("a[href$='#{field_path(field)}']", text: field.name, match: :first).click
+      visit field_path(field)
     end
 
     it "口コミ投稿ボタンからログインページへ遷移すること" do
@@ -59,6 +60,10 @@ RSpec.describe "reviews", type: :system, js: true do
   end
 
   describe "口コミ投稿の失敗" do
+    before do
+      sign_in_and_open_field(user, field)
+    end
+
     it "タイトル未入力で保存するとエラーメッセージが表示されること" do
       click_on "口コミを投稿する"
       fill_in "review_title", with: ""

@@ -4,18 +4,22 @@ RSpec.describe 'bookmarks', type: :system, js: true do
   let(:user) { create(:user) }
   let(:field) { create(:field) }
 
-  before do
+  def sign_in_and_open_field(target_user, target_field)
     visit new_user_session_path
-    fill_in "user[email]", with: user.email
-    fill_in "user[password]", with: user.password
+    fill_in "user[email]", with: target_user.email
+    fill_in "user[password]", with: target_user.password
     find('input[name="commit"]').click
-    fill_in "q[name_cont]", with: field.name
+    fill_in "q[name_cont]", with: target_field.name
     find("#q_name_cont").send_keys :enter
-    click_on "ダダッピロイッパラキャンプ場"
+    click_on target_field.name
   end
 
   describe "ブックマーク機能" do
     context "気になるキャンプ場の登録・削除ができる" do
+      before do
+        sign_in_and_open_field(user, field)
+      end
+
       it "ブックマークタグをクリックすると気になるキャンプ場に追加されること" do
         find('.fa-bookmark').click
         visit user_path(user)
@@ -33,8 +37,7 @@ RSpec.describe 'bookmarks', type: :system, js: true do
 
     context "未ログイン時" do
       before do
-        find("div[data-bs-toggle='dropdown']", match: :first).click
-        find("a.dropdown-item", text: "ログアウト", match: :first).click
+        Capybara.reset_sessions!
       end
 
       it "ブックマーク一覧ページにアクセスするとログインページへ遷移すること" do
@@ -49,6 +52,7 @@ RSpec.describe 'bookmarks', type: :system, js: true do
       let(:other_user) { create(:user) }
 
       before do
+        sign_in_and_open_field(user, field)
         find('.fa-bookmark').click
         visit user_path(other_user)
       end
