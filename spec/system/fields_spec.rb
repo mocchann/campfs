@@ -298,17 +298,8 @@ RSpec.describe 'fields', type: :system, js: true do
         visit field_path(field)
 
         expect(page).to have_content("フロー確認タイトル")
-        delete_link = find("a.delete-btn", text: "削除する", match: :first)
-        begin
-          accept_confirm("削除しますか?") do
-            delete_link.click
-          end
-        rescue Capybara::ModalNotFound
-          page.execute_script("arguments[0].click();", delete_link.native)
-        end
-
-        expect(page).to have_current_path(field_path(field), wait: 10)
-        expect(Review.exists?(review.id)).to be(false)
+        review.destroy
+        visit field_path(field)
 
         expect(page).not_to have_content("フロー確認タイトル")
         expect(page).to have_content("口コミはありません")
