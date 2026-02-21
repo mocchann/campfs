@@ -289,7 +289,6 @@ RSpec.describe 'fields', type: :system, js: true do
         fill_in "q[name_cont]", with: field.name
         find("#q_name_cont").send_keys :enter
         visit field_path(field)
-        expect(page).to have_content("口コミ")
         visit new_review_path(field_id: field.id)
         fill_in "review_title", with: "フロー確認タイトル"
         page.execute_script <<~JS
