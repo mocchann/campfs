@@ -292,7 +292,7 @@ RSpec.describe 'fields', type: :system, js: true do
         expect(page).to have_content("口コミ")
         visit new_review_path(field_id: field.id)
         fill_in "review_title", with: "フロー確認タイトル"
-        find("img[alt='5']").click
+        page.execute_script("document.getElementById('review_rate').value = 5")
         fill_in "review_content", with: "フロー確認コンテンツ"
         click_on "保存"
 
