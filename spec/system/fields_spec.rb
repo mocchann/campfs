@@ -292,15 +292,12 @@ RSpec.describe 'fields', type: :system, js: true do
         expect(page).to have_content("口コミ")
         visit new_review_path(field_id: field.id)
         fill_in "review_title", with: "フロー確認タイトル"
-        if page.has_css?("img[alt='5']", wait: 5)
-          find("img[alt='5']").click
-        else
-          page.execute_script <<~JS
-            document.querySelectorAll("input[name='review[rate]']").forEach(function(el) {
-              el.value = "5";
-            });
-          JS
-        end
+        find("#review_rate", visible: :all).set("5")
+        page.execute_script <<~JS
+          document.querySelectorAll("input[name='review[rate]']").forEach(function(el) {
+            el.value = "5";
+          });
+        JS
         fill_in "review_content", with: "フロー確認コンテンツ"
         click_on "保存"
 
