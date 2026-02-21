@@ -3,27 +3,29 @@ require 'rails_helper'
 RSpec.describe "users", type: :system, js: true do
   let(:user) { create(:user) }
 
-  before do
+  def sign_in_as(target_user)
     visit new_user_session_path
-    fill_in "user[email]", with: user.email
-    fill_in "user[password]", with: user.password
-    find('input[name="commit"]').click
+    fill_in "user[email]", with: target_user.email
+    fill_in "user[password]", with: target_user.password
+    click_button "ログイン"
   end
 
   describe "プロフィール編集" do
     it "名前を更新できること" do
+      sign_in_as(user)
       visit users_profile_path
-      fill_in "user_name", with: "system_updated_name"
+      find("input[name='user[name]']", match: :first).set("system_updated_name")
       click_on "更新"
 
       expect(page).to have_current_path(users_profile_path)
       expect(page).to have_content("プロフィールを更新しました")
-      expect(page).to have_field("user_name", with: "system_updated_name")
+      expect(page).to have_css("input[name='user[name]'][value='system_updated_name']")
     end
 
     it "不正な名前では更新できずエラー表示されること" do
+      sign_in_as(user)
       visit users_profile_path
-      fill_in "user_name", with: ""
+      find("input[name='user[name]']", match: :first).set("")
       click_on "更新"
 
       expect(page).to have_content("プロフィールを更新できませんでした")
@@ -33,14 +35,15 @@ RSpec.describe "users", type: :system, js: true do
 
   describe "ゲストユーザー制限" do
     before do
-      find("div[data-bs-toggle='dropdown']", match: :first).click
-      find("a.dropdown-item", text: "ログアウト", match: :first).click
-      find("a", text: "ゲストログイン", match: :first).click
+      visit root_path
+      within("header") do
+        click_on "ゲストログイン"
+      end
     end
 
     it "プロフィール更新は許可されずトップへ戻されること" do
       visit users_profile_path
-      fill_in "user_name", with: "guest_hacked"
+      find("input[name='user[name]']", match: :first).set("guest_hacked")
       click_on "更新"
 
       expect(page).to have_current_path(root_path)

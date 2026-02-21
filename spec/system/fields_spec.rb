@@ -287,7 +287,7 @@ RSpec.describe 'fields', type: :system, js: true do
         visit root_path
         fill_in "q[name_cont]", with: field.name
         find("#q_name_cont").send_keys :enter
-        find("a[href='#{field_path(field)}']", text: field.name, match: :first).click
+        find("a[href$='#{field_path(field)}']", text: field.name, match: :first).click
         expect(page).to have_content("口コミ")
         find("a", text: "口コミを投稿する", visible: :all, match: :first).click
         fill_in "review_title", with: "フロー確認タイトル"
