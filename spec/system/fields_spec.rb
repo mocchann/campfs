@@ -298,8 +298,13 @@ RSpec.describe 'fields', type: :system, js: true do
         visit field_path(field)
 
         expect(page).to have_content("フロー確認タイトル")
-        click_on "削除する"
-        page.driver.browser.switch_to.alert.accept
+        begin
+          accept_confirm("削除しますか?") do
+            click_on "削除する"
+          end
+        rescue Capybara::ModalNotFound
+          click_on "削除する"
+        end
         expect(page).to have_content("口コミはありません")
       end
     end
