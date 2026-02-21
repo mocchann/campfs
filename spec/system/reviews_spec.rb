@@ -15,16 +15,16 @@ RSpec.describe "reviews", type: :system, js: true do
   end
 
   describe "口コミと星評価が登録できること" do
-    before do
-      sign_in_and_open_field(user, field)
-    end
-
     subject do
       click_on "口コミを投稿する"
       fill_in "review_title", with: "ゆったり過ごせる最高のキャンプ場"
       find("img[alt='5']").click
       fill_in "review_content", with: "とても広い敷地で日本一ゆったりとキャンプができるキャンプ場！"
       click_on "保存"
+    end
+
+    before do
+      sign_in_and_open_field(user, field)
     end
 
     context "口コミの投稿・削除" do
