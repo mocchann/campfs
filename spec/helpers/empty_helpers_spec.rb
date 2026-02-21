@@ -1,31 +1,33 @@
 require 'rails_helper'
 
-RSpec.describe BookmarksHelper, type: :helper do
-  it "モジュールが定義されていること" do
-    expect(described_class).to be_a(Module)
+RSpec.describe "empty helpers", type: :helper do
+  describe BookmarksHelper do
+    it "モジュールが定義されていること" do
+      expect(BookmarksHelper).to be_a(Module)
+    end
   end
-end
 
-RSpec.describe ContactsHelper, type: :helper do
-  it "モジュールが定義されていること" do
-    expect(described_class).to be_a(Module)
+  describe ContactsHelper do
+    it "モジュールが定義されていること" do
+      expect(ContactsHelper).to be_a(Module)
+    end
   end
-end
 
-RSpec.describe HomeHelper, type: :helper do
-  it "モジュールが定義されていること" do
-    expect(described_class).to be_a(Module)
+  describe HomeHelper do
+    it "モジュールが定義されていること" do
+      expect(HomeHelper).to be_a(Module)
+    end
   end
-end
 
-RSpec.describe StaticPagesHelper, type: :helper do
-  it "モジュールが定義されていること" do
-    expect(described_class).to be_a(Module)
+  describe StaticPagesHelper do
+    it "モジュールが定義されていること" do
+      expect(StaticPagesHelper).to be_a(Module)
+    end
   end
-end
 
-RSpec.describe UsersHelper, type: :helper do
-  it "モジュールが定義されていること" do
-    expect(described_class).to be_a(Module)
+  describe UsersHelper do
+    it "モジュールが定義されていること" do
+      expect(UsersHelper).to be_a(Module)
+    end
   end
 end

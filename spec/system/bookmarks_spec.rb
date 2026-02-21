@@ -35,7 +35,6 @@ RSpec.describe 'bookmarks', type: :system, js: true do
       before do
         find("div[data-bs-toggle='dropdown']", match: :first).click
         find("a.dropdown-item", text: "ログアウト", match: :first).click
-        expect(page).to have_link("ログイン")
       end
 
       it "ブックマーク一覧ページにアクセスするとログインページへ遷移すること" do

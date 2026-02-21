@@ -118,8 +118,9 @@ RSpec.describe "Fields", type: :request do
         sqls = []
         callback = lambda do |_name, _start, _finish, _id, payload|
           sql = payload[:sql]
-          next if payload[:name] == "SCHEMA"
-          next if sql.include?("sqlite_master") || sql.include?("SHOW FULL FIELDS")
+          if payload[:name] == "SCHEMA" || sql.include?("sqlite_master") || sql.include?("SHOW FULL FIELDS")
+            next
+          end
 
           sqls << sql
         end

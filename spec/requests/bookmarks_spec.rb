@@ -62,7 +62,6 @@ RSpec.describe "Bookmarks", type: :request do
 
         expect(response.status).to eq(200)
       end
-
     end
 
     context "ユーザーがログインしていないとき" do

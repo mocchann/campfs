@@ -224,6 +224,7 @@ RSpec.describe "Users", type: :request do
 
     context "通常ユーザーがログインしているとき" do
       before { sign_in user }
+
       let!(:existing_user) { create(:user) }
       let!(:other_user_for_update) { create(:user) }
 

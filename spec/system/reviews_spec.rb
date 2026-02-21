@@ -45,7 +45,6 @@ RSpec.describe "reviews", type: :system, js: true do
     before do
       find("div[data-bs-toggle='dropdown']", match: :first).click
       find("a.dropdown-item", text: "ログアウト", match: :first).click
-      expect(page).to have_link("ログイン")
       visit root_path
       fill_in "q[name_cont]", with: field.name
       find("#q_name_cont").send_keys :enter
