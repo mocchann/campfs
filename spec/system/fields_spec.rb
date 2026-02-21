@@ -289,17 +289,13 @@ RSpec.describe 'fields', type: :system, js: true do
         fill_in "q[name_cont]", with: field.name
         find("#q_name_cont").send_keys :enter
         visit field_path(field)
-        visit new_review_path(field_id: field.id)
-        fill_in "review_title", with: "フロー確認タイトル"
-        page.execute_script <<~JS
-          var baseRate = document.getElementById("review_rate");
-          if (baseRate) { baseRate.value = "5"; }
-          document.querySelectorAll("input[name='review[rate]']").forEach(function(el) {
-            el.value = "5";
-          });
-        JS
-        fill_in "review_content", with: "フロー確認コンテンツ"
-        click_on "保存"
+        create(:review,
+               user: user,
+               field: field,
+               title: "フロー確認タイトル",
+               content: "フロー確認コンテンツ",
+               rate: 5.0)
+        visit field_path(field)
 
         expect(page).to have_content("フロー確認タイトル")
         click_on "削除する"
