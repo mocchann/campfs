@@ -8,7 +8,7 @@ RSpec.describe "reviews", type: :system, js: true do
     visit new_user_session_path
     fill_in "user[email]", with: target_user.email
     fill_in "user[password]", with: target_user.password
-    find('input[name="commit"]').click
+    click_button "ログイン"
     fill_in "q[name_cont]", with: target_field.name
     find("#q_name_cont").send_keys :enter
     click_on target_field.name
@@ -46,16 +46,14 @@ RSpec.describe "reviews", type: :system, js: true do
   end
 
   describe "未ログイン時の投稿導線" do
-    before do
-      Capybara.reset_sessions!
-      visit field_path(field)
-    end
-
     it "口コミ投稿ボタンからログインページへ遷移すること" do
-      click_on "口コミを投稿する"
+      Capybara.using_session("guest_review_session") do
+        visit field_path(field)
+        click_on "口コミを投稿する"
 
-      expect(page).to have_current_path(new_user_session_path)
-      expect(page).to have_content("ログイン")
+        expect(page).to have_current_path(new_user_session_path)
+        expect(page).to have_content("ログイン")
+      end
     end
   end
 
